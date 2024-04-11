@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 122
+  controlID: 54
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,8 +190,8 @@ MonoBehaviour:
     y: 0
     width: 355
     height: 569
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -297,8 +297,8 @@ MonoBehaviour:
     y: 0
     width: 419
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -439,9 +439,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: c61b0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 14fbffff
+      m_ExpandedIDs: 14fbffff9a5b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -912,9 +912,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.4554884, y: -15.880735, z: 47.960564}
+    m_Target: {x: -12.786841, y: -35.036102, z: 74.01959}
     speed: 2
-    m_Value: {x: 2.4554884, y: -15.880735, z: 47.960564}
+    m_Value: {x: -12.786841, y: -35.036102, z: 74.01959}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -939,7 +939,7 @@ MonoBehaviour:
         m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
-      m_Size: {x: 0, y: 0}
+      m_Size: {x: 1, y: 1}
     yGrid:
       m_Fade:
         m_Target: 1
@@ -960,13 +960,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.20095055, y: -0.02586592, z: 0.0053091375, w: -0.9792523}
+    m_Target: {x: 0.27013525, y: -0.049077965, z: 0.013789755, w: 0.961474}
     speed: 2
-    m_Value: {x: -0.20095055, y: -0.025865922, z: 0.005309138, w: -0.97925234}
+    m_Value: {x: 0.27013472, y: -0.049077865, z: 0.013789727, w: 0.96147203}
   m_Size:
-    m_Target: 33.648804
+    m_Target: 63.481586
     speed: 2
-    m_Value: 33.648804
+    m_Value: 63.481586
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1106,7 +1106,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Mati/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1114,16 +1114,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 61
   m_LastFolders:
-  - Assets
+  - Assets/Mati/Scripts
   m_LastFoldersGridSize: 61
   m_LastProjectPath: C:\Users\Gomez\OneDrive\Escritorio\Pure_Blooded\Pure_Blooded_Unity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 1a5c0000
-    m_LastClickedID: 23578
-    m_ExpandedIDs: 000000001a5c0000
+    m_SelectedIDs: 705f0000
+    m_LastClickedID: 24432
+    m_ExpandedIDs: 000000001a5c0000205c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000d25b0000425c0000285d0000bc5b0000985e00000c5e0000dc740000a476000018770000e488000054890000c4890000eca00000eaa5000066b00000bc700000c0700000c6700000ce6d0000006e0000f47400006e7500005c720000607200007ed3000024a80000b4790000ba780000d278000010790000fc78000058720000106e00007871000052710000ee8c000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
