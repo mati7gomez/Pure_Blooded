@@ -8,10 +8,13 @@ public class PlayerController : MonoBehaviour
     Camera _mainCamera;
 
     [SerializeField] private float _playerSpeed;
+
     private float _horInput;
     private float _verInput;
+    Vector3 _camForward;
+    Vector3 _camRight;
 
-    
+
 
     private Vector3 _playerDir;
 
@@ -23,6 +26,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        _camForward = Camera.main.transform.forward;
+        _camRight = Camera.main.transform.right;
+
+        _camForward.y = 0;
+        _camRight.y = 0;
+
         _horInput = Input.GetAxis("Horizontal");
         _verInput = Input.GetAxis("Vertical");
 
