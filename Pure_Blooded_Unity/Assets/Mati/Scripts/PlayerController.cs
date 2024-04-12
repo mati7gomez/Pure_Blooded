@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -71,6 +72,17 @@ public class PlayerController : MonoBehaviour
     }
     private void MovePlayer()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            Debug.Log("El shift ta apretao");
+            _playerSpeed = 8f;
+        }
+        else
+        {
+            _playerSpeed = 5f;
+
+        }
+
         _controller.Move(_playerDir * _playerSpeed * Time.fixedDeltaTime);
     }
     private void RotatePlayer()
