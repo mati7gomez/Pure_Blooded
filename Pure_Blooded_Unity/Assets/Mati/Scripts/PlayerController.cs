@@ -99,7 +99,12 @@ public class PlayerController : MonoBehaviour
             _finalAngle = Mathf.SmoothDampAngle(_playerBody.eulerAngles.y, _targetAngle, ref _turnSmoothVelocity, 0.2f);
             _playerBody.rotation = Quaternion.Euler(0f, _finalAngle, 0f);
         }
-        
+        //if (_playerDir.magnitude != 0)
+        //{
+        //    Quaternion toRotation = Quaternion.LookRotation(_playerDir, Vector3.up);
+        //    _playerBody.rotation = Quaternion.RotateTowards(_playerBody.rotation, toRotation, 500f * Time.fixedDeltaTime);
+        //}
+
     }
 
     //public void DisableMovement()
@@ -120,8 +125,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!deactivate)
         {
-            _horInput = Input.GetAxis("Horizontal");
-            _verInput = Input.GetAxis("Vertical");
+            _horInput = Input.GetAxisRaw("Horizontal");
+            _verInput = Input.GetAxisRaw("Vertical");
             _runPressed = Input.GetButton("Run");
         }
         else
