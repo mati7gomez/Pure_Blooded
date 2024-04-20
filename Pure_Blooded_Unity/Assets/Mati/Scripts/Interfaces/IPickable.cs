@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IPickable
 {
     void Pick();
-    void TogglePickCanvas(bool enabled);
+    void ToggleInteractCanvas(bool enabled);
 }

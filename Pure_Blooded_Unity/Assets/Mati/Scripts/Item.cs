@@ -2,23 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour, IPickable
+public class Item : MonoBehaviour, IPickable, IInteractable
 {
+    [SerializeField] private ItemSO _itemSO;
+
+
+    private bool _canInteract;
+
     private bool _canBePicked;
 
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            TogglePickCanvas(true);
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            TogglePickCanvas(false);
-        }
+        _canInteract = _itemSO.GetInteractState();
     }
     private void Update()
     {
@@ -31,16 +26,45 @@ public class Item : MonoBehaviour, IPickable
             }
         }
     }
-    public void Pick()
+
+    //Triggers del item
+    //Activacion y desactivacion del canvas de interactuar
+
+    private void OnTriggerEnter(Collider other)
     {
-        TogglePickCanvas(false);
-        Destroy(gameObject);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            ToggleInteractCanvas(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            ToggleInteractCanvas(false);
+        }
     }
 
-    public void TogglePickCanvas(bool enabled)
+    //Implementacion de interfaces
+
+    //IPickable
+    public void Pick()
     {
-        Canvas pickableItem = GameObject.Find("InteractCanvas").GetComponent<Canvas>();
-        pickableItem.enabled = enabled;
+        ToggleInteractCanvas(false);
+        //if (InventoryManager.Instance.has)
+    }
+
+    public void ToggleInteractCanvas(bool enabled)
+    {
+        Canvas pickableItemCanvas = GameObject.Find("InteractCanvas").GetComponent<Canvas>();
+        pickableItemCanvas.enabled = enabled;
         _canBePicked = enabled;
+    }
+
+    //IInteractable
+
+    public void Interact()
+    {
+        throw new System.NotImplementedException();
     }
 }
