@@ -1,34 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    private static InventoryManager _instance;
-    public static InventoryManager Instance
-    {
-        get
-        {
-            // Si la instancia aún no está inicializada, la crea
-            if (_instance == null)
-            {
-                // Busca una instancia existente en la escena
-                _instance = FindObjectOfType<InventoryManager>();
-
-                // Si no hay ninguna instancia en la escena, crea una nueva
-                if (_instance == null)
-                {
-                    GameObject singletonObject = new GameObject("InventoryManagerSingleton");
-                    _instance = singletonObject.AddComponent<InventoryManager>();
-                }
-            }
-            return _instance;
-        }
-    }
-
-
     [SerializeField] private InventorySlot[] _inventorySlots;
+    [SerializeField] private GameObject _itemPrefab;
 
     // Propiedad pública para acceder a la instancia del Singleton
 
@@ -36,17 +15,20 @@ public class InventoryManager : MonoBehaviour
     // Asegúrate de que el Singleton persista entre las escenas
     private void Awake()
     {
-        if (_instance == null)
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+
     }
-    private bool HasInventorySpace(out int slotIndex)
+
+
+    public bool AddItem(ItemSO item)
+    {
+        if (HasInventorySpace(out int slotIndex))
+        {
+            SpawnItem(item, slotIndex);
+            return true;
+        }
+        return false;
+    }
+    public bool HasInventorySpace(out int slotIndex)
     {
         InventorySlot slot;
         for (int i = 0; i < _inventorySlots.Length; i++)
@@ -62,17 +44,9 @@ public class InventoryManager : MonoBehaviour
         slotIndex = 0;
         return false;
     }
-    private void AddItem(Item item)
+    private void SpawnItem(ItemSO item, int slotIndex)
     {
-        int slotIndex;
-        if (HasInventorySpace(out slotIndex))
-        {
-            SpawnItem();
-        }
+        GameObject inventoryItem = Instantiate(_itemPrefab, _inventorySlots[slotIndex].transform);
+        inventoryItem.GetComponent<InventoryItem>().SetItemAttributes(item);
     }
-    private void SpawnItem()
-    {
-
-    }
-
 }

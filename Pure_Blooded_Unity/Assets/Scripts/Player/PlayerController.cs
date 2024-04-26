@@ -135,13 +135,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        float hitAngle = Vector3.Angle(hit.normal, Vector3.up);
-        if (hitAngle > _controller.slopeLimit)
-        {
-            Debug.DrawRay(hit.point, hit.normal.normalized, Color.red, 15f);
-            Debug.Log("Jugador debe deslizar");
-        }
-        else Debug.DrawRay(hit.point, hit.normal.normalized, Color.cyan, 15f);
+        //float hitAngle = Vector3.Angle(hit.normal, Vector3.up);
+        //if (hitAngle > _controller.slopeLimit)
+        //{
+        //    Debug.DrawRay(hit.point, hit.normal.normalized, Color.red, 15f);
+        //    Debug.Log("Jugador debe deslizar");
+        //}
+        //else Debug.DrawRay(hit.point, hit.normal.normalized, Color.cyan, 15f);
     }
 
     //public void DisableMovement()

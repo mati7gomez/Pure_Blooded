@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Item : MonoBehaviour, IPickable, IInteractable
 {
     [SerializeField] private ItemSO _itemSO;
 
-
     private bool _canInteract;
-
     private bool _canBePicked;
 
     private void Start()
@@ -44,6 +43,14 @@ public class Item : MonoBehaviour, IPickable, IInteractable
             ToggleInteractCanvas(false);
         }
     }
+    //Metodos de la clase
+
+    private ItemSO GetItemSO()
+    {
+        return _itemSO;
+    }
+
+
 
     //Implementacion de interfaces
 
@@ -51,14 +58,11 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     public void Pick()
     {
         ToggleInteractCanvas(false);
-        //if (InventoryManager.Instance.has)
-    }
-
-    public void ToggleInteractCanvas(bool enabled)
-    {
-        Canvas pickableItemCanvas = GameObject.Find("InteractCanvas").GetComponent<Canvas>();
-        pickableItemCanvas.enabled = enabled;
-        _canBePicked = enabled;
+        InventoryManager inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+        if (inventoryManager.AddItem(_itemSO))
+        {
+            Destroy(gameObject);
+        }
     }
 
     //IInteractable
@@ -66,5 +70,12 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     public void Interact()
     {
         throw new System.NotImplementedException();
+    }
+
+    public void ToggleInteractCanvas(bool enabled)
+    {
+        Canvas pickableItemCanvas = GameObject.Find("InteractCanvas").GetComponent<Canvas>();
+        pickableItemCanvas.enabled = enabled;
+        _canBePicked = enabled;
     }
 }

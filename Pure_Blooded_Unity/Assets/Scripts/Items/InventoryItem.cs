@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,13 +11,16 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     //que no se pueda cerrar el inventario hasta soltar el item, y no generar bugs)
     private static bool _dragging;
 
-    private Image _image;
+    private string _itemName;
+    private string _itemDescription;
+    private Image _itemImage;
+    
 
     private Transform _parentAfterDrag;
 
     private void Awake()
     {
-        _image = GetComponent<Image>();
+        _itemImage = GetComponent<Image>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -26,7 +30,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         _parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
-        _image.raycastTarget = false;
+        _itemImage.raycastTarget = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -39,13 +43,36 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         Debug.Log("Termina el drag");
         transform.SetParent(_parentAfterDrag);
-        _image.raycastTarget = true;
+        _itemImage.raycastTarget = true;
         _dragging = false;
     }
 
+    public void SetItemAttributes(ItemSO itemSO)
+    {
+        SetItemName(itemSO);
+        SetItemDescription(itemSO);
+        SetItemImage(itemSO);
+    }
+    private void SetItemName(ItemSO itemSO)
+    {
+        _itemName = itemSO.GetItemName();
+    }
+    private void SetItemDescription(ItemSO itemSO)
+    {
+        _itemDescription = itemSO.GetItemDescription();
+    }
+    private void SetItemImage(ItemSO itemSO)
+    {
+        _itemImage = GetComponent<Image>();
+        _itemImage.sprite = itemSO.GetItemImage();
+    }
     public void SetNewParent(Transform newParentTransform)
     {
         _parentAfterDrag = newParentTransform;
+    }
+    public string GetItemName()
+    {
+        return _itemName;
     }
 
 }
