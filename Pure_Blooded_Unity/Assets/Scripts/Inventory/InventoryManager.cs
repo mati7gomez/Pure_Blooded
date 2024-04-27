@@ -3,50 +3,78 @@ using System.Collections.Generic;
 using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private InventorySlot[] _inventorySlots;
-    [SerializeField] private GameObject _itemPrefab;
+    [SerializeField] private InventorySlot[] _inventorySlots; //Array de slots donde se van a guardar los items (hay que asiganarlos manualmente desde la escena)
+    [SerializeField] private GameObject _invenotryItemPrefab; //Prefab de tipo InventoryItem para poder spawnearlos al agarrarlos
+    private GameObject _invenotryMenu; //Gmame object donde se encuentran los paneles del inventario, view y descripcion del item
 
-    // Propiedad pública para acceder a la instancia del Singleton
+    private bool _inventoryOpened; //Obvio xdxd
 
-
-    // Asegúrate de que el Singleton persista entre las escenas
-    private void Awake()
+    private void Start()
     {
+        _invenotryMenu = transform.GetChild(0).transform.GetChild(0).gameObject; //Esta dentro del hijo del panel, por eso es x2
+        _invenotryMenu.SetActive(false);
+    }
 
+    private void Update()
+    {
+        OpenAndCloseInventory();
     }
 
 
-    public bool AddItem(ItemSO item)
+    public bool AddItem(ItemSO item) //Metodo para agregar item (se llama desde el script item y desde su funcion Pickable())
     {
-        if (HasInventorySpace(out int slotIndex))
+        if (HasInventorySpace(out int slotIndex)) //Si hay espacio...
         {
             SpawnItem(item, slotIndex);
-            return true;
+            return true; //Devolvemos true ya que se pudo spawnear el item
         }
-        return false;
+        return false; //Devolvemos false si no hay mas espacio
     }
-    public bool HasInventorySpace(out int slotIndex)
+    private bool HasInventorySpace(out int slotIndex) //Metodo para saber si hay espacio en alguno de los slots del inventario (tambien hay un int out donde se almacena el slot donde hay espacio)
     {
         InventorySlot slot;
-        for (int i = 0; i < _inventorySlots.Length; i++)
+        for (int i = 0; i < _inventorySlots.Length; i++) //Recorremos cada slot para ver si hay o no un objeto child en el mismo
         {
             slotIndex = i;
             slot = _inventorySlots[i];
             if (slot.transform.childCount == 0)
             {
-                
-                return true;
+                return true; //Si no hay ningun child devuelve true ya que hay espacio
             }
         }
         slotIndex = 0;
-        return false;
+        return false; //Si hay un child devuelve false ya que no hay espacio
     }
-    private void SpawnItem(ItemSO item, int slotIndex)
+    private void SpawnItem(ItemSO item, int slotIndex) //Metodo para spawnear el item en el slot
     {
-        GameObject inventoryItem = Instantiate(_itemPrefab, _inventorySlots[slotIndex].transform);
-        inventoryItem.GetComponent<InventoryItem>().SetItemAttributes(item);
+        GameObject inventoryItem = Instantiate(_invenotryItemPrefab, _inventorySlots[slotIndex].transform); //Intanciamos un objeto de tipo InventoryItem en la escena y le ponemos de padre el slot donde va
+        inventoryItem.GetComponent<InventoryItem>().SetItemAttributes(item); //Le ponemos los atributos a ese item, dependiendo de cual Item fue agarrado (Por ahora se establece el nombre, descripcion y su imagen)
     }
+
+
+
+    private void OpenAndCloseInventory() //Metodo para abrir y cerrar el inventario
+    {
+        if (Input.GetButtonDown("Inventory") && !InventoryItem.GetDraggingState()) //Solo podemos abrir o cerrar el inventario si apretamos el boton de inventario (actualmente tab) y si ningun InventoryItem esta siendo draggeado 
+        {
+            if (!_inventoryOpened) OpenInventory();
+            else CloseInvenotry();
+        }
+    }
+    private void OpenInventory()
+    {
+        _invenotryMenu.SetActive(true);
+        _inventoryOpened = true;
+    } //...
+    private void CloseInvenotry()
+    {
+        _invenotryMenu.SetActive(false);
+        _inventoryOpened = false;
+    } //...
+
+
 }
