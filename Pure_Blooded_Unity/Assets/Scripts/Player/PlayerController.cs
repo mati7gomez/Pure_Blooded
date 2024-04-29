@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _camForward;
     private Vector3 _camRight;
     private Vector3 _playerDir;
+    public Vector3 GetPlayerDir => _playerDir;
     private Vector3 _moveDir;
 
     //Variables para calcular la gravedad
