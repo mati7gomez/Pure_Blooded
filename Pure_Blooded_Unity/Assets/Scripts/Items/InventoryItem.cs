@@ -12,10 +12,13 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private static bool _dragging;
     public static bool GetDraggingState() => _dragging;
 
+    private ItemSO _itemSO;
+
     //Atributos que se mostraran en el inventario, como para visualizarlos y su descripcion
     private string _itemName;
     private string _itemDescription;
     private Image _itemImage;
+    private GameObject _itemRenderPrefab;
 
     private Transform _rootTransform; //Este transform debe ser el canvas donde se encuentra el menu del inventario y del item equipado
     private Transform _parentAfterDrag; //Transform para establecer el nuevo parent luego de arrastrar el item por el inventario
@@ -53,23 +56,14 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void SetItemAttributes(ItemSO itemSO) //Metodo que se ejecuta desde el InventoryManager para establecer los atributos del item al ser instanciad en un slot
     {
-        SetItemName(itemSO);
-        SetItemDescription(itemSO);
-        SetItemImage(itemSO);
-    }
-    private void SetItemName(ItemSO itemSO)
-    {
+        _itemSO = itemSO;
         _itemName = itemSO.GetItemName();
-    } //...
-    private void SetItemDescription(ItemSO itemSO)
-    {
         _itemDescription = itemSO.GetItemDescription();
-    } //...
-    private void SetItemImage(ItemSO itemSO)
-    {
-        _itemImage = GetComponent<Image>();
+        if (_itemImage == null) _itemImage = GetComponent<Image>();
         _itemImage.sprite = itemSO.GetItemImage();
-    } //...
+        _itemRenderPrefab = itemSO.GetItemPrefab();
+    }
+    public ItemSO GetItemSO() => _itemSO;
 
 
 

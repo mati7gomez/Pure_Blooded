@@ -8,15 +8,18 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private InventorySlot[] _inventorySlots; //Array de slots donde se van a guardar los items (hay que asiganarlos manualmente desde la escena)
-    [SerializeField] private GameObject _invenotryItemPrefab; //Prefab de tipo InventoryItem para poder spawnearlos al agarrarlos
-    private GameObject _invenotryMenu; //Gmame object donde se encuentran los paneles del inventario, view y descripcion del item
+    [SerializeField] private GameObject _inventoryItemPrefab; //Prefab de tipo InventoryItem para poder spawnearlos al agarrarlos
+    private GameObject _inventoryMenu; //Gmame object donde se encuentran los paneles del inventario, view y descripcion del item
+    private ItemViewPanel _itemViewPanel;
 
     private bool _inventoryOpened; //Obvio xdxd
+    public bool InventoryOpened => _inventoryOpened;
 
     private void Start()
     {
-        _invenotryMenu = transform.GetChild(0).transform.GetChild(0).gameObject; //Esta dentro del hijo del panel, por eso es x2
-        _invenotryMenu.SetActive(false);
+        _itemViewPanel = transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).GetComponent<ItemViewPanel>();
+        _inventoryMenu = transform.GetChild(0).transform.GetChild(0).gameObject; //Esta dentro del hijo del panel, por eso es x2
+        _inventoryMenu.SetActive(false);
     }
 
     private void Update()
@@ -51,7 +54,7 @@ public class InventoryManager : MonoBehaviour
     }
     private void SpawnItem(ItemSO item, int slotIndex) //Metodo para spawnear el item en el slot
     {
-        GameObject inventoryItem = Instantiate(_invenotryItemPrefab, _inventorySlots[slotIndex].transform); //Intanciamos un objeto de tipo InventoryItem en la escena y le ponemos de padre el slot donde va
+        GameObject inventoryItem = Instantiate(_inventoryItemPrefab, _inventorySlots[slotIndex].transform); //Intanciamos un objeto de tipo InventoryItem en la escena y le ponemos de padre el slot donde va
         inventoryItem.GetComponent<InventoryItem>().SetItemAttributes(item); //Le ponemos los atributos a ese item, dependiendo de cual Item fue agarrado (Por ahora se establece el nombre, descripcion y su imagen)
     }
 
@@ -65,16 +68,30 @@ public class InventoryManager : MonoBehaviour
             else CloseInvenotry();
         }
     }
-    private void OpenInventory()
+    private void OpenInventory() //...
     {
-        _invenotryMenu.SetActive(true);
+        
+        _inventoryMenu.SetActive(true);
         _inventoryOpened = true;
-    } //...
-    private void CloseInvenotry()
+    } 
+    private void CloseInvenotry() //...
     {
-        _invenotryMenu.SetActive(false);
+        ClearItemViewPanel();
+        _inventoryMenu.SetActive(false);
         _inventoryOpened = false;
-    } //...
+    } 
+
+
+
+    private void ClearItemViewPanel()
+    {
+        _itemViewPanel.ClearItemTransform();
+    }
+
+    public void OnItemSelected(ItemSO itemSO)
+    {
+        _itemViewPanel.SetViewPanelItem(itemSO);
+    }
 
 
 }

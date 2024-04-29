@@ -10,6 +10,7 @@ public class ItemSO : ScriptableObject //ScriptableObject para los atributos de 
     [SerializeField] private string itemName;
     [SerializeField] private string itemDescription;
     [SerializeField] private Sprite itemImage;
+    [SerializeField] private GameObject itemPrefab;
 
     //States
     [SerializeField] private bool canInteract; //Al final creo q todos podran interactuar de alguna forma (ej: una llave abre, la linterna prende y apaga, una nota se puede  lerr, etc)
@@ -19,4 +20,5 @@ public class ItemSO : ScriptableObject //ScriptableObject para los atributos de 
     public string GetItemDescription() => itemDescription;
     public Sprite GetItemImage() => itemImage;
     public bool GetInteractState() => canInteract;
+    public GameObject GetItemPrefab() => itemPrefab;
 }

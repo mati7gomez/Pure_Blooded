@@ -59,9 +59,13 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     {
         ToggleInteractCanvas(false);
         InventoryManager inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
-        if (inventoryManager.AddItem(_itemSO))
+        if (inventoryManager.AddItem(GetItemSO()))
         {
             Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("No hay espacio para agregar el item");
         }
     }
 
