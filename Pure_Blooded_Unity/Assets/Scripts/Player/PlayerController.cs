@@ -65,8 +65,12 @@ public class PlayerController : MonoBehaviour
         GetCamVectors();
         SetPlayerMoveDir();
         HandlePlayerGravity();
-        MovePlayer();
-        RotatePlayer();
+        if (CanMove)
+        {
+            MovePlayer();
+            RotatePlayer();
+        }
+        
 
         HandleInputs(true);
     }
@@ -105,7 +109,9 @@ public class PlayerController : MonoBehaviour
         SetPlayerSpeed();
         _moveDir.x = _playerDir.x * _playerSpeed;
         _moveDir.z = _playerDir.z * _playerSpeed;
-        _controller.Move(_moveDir * Time.fixedDeltaTime);
+        if (_playerDir.magnitude != 0) _controller.Move(_playerBody.forward * _playerSpeed * Time.fixedDeltaTime);
+
+        //_controller.Move(_moveDir * Time.fixedDeltaTime);
     }
     private void RotatePlayer()
     {

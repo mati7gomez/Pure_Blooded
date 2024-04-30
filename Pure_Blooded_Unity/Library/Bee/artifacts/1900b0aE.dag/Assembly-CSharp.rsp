@@ -373,6 +373,7 @@
 "Assets/Scripts/PlayerStatsSave.cs"
 "Assets/Scripts/SaveLoadManager.cs"
 "Assets/Scripts/ScriptableObjects/ItemSO.cs"
+"Assets/SM_PlayerPick.cs"
 -langversion:9.0
 
 /deterministic

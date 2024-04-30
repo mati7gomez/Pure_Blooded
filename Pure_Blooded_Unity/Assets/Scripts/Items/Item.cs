@@ -7,6 +7,8 @@ public class Item : MonoBehaviour, IPickable, IInteractable
 {
     [SerializeField] private ItemSO _itemSO;
 
+    private GameObject _player;
+
     private bool _canInteract;
     private bool _canBePicked;
 
@@ -33,6 +35,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            _player = other.gameObject;
             ToggleInteractCanvas(true);
         }
     }
@@ -61,6 +64,10 @@ public class Item : MonoBehaviour, IPickable, IInteractable
         InventoryManager inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
         if (inventoryManager.AddItem(GetItemSO()))
         {
+            PlayerAnimatorController playerAnimator = _player.transform.GetChild(0).GetComponent<PlayerAnimatorController>();
+            PlayerController playerController = _player.GetComponent<PlayerController>();
+            playerAnimator.SetTrigger("Pick");
+            playerController.CanMove = false;
             Destroy(gameObject);
         }
         else

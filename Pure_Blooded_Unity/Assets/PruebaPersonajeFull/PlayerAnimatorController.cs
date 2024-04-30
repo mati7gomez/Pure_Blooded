@@ -22,9 +22,9 @@ public class PlayerAnimatorController : MonoBehaviour
         {
             _animatorController.SetFloat("Movement", 0);
         }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            _animatorController.SetTrigger("Pick");
-        }
+    }
+    public void SetTrigger(string triggerName)
+    {
+        _animatorController.SetTrigger(triggerName);
     }
 }
