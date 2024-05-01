@@ -19,10 +19,10 @@ public class Grid : MonoBehaviour
 
     public Vector2Int GetTileGridPosition(Vector2 mousePosition)
     {
-        _positionOnTheGrid.x = mousePosition.x - _rectTransform.position.x;
-        _positionOnTheGrid.y = _rectTransform.position.y - mousePosition.y;
+        _positionOnTheGrid.x = mousePosition.x;//mousePosition.x - _rectTransform.position.x;
+        _positionOnTheGrid.y = - mousePosition.y;//_rectTransform.position.y - mousePosition.y;
 
-        _tileGridPosition.x = (int)(_positionOnTheGrid.x / _tileSizeWidth);
+        _tileGridPosition.x = (int)(_positionOnTheGrid.x / _tileSizeWidth );
         _tileGridPosition.y = (int)(_positionOnTheGrid.y / _tileSizeHeight);
 
         return _tileGridPosition;

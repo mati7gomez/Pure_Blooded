@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.5242524, g: 0.5814682, b: 0.7264151, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 046d04b5759b3f446ab7d5dc4bc3c273, type: 2}
   m_HaloStrength: 0.54
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.041279588, g: 0.072778195, b: 0.1384675, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -219,7 +219,6 @@ RectTransform:
   m_Children:
   - {fileID: 1883632329}
   - {fileID: 1738434734}
-  - {fileID: 1707017980}
   m_Father: {fileID: 1176627958}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6715,6 +6714,7 @@ GameObject:
   - component: {fileID: 1707017982}
   - component: {fileID: 1707017984}
   - component: {fileID: 1707017983}
+  - component: {fileID: 1707017985}
   m_Layer: 5
   m_Name: GridTest
   m_TagString: Untagged
@@ -6734,11 +6734,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 43171433}
+  m_Father: {fileID: 1883632329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 228.08, y: 421}
+  m_AnchoredPosition: {x: -654.00006, y: -526.00006}
   m_SizeDelta: {x: 768, y: 256}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1707017982
@@ -6790,7 +6790,20 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.2
+  m_PixelsPerUnitMultiplier: 0.25
+--- !u!114 &1707017985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707017979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91533a24c0ab8846b7d8fb1eb0fc81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedItemGrid: {fileID: 1707017983}
 --- !u!224 &1707025560 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4019849750465513518, guid: a574f6a7202781344b8a22fb234d6e38, type: 3}
@@ -7641,6 +7654,7 @@ RectTransform:
   - {fileID: 634323006}
   - {fileID: 1672757849}
   - {fileID: 2022911816}
+  - {fileID: 1707017980}
   m_Father: {fileID: 43171433}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -7893,7 +7907,6 @@ GameObject:
   - component: {fileID: 2010517533}
   - component: {fileID: 2010517532}
   - component: {fileID: 2010517535}
-  - component: {fileID: 2010517536}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8009,19 +8022,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2010517536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010517531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b91533a24c0ab8846b7d8fb1eb0fc81b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedItemGrid: {fileID: 1707017983}
 --- !u!114 &2018045626 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5710351933068801164, guid: a574f6a7202781344b8a22fb234d6e38, type: 3}
