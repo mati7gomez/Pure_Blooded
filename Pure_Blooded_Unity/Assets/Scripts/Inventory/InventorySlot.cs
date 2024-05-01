@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
-    private InventoryManager _inventoryManager;
+    private InventoryManager2 _inventoryManager;
     private Color _defaultColor; //Color del fondo del slot (esto creo q con el diseño se va a quitar)
 
     [SerializeField] private bool _equippedSlot;
@@ -17,7 +17,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler, 
     private void Awake()
     {
         _defaultColor = gameObject.GetComponent<Image>().color;
-        _inventoryManager = transform.root.GetComponent<InventoryManager>();
+        _inventoryManager = transform.root.GetComponent<InventoryManager2>();
     }
 
 

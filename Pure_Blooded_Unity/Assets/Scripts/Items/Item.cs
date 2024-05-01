@@ -61,7 +61,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     public void Pick()
     {
         ToggleInteractCanvas(false);
-        InventoryManager inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+        InventoryManager2 inventoryManager = GameObject.Find("InventoryManager2").GetComponent<InventoryManager2>();
         if (inventoryManager.AddItem(GetItemSO()))
         {
             PlayerAnimatorController playerAnimator = _player.transform.GetChild(0).GetComponent<PlayerAnimatorController>();

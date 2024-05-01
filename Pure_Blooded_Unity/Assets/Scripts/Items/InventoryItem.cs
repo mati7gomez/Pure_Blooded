@@ -54,7 +54,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 
 
-    public void SetItemAttributes(ItemSO itemSO) //Metodo que se ejecuta desde el InventoryManager para establecer los atributos del item al ser instanciad en un slot
+    public void SetItemAttributes(ItemSO itemSO) //Metodo que se ejecuta desde el InventoryManager2 para establecer los atributos del item al ser instanciad en un slot
     {
         _itemSO = itemSO;
         _itemName = itemSO.GetItemName();
