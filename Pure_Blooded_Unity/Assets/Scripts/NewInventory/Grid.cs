@@ -5,22 +5,21 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-    const float _tileSizeWidth = 128;
-    const float _tileSizeHeight = 128;
+    const float _tileSizeWidth = 180;
+    const float _tileSizeHeight = 180;
 
-    RectTransform _rectTransform;
     private void Start()
     {
-        _rectTransform = GetComponent<RectTransform>();
+
     }
 
     Vector2 _positionOnTheGrid = new Vector2();
     Vector2Int _tileGridPosition = new Vector2Int();
 
-    public Vector2Int GetTileGridPosition(Vector2 mousePosition)
+    public Vector2Int GetTileGridPosition(Vector2 mousePositionInRectagle)
     {
-        _positionOnTheGrid.x = mousePosition.x;//mousePosition.x - _rectTransform.position.x;
-        _positionOnTheGrid.y = - mousePosition.y;//_rectTransform.position.y - mousePosition.y;
+        _positionOnTheGrid.x = mousePositionInRectagle.x;
+        _positionOnTheGrid.y = -mousePositionInRectagle.y;
 
         _tileGridPosition.x = (int)(_positionOnTheGrid.x / _tileSizeWidth );
         _tileGridPosition.y = (int)(_positionOnTheGrid.y / _tileSizeHeight);
