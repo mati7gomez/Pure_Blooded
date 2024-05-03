@@ -374,6 +374,7 @@
 "Assets/Scripts/NewInventory/Grid.cs"
 "Assets/Scripts/NewInventory/GridController.cs"
 "Assets/Scripts/NewInventory/NewInventory.cs"
+"Assets/Scripts/NewInventory/NewInventoryItem.cs"
 "Assets/Scripts/Player/PlayerController.cs"
 "Assets/Scripts/Player/PlayerStats.cs"
 "Assets/Scripts/PlayerStatsSave.cs"
