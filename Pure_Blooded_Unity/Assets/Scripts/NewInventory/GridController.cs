@@ -84,7 +84,7 @@ public class GridController : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             MoveItemPosition(tileX, gridMidWidhtPos, gridWidthTiles, _selectedGrid.GetTileSizeWidht(), out x);
             MoveItemPosition(tileY, gridMidHeightPos, gridHeightTiles, _selectedGrid.GetTileSizeHeight(), out y);
         }
-        Debug.Log($"TilePos: ({tileX},{tileY}) - TileMovement: ({x},{y})");
+        //Debug.Log($"TilePos: ({tileX},{tileY}) - TileMovement: ({x},{y})");
         return new Vector2(x, y);
     }
 
