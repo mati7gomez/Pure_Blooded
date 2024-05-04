@@ -22,7 +22,7 @@ public class Grid : MonoBehaviour
     public Vector2Int GetTileInGridPosition(Vector2 mousePositionInRectagle)
     {
         _positionOnTheGrid.x = mousePositionInRectagle.x;
-        _positionOnTheGrid.y = -mousePositionInRectagle.y;
+        _positionOnTheGrid.y = mousePositionInRectagle.y;
 
         _tileGridPosition.x = (int)(_positionOnTheGrid.x / _tileSizeWidth );
         _tileGridPosition.y = (int)(_positionOnTheGrid.y / _tileSizeHeight);

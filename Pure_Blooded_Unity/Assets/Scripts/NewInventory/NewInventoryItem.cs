@@ -8,6 +8,10 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 {
     static bool _anyItemIsBeingDragged;
 
+    private Grid _itemGrid;
+    private RectTransform _rectTransform;
+    private Vector2 _localPointInGrid;
+
     [SerializeField] private ItemSO _itemSO;
     private bool _isBeingDragged;
     private Transform _lastParent;
@@ -16,6 +20,11 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     private void Awake()
     {
         _image = GetComponent<Image>();
+    }
+    private void Start()
+    {
+        _itemGrid = GetComponent<Grid>();
+        _rectTransform = GetComponent<RectTransform>();
     }
     private void Update()
     {
@@ -26,6 +35,7 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+        Debug.Log(GetTileInGridPosition(eventData.position));
         _image.raycastTarget = false;
         _lastParent = transform.parent;
         transform.SetParent(transform.root.GetChild(0));
@@ -33,6 +43,7 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         //Debug.Log("Comienza el drag");
         _anyItemIsBeingDragged = true;
         _isBeingDragged = true;
+        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -46,7 +57,6 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         _image.raycastTarget = true;
         transform.SetParent(_lastParent);
         //Debug.Log("Termina el drag");
-        Debug.Log(transform.localPosition);
         _anyItemIsBeingDragged = false;
         _isBeingDragged = false;
     }
@@ -63,4 +73,16 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     }
 
+    private void SetItemPivot()
+    {
+
+    }
+    private Vector2Int GetTileInGridPosition(Vector2 position)
+    {
+        Vector2 pivotOffset = new Vector2(_rectTransform.rect.width * _rectTransform.pivot.x, _rectTransform.rect.height * _rectTransform.pivot.y);
+        
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(_rectTransform, position, null, out _localPointInGrid);
+        Vector2 adjustedLocalPoint = _localPointInGrid + pivotOffset;
+        return _itemGrid.GetTileInGridPosition(adjustedLocalPoint);
+    }
 }

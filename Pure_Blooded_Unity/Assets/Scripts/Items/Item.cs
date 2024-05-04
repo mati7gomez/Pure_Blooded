@@ -5,16 +5,15 @@ using UnityEngine;
 
 public class Item : MonoBehaviour, IPickable, IInteractable
 {
-    [SerializeField] private ItemSO _itemSO;
+    [SerializeField] private ItemSO _itemSO; //Scriptable object del item
 
-    private GameObject _player;
+    private GameObject _player; //Referencia del jugador
 
-    private bool _canInteract;
-    private bool _canBePicked;
+    private bool _canBePicked = false; //Bool para saber si el jugador esta en rango para agarrar el objeto
 
     private void Start()
     {
-        _canInteract = _itemSO.GetInteractState();
+
     }
     private void Update()
     {
@@ -44,6 +43,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
         if (other.gameObject.CompareTag("Player"))
         {
             ToggleInteractCanvas(false);
+            _player = null;
         }
     }
     //Metodos de la clase
@@ -61,7 +61,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     public void Pick()
     {
         ToggleInteractCanvas(false);
-        InventoryManager2 inventoryManager = GameObject.Find("InventoryManager2").GetComponent<InventoryManager2>();
+        InventoryManager2 inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager2>();
         if (inventoryManager.AddItem(GetItemSO()))
         {
             PlayerAnimatorController playerAnimator = _player.transform.GetChild(0).GetComponent<PlayerAnimatorController>();
