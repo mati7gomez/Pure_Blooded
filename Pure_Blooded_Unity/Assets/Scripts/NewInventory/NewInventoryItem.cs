@@ -42,7 +42,6 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         _lastParent = transform.parent;
         transform.SetParent(transform.root.GetChild(0));
         transform.SetAsLastSibling();
-        //Debug.Log("Comienza el drag");
         _anyItemIsBeingDragged = true;
         _isBeingDragged = true;
         
@@ -51,14 +50,12 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = Input.mousePosition;
-        //Debug.Log("Draggeando");
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         _image.raycastTarget = true;
         transform.SetParent(_lastParent);
-        //Debug.Log("Termina el drag");
         _anyItemIsBeingDragged = false;
         _isBeingDragged = false;
     }
