@@ -19,7 +19,6 @@ public class GridController : MonoBehaviour, IDropHandler
     private void Start()
     {
         _rectTransform = GetComponent<RectTransform>();
-        _rectTransformAlignment = new Vector2(_rectTransform.rect.width / 2f, _rectTransform.rect.height / 2f);
     }
     private void Update()
     {
@@ -27,17 +26,20 @@ public class GridController : MonoBehaviour, IDropHandler
     }
 
     //----------------Implementacion interfaces----------------//
-
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag.GetComponent<NewInventoryItem>() != null)
+        NewInventoryItem droppedItem = eventData.pointerDrag.GetComponent<NewInventoryItem>();
+        if (droppedItem != null)
         {
             if (_selectedGrid != null)
             {
-                Vector2Int tilePos = _selectedGrid.GetTileInGridPosition(_rectTransform, eventData.position, Vector2.zero);
-                eventData.pointerDrag.GetComponent<NewInventoryItem>().SetNewParent(transform, GetNewPosition(tilePos));
+                Vector2Int tilePos = _selectedGrid.GetTileInGrid(_rectTransform, eventData.position, Vector2.zero);
+                Grid droppedItemGrid = droppedItem.GetComponent<Grid>();
+                if (CanItemBePlaced(tilePos, droppedItem.GetSelectedTile(), droppedItemGrid))
+                {
+                    droppedItem.SetNewParent(GetNewPosition(tilePos));
+                }
             }
-
         }
     }
 
@@ -46,9 +48,6 @@ public class GridController : MonoBehaviour, IDropHandler
     //Ver despues si quitamos las varibles declaradas en este metodo y las ponemos dentro de la clase, para optimizar el uso del garbage collector de c# xd
     private Vector3 GetNewPosition(Vector2Int tilePos)
     {
-        int tileX = tilePos.x; //Valor x del tile donde se clickeo ej: (0,0) (1,0)
-        int tileY = tilePos.y; //Valor y del tile donde se clickeo ej: (0,0) (0,1)
-
         float x = 0f; // valor en x a mover
         float y = 0f; // valor en y a mover
 
@@ -57,8 +56,8 @@ public class GridController : MonoBehaviour, IDropHandler
 
         if (gridWidthTiles > 1 && gridHeightTiles > 1) //Si la grilla es igual o mayor a 2x2 se puede interactuar
         {
-            MoveItemPosition(tileX, _selectedGrid.GetTileWidthSize(), out x);
-            MoveItemPosition(tileY, _selectedGrid.GetTileHeightSize(), out y);
+            MoveItemPosition(tilePos.x, _selectedGrid.GetTileWidthSize(), out x);
+            MoveItemPosition(tilePos.y, _selectedGrid.GetTileHeightSize(), out y);
         }
         //Debug.Log($"TilePos: ({tileX},{tileY}) - TileMovement: ({x},{y})");
         return new Vector2(x, y);
@@ -66,21 +65,31 @@ public class GridController : MonoBehaviour, IDropHandler
     private void MoveItemPosition(int tilePos, float tileSize, out float i)
     {
         i = tileSize / 2f; //Inicialmente movemos la ubicacion del item en el inventario la mitad del tamaño del tile para que quede en el centro del mismo
-        if (tilePos != 0) //Si la posicion del tile esta en 0, no debemos mover la ubicacion del item, ya que anteriormente lo ubicamos en el centro del tile 0, pero si no es 0...
+        for (int j = 0; j < tilePos; j++) //Por cada tile menor a la posicion del tile que queremos colocar el item, movemos el mismo el tamaño del tile
         {
-            for (int j = 0; j < tilePos; j++) //Por cada tile menor a la posicion del tile que queremos colocar el item, movemos el mismo el tamaño del tile
-            {
-                i += tileSize;
-            }
+            i += tileSize;
         }
+    }
+
+    private bool CanItemBePlaced(Vector2Int inventoryTilePos, Vector2Int itemPivotTile ,Grid itemGrid)
+    {
+        int pivotX = itemPivotTile.x;
+        int pivotY = itemPivotTile.y;
+
+        for(int i = inventoryTilePos.x - pivotX; i < 1; i++)
+        {
+
+        }
+
+        return true;
     }
     //Por ahora este codigo de abajo ya no sirve, se resume con el metodo de arriba nomas
     //Yo creo que este metodo se puede achicar, o subdivir en varios metodos para que sea mas legible, pero por ahora me da paja
-    //private void MoveItemPosition3(int tilePos , int tileMidPos, int tilesQuantity, float tileSize, out float i)
+    //private void MoveItemPosition3(int inventoryTilePos , int tileMidPos, int tilesQuantity, float tileSize, out float i)
     //{
     //    i = 0;
     //    //Calculo para mover el objeto en pixeles hacia la izquierda o abajo
-    //    if (tilePos < tileMidPos) //Si el tile donde se quiso interactuar se encuentra a la izquierda o debajo del centro de la grilla...  
+    //    if (inventoryTilePos < tileMidPos) //Si el tile donde se quiso interactuar se encuentra a la izquierda o debajo del centro de la grilla...  
     //    {
     //        if (tilesQuantity % 2 == 0) //Si la cantidad de tiles son pares
     //        {
@@ -90,25 +99,25 @@ public class GridController : MonoBehaviour, IDropHandler
     //        {
     //            i -= tileSize; //Movemos el objeto la cantidad del tamaño del Tile (por ahora, tamaño en pixeles)
     //        }
-    //        for (int j = tilePos + 1; j < tileMidPos; j++) //Bucle que toma en cuenta la posicion en "x" o "y" de la interaccion y le suma 1, y suma i hasta que llegue a la misma posicion del tile del medio de "x" o "y"
-    //                                                       //(le suma uno a tilePos porque la division para obtener el medio se hace con ints, por lo que 3 / 2 es igual a 1 y no 1.5,
+    //        for (int j = inventoryTilePos + 1; j < tileMidPos; j++) //Bucle que toma en cuenta la posicion en "x" o "y" de la interaccion y le suma 1, y suma i hasta que llegue a la misma posicion del tile del medio de "x" o "y"
+    //                                                       //(le suma uno a inventoryTilePos porque la division para obtener el medio se hace con ints, por lo que 3 / 2 es igual a 1 y no 1.5,
 
     //        {
     //            i -= tileSize; //Por cada tile hacia la izquierda lo movemos el tamaño del tile
     //        }
     //    }
-    //    else if (tilePos > tileMidPos) //Calculo para mover el objeto en pixeles hacia la derecha o arriba
+    //    else if (inventoryTilePos > tileMidPos) //Calculo para mover el objeto en pixeles hacia la derecha o arriba
     //    {
     //        if (tilesQuantity % 2 == 0) //Si la cantidad de tiles son pares
     //        {
     //            i += tileSize / 2f; //Movemos el objeto la mitad del tamaño del Tile (por ahora, tamaño en pixeles)
     //        }
-    //        for (int j = tilePos; j > tileMidPos; j--) //Bucle que toma en cuenta la posicion en "x" o "y" de la interaccion, y suma i hasta que llegue a la misma posicion del tile del medio de "x" o "y"
+    //        for (int j = inventoryTilePos; j > tileMidPos; j--) //Bucle que toma en cuenta la posicion en "x" o "y" de la interaccion, y suma i hasta que llegue a la misma posicion del tile del medio de "x" o "y"
     //        {
     //            i += tileSize;
     //        }
     //    }
-    //    else if (tilePos == tileMidPos) //Calculo para mover el objeto en pixeles hacia la derecha si es que fue colocado en la misma columna que el centro de X
+    //    else if (inventoryTilePos == tileMidPos) //Calculo para mover el objeto en pixeles hacia la derecha si es que fue colocado en la misma columna que el centro de X
     //    {
     //        if (tilesQuantity % 2 == 0) //Si es par le sumamos unicamente la mitad del tamaño del tile, ya que si es impar, el objeto ya se encuentra en el centro por asi decir xd
     //        {
