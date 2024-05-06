@@ -1,6 +1,8 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +35,8 @@ public class PlayerController : MonoBehaviour
     //Variables para calcular la direccion de movimiento
     private Vector3 _camForward;
     private Vector3 _camRight;
+    private Vector3 _camForwardTemporal;
+    private Vector3 _camRightTemporal;
     private Vector3 _playerDir;
     public Vector3 GetPlayerDir => _playerDir;
     private Vector3 _moveDir;
@@ -87,7 +91,21 @@ public class PlayerController : MonoBehaviour
     }
     private void SetPlayerMoveDir()
     {
-        _playerDir = _camForward * _verInput + _camRight * _horInput;
+        if (_horInput == 0)
+            {
+                // Bloquea el componente vertical del movimiento horizontal para que este no afecte la direccion general, solo
+                // la horizontal
+                _camRightTemporal = Vector3.ProjectOnPlane(_camRight, Vector3.up);
+            }
+
+        if (_verInput == 0)
+            {
+                // Bloquea el componente horizontal del movimiento horizontal para que este no afecte la direccion general, solo
+                // la vertical
+                _camForwardTemporal = Vector3.ProjectOnPlane(_camForward, Vector3.up);
+            }
+        
+        _playerDir = _camForwardTemporal * _verInput + _camRightTemporal * _horInput;
 
         _playerDir = Vector3.ClampMagnitude(_playerDir, 1f);
     }
