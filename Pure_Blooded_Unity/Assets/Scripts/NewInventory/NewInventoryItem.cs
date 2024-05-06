@@ -6,15 +6,17 @@ using UnityEngine.UI;
 
 public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
 {
+    //Variable static para controlar el abrir y cerrar del menu
     static bool _anyItemIsBeingDragged;
 
+    [SerializeField] private ItemSO _itemSO;
     private Grid _itemGrid;
     private RectTransform _rectTransform;
     private Vector2 _localPointInGrid;
-    private Vector2Int _lasTileSelected;
+    private Vector2Int _lastTileSelected;
     private Vector2 _wantedPivot;
 
-    [SerializeField] private ItemSO _itemSO;
+    
     private bool _isBeingDragged;
     private Transform _lastParent;
     private Image _image;
@@ -35,6 +37,8 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
         }
     }
+    //----------------Implementacion interfaces----------------//
+    #region Interfaces
     public void OnBeginDrag(PointerEventData eventData)
     {
         _rectTransform.pivot = _wantedPivot;
@@ -44,7 +48,6 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         transform.SetAsLastSibling();
         _anyItemIsBeingDragged = true;
         _isBeingDragged = true;
-        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -59,6 +62,12 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         _anyItemIsBeingDragged = false;
         _isBeingDragged = false;
     }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        _lastTileSelected = GetTileInGridPosition(Input.mousePosition);
+        SetItemPivot(_lastTileSelected, ref _wantedPivot);
+    }
+    #endregion
 
     public void SetNewParent(Transform newParentTransform, Vector3 newPos)
     {
@@ -67,39 +76,26 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         transform.localPosition = newPos;
         Debug.Log("Deberia estar en: " + newPos);
     }
-    public void SetNewLocation()
+
+    private void SetItemPivot(Vector2Int tilePos, ref Vector2 wantedPivot)
     {
-
-    }
-
-    private void SetItemPivot(Vector2Int tilePos)
-    {
-        if (tilePos == new Vector2Int(0, 0))
+        int wTiles = (int)(_rectTransform.rect.width / _itemGrid.GetTileWidthSize());
+        float xPivot = 1f / wTiles;
+        xPivot = xPivot / 2;
+        for (int i = 0; i < tilePos.x; i++)
         {
-            int wTiles = (int)(_rectTransform.rect.width / 180f);
-            float xPivot = 1f / wTiles;
-            xPivot = xPivot / 2;
-
-            int hTiles = (int)(_rectTransform.rect.height / 180f);
-            float yPivot = 1f / hTiles;
-            yPivot = yPivot / 2;
-            Debug.Log($"Pivot deseado: {xPivot},{yPivot}");
-            _wantedPivot = new Vector2(xPivot, yPivot);
-
+            xPivot += 1f / wTiles;
         }
-        else if (tilePos == new Vector2Int(1,0))
+
+        int hTiles = (int)(_rectTransform.rect.height / _itemGrid.GetTileHeightSize());
+        float yPivot = 1f / hTiles;
+        yPivot = yPivot / 2;
+        for (int i = 0; i < tilePos.y; i++)
         {
-            int wTiles = (int)(_rectTransform.rect.width / 180f);
-            float xPivot = 1f / wTiles;
-            float addPivot = xPivot;
-            xPivot = xPivot / 2 + addPivot;
-
-            int hTiles = (int)(_rectTransform.rect.height / 180f);
-            float yPivot = 1f / hTiles;
-            yPivot = yPivot / 2;
-            Debug.Log($"Pivot deseado: {xPivot},{yPivot}");
-            _wantedPivot = new Vector2(xPivot, yPivot);
+            yPivot += 1f / hTiles;
         }
+        Debug.Log($"Pivot deseado: {xPivot},{yPivot}");
+        wantedPivot = new Vector2(xPivot, yPivot);
     }
     private Vector2Int GetTileInGridPosition(Vector2 position)
     {
@@ -108,10 +104,11 @@ public class NewInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         Vector2 adjustedLocalPoint = _localPointInGrid + pivotOffset;
         return _itemGrid.GetTileInGridPosition(adjustedLocalPoint);
     }
-
-    public void OnPointerDown(PointerEventData eventData)
+    private Vector2 GetPivotOffset(ref Vector2 pivotOffset)
     {
-        _lasTileSelected = GetTileInGridPosition(Input.mousePosition);
-        SetItemPivot(_lasTileSelected);
+        pivotOffset = new Vector2(_rectTransform.rect.width * _rectTransform.pivot.x, _rectTransform.rect.height * _rectTransform.pivot.y);
+        return pivotOffset;
     }
+
+    
 }
