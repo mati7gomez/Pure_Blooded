@@ -75,11 +75,29 @@ public class GridController : MonoBehaviour, IDropHandler
     {
         int pivotX = itemPivotTile.x;
         int pivotY = itemPivotTile.y;
+        int itemGridWidth = itemGrid.GetGridWidth();
+        int itemGridHeight = itemGrid.GetGridHeight();
 
-        for(int i = inventoryTilePos.x - pivotX; i < 1; i++)
-        {
+        int xOutOfBoundsRight = inventoryTilePos.x + ((itemGridWidth - 1) - pivotX);
+        int xOutOfBoundsLeft = inventoryTilePos.x - pivotX;
 
-        }
+        int yOutOfBoundsUp = inventoryTilePos.y;
+        int yOutOfBoundsBottom = inventoryTilePos.y - pivotY;
+
+        Debug.Log($"x: {xOutOfBoundsLeft}");
+        Debug.Log($"y: {yOutOfBoundsBottom}");
+        //for (int i = inventoryTilePos.x - pivotX; i < itemGridWidth; i++)
+        //{
+        //    for (int j = inventoryTilePos.y - pivotY; j < itemGridHeight; j++)
+        //    {
+        //        if (_selectedGrid.GetTileOccupancyState(new Vector2Int(i, j)))
+        //        {
+        //            Debug.Log("No puede ser colocado");
+        //            return false;
+        //        }
+        //    }
+        //}
+        //Debug.Log("Puede ser colocado");
 
         return true;
     }
