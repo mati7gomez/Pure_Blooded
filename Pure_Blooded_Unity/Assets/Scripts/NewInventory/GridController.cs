@@ -20,13 +20,9 @@ public class GridController : MonoBehaviour, IDropHandler
     {
         _rectTransform = GetComponent<RectTransform>();
     }
-    private void Update()
-    {
-        if (_selectedGrid == null) return;
-    }
 
     //----------------Implementacion interfaces----------------//
-    public void OnDrop(PointerEventData eventData)
+    public void OnDrop(PointerEventData eventData) //Metodo que controla cuando un item se solto en la grilla del inventario
     {
         NewInventoryItem droppedItem = eventData.pointerDrag.GetComponent<NewInventoryItem>();
         if (droppedItem != null)
@@ -35,9 +31,10 @@ public class GridController : MonoBehaviour, IDropHandler
             {
                 Vector2Int tilePos = _selectedGrid.GetTileInGrid(_rectTransform, eventData.position, Vector2.zero);
                 Grid droppedItemGrid = droppedItem.GetComponent<Grid>();
-                if (CanItemBePlaced(tilePos, droppedItem.GetSelectedTile(), droppedItemGrid))
+                if (CanItemBePlaced(tilePos, droppedItem.GetSelectedTile(), droppedItemGrid, droppedItem.GetItemRotationDir()))
                 {
-                    droppedItem.SetNewParent(GetNewPosition(tilePos));
+                    droppedItem.SetNewPosition(GetNewPosition(tilePos));
+                    droppedItem.SetNewRotation();
                 }
             }
         }
@@ -45,8 +42,7 @@ public class GridController : MonoBehaviour, IDropHandler
 
     //-----------Metodos de la clase---------------------//
 
-    //Ver despues si quitamos las varibles declaradas en este metodo y las ponemos dentro de la clase, para optimizar el uso del garbage collector de c# xd
-    private Vector3 GetNewPosition(Vector2Int tilePos)
+    private Vector3 GetNewPosition(Vector2Int tilePos) //Metodo para obtener la nueva posicion del item al ser colocado correctamente en la grilla del inventario
     {
         float x = 0f; // valor en x a mover
         float y = 0f; // valor en y a mover
@@ -56,13 +52,13 @@ public class GridController : MonoBehaviour, IDropHandler
 
         if (gridWidthTiles > 1 && gridHeightTiles > 1) //Si la grilla es igual o mayor a 2x2 se puede interactuar
         {
-            MoveItemPosition(tilePos.x, _selectedGrid.GetTileWidthSize(), out x);
-            MoveItemPosition(tilePos.y, _selectedGrid.GetTileHeightSize(), out y);
+            GetNewPositionAxis(tilePos.x, _selectedGrid.GetTileWidthSize(), out x);
+            GetNewPositionAxis(tilePos.y, _selectedGrid.GetTileHeightSize(), out y);
         }
         //Debug.Log($"TilePos: ({tileX},{tileY}) - TileMovement: ({x},{y})");
         return new Vector2(x, y);
     }
-    private void MoveItemPosition(int tilePos, float tileSize, out float i)
+    private void GetNewPositionAxis(int tilePos, float tileSize, out float i) //Metodo para obtener la nueva posicion del item (en x o y)
     {
         i = tileSize / 2f; //Inicialmente movemos la ubicacion del item en el inventario la mitad del tamaño del tile para que quede en el centro del mismo
         for (int j = 0; j < tilePos; j++) //Por cada tile menor a la posicion del tile que queremos colocar el item, movemos el mismo el tamaño del tile
@@ -71,36 +67,71 @@ public class GridController : MonoBehaviour, IDropHandler
         }
     }
 
-    private bool CanItemBePlaced(Vector2Int inventoryTilePos, Vector2Int itemPivotTile ,Grid itemGrid)
+    private bool CanItemBePlaced(Vector2Int inventoryTilePos, Vector2Int itemPivotTile ,Grid itemGrid, int itemRot)
     {
-        int pivotX = itemPivotTile.x;
-        int pivotY = itemPivotTile.y;
-        int itemGridWidth = itemGrid.GetGridWidth();
-        int itemGridHeight = itemGrid.GetGridHeight();
+        int maxW = _selectedGrid.GetGridWidth();
+        int maxH = _selectedGrid.GetGridHeight();
+        switch (itemRot)
+        {
+            case 0:
+                if (inventoryTilePos.x + ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x) < maxW) /*Debug.Log("Rot: 0 - Inside x right")*/;
+                else /*Debug.Log("Rot: 0 - Outside x right")*/return false;
 
-        int xOutOfBoundsRight = inventoryTilePos.x + ((itemGridWidth - 1) - pivotX);
-        int xOutOfBoundsLeft = inventoryTilePos.x - pivotX;
+                if (inventoryTilePos.x - itemPivotTile.x >= 0) /*Debug.Log("Rot: 0 - Inside x left")*/;
+                else /*Debug.Log("Rot: 0 - Outside x left") */return false;
 
-        int yOutOfBoundsUp = inventoryTilePos.y;
-        int yOutOfBoundsBottom = inventoryTilePos.y - pivotY;
+                if (inventoryTilePos.y + ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y) < maxH) /*Debug.Log("Rot: 0 - Inside x up")*/;
+                else /*Debug.Log("Rot: 0 - Outside x up") */return false;
 
-        Debug.Log($"x: {xOutOfBoundsLeft}");
-        Debug.Log($"y: {yOutOfBoundsBottom}");
-        //for (int i = inventoryTilePos.x - pivotX; i < itemGridWidth; i++)
-        //{
-        //    for (int j = inventoryTilePos.y - pivotY; j < itemGridHeight; j++)
-        //    {
-        //        if (_selectedGrid.GetTileOccupancyState(new Vector2Int(i, j)))
-        //        {
-        //            Debug.Log("No puede ser colocado");
-        //            return false;
-        //        }
-        //    }
-        //}
-        //Debug.Log("Puede ser colocado");
+                if (inventoryTilePos.y - itemPivotTile.y >= 0) /*Debug.Log("Rot: 0 - Inside x down")*/;
+                else /*Debug.Log("Rot: 0 - Outside x down") */return false;
+                break;
 
+            case 90:
+                if (inventoryTilePos.y + ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x) < maxH) /*Debug.Log("Rot: 90 - Inside x right")*/;
+                else /*Debug.Log("Rot: 90 - Outside x right") */return false;
+
+                if (inventoryTilePos.y - itemPivotTile.x >= 0) /*Debug.Log("Rot: 90 - Inside x left")*/;
+                else /*Debug.Log("Rot: 90 - Outside x left") */return false;
+
+                if (inventoryTilePos.x - ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y) >= 0) /*Debug.Log("Rot: 90 - Inside x up")*/;
+                else /*Debug.Log("Rot: 90 - Outside x up") */return false;
+
+                if (inventoryTilePos.x + itemPivotTile.y < maxW) /*Debug.Log("Rot: 90 - Inside x down")*/;
+                else /*Debug.Log("Rot: 90 - Outside x down") */return false;
+
+                break;
+            case 180:
+                if (inventoryTilePos.x - ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x) >= 0) /*Debug.Log("Rot: 180 - Inside x right")*/;
+                else /*Debug.Log("Rot: 180 - Outside x right") */return false;
+
+                if (inventoryTilePos.x + itemPivotTile.x < maxW) /*Debug.Log("Rot: 180 - Inside x left")*/;
+                else /*Debug.Log("Rot: 180 - Outside x left") */return false;
+
+                if (inventoryTilePos.y - ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y) >= 0) /*Debug.Log("Rot: 180 - Inside x up")*/;
+                else /*Debug.Log("Rot: 180 - Outside x up") */return false;
+
+                if (inventoryTilePos.y + itemPivotTile.y < maxH) /*Debug.Log("Rot: 180 - Inside x down")*/;
+                else /*Debug.Log("Rot: 180 - Outside x down") */return false;
+                break;
+
+            case 270:
+                if (inventoryTilePos.y - ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x) >= 0) /*Debug.Log("Rot: 270 - Inside x right")*/;
+                else /*Debug.Log("Rot: 270 - Outside x right") */return false;
+
+                if (inventoryTilePos.y + itemPivotTile.x < maxH) /*Debug.Log("Rot: 270 - Inside x left")*/;
+                else /*Debug.Log("Rot: 270 - Outside x left") */return false;
+
+                if (inventoryTilePos.x + ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y) < maxW) /*Debug.Log("Rot: 270 - Inside x up")*/;
+                else /*Debug.Log("Rot: 270 - Outside x up") */return false;
+
+                if (inventoryTilePos.x - itemPivotTile.y >= 0) /*Debug.Log("Rot: 270 - Inside x down")*/;
+                else /*Debug.Log("Rot: 270 - Outside x down") */return false;
+                break;
+        }
         return true;
     }
+
     //Por ahora este codigo de abajo ya no sirve, se resume con el metodo de arriba nomas
     //Yo creo que este metodo se puede achicar, o subdivir en varios metodos para que sea mas legible, pero por ahora me da paja
     //private void MoveItemPosition3(int inventoryTilePos , int tileMidPos, int tilesQuantity, float tileSize, out float i)

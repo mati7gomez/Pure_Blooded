@@ -12,17 +12,30 @@ public class NewInventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     [SerializeField] private ItemSO _itemSO;
 
     //Variables para el uso del Grid en el objeto
-    private Grid _itemGrid;
-    private RectTransform _rectTransform;
-    private Vector2Int _selectedTile;
-    private Vector2Int _tileBeforeDrag;
-    private Vector2 _desiredPivot;
-    private Vector2 _pivotBeforeDrag;
 
+    private Grid _itemGrid; //Objeto grid del item
+    private RectTransform _rectTransform; //Componente rect transform del item
 
-    private bool _isBeingDragged;
-    private Transform _lastParent;
+    private Rotation _itemRotation = new Rotation(); //Inicializacion del enum que guarda la rotacion actual del item
+    private enum Rotation
+    {
+        right = 0,
+        up  = 90,
+        left = 180,
+        down = 270,
+    }
+
     private Image _image;
+    private bool _isBeingDragged;
+
+    private Transform _lastParent;
+    private Vector3 _lastPosition;
+    private Rotation _lastRotation;
+    private Vector2Int _selectedTile; //VectorInt que almacena el tile seleccionado para draggear
+    private Vector2 _desiredPivot; //Vector que almacena el pivot deseado para draggear
+
+
+    //--------------------------------
 
     private void Awake()
     {
@@ -35,9 +48,9 @@ public class NewInventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (_isBeingDragged && Input.GetKeyDown(KeyCode.R))
         {
-
+            ChangeItemRotation();
         }
     }
 
@@ -48,16 +61,19 @@ public class NewInventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     #region Interfaces
     public void OnPointerDown(PointerEventData eventData)
     {
-        _tileBeforeDrag = _selectedTile;
         _selectedTile = _itemGrid.GetTileInGrid(_rectTransform, Input.mousePosition, GetPivotOffset());
-        _pivotBeforeDrag = _rectTransform.pivot;
         _desiredPivot = GetDesiredItemPivot(_selectedTile);
+        
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        SetRectTransformPivot(_desiredPivot);
         SetImageRaycastTarget(false);
+
+        _lastRotation = _itemRotation;
+        SetLastPosition(_rectTransform.localPosition);
+        SetRectTransformPivot(_desiredPivot);
         SetLastParent(transform.parent);
+        
         transform.SetParent(transform.root.GetChild(0));
         transform.SetAsLastSibling();
         SetAnyItemIsBeingDragged(true);
@@ -72,7 +88,14 @@ public class NewInventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     public void OnEndDrag(PointerEventData eventData)
     {
         SetImageRaycastTarget(true);
+
         transform.SetParent(_lastParent);
+        //_rectTransform.localPosition = _lastPosition;
+        _rectTransform.SetLocalPositionAndRotation(_lastPosition, Quaternion.Euler(0, 0, (int)_lastRotation));
+        _itemRotation = _lastRotation;
+        //_rectTransform.pivot = _desiredPivot;
+
+
         SetAnyItemIsBeingDragged(false);
         SetIsBeingDragged(false);
     }
@@ -82,11 +105,11 @@ public class NewInventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     //-----------Metodos de la clase---------------------//
 
     private void SetLastParent(Transform lastParent) => _lastParent = lastParent;
-    public void SetNewParent(Vector3 newPos)
+    private void SetLastPosition(Vector3 lastPos) => _lastPosition = lastPos;
+    public void SetNewPosition(Vector3 newPos) => _lastPosition = newPos;
+    public void SetNewRotation()
     {
-        transform.SetParent(_lastParent);
-        transform.localPosition = newPos;
-        //Debug.Log("Deberia estar en: " + newPos);
+        _lastRotation = GetItemRotation();
     }
 
     private Vector2 GetDesiredItemPivot(Vector2Int tilePos)
@@ -124,4 +147,34 @@ public class NewInventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     private void SetIsBeingDragged(bool value) => _isBeingDragged = value;
     private void MoveImageToPosition(Vector3 position) => transform.position = position;
     public Vector2Int GetSelectedTile() => _selectedTile;
+    private void ChangeItemRotation()
+    {
+        switch (_itemRotation)
+        {
+            case Rotation.right:
+                _itemRotation = Rotation.up;
+                _rectTransform.SetLocalPositionAndRotation(_rectTransform.localPosition, Quaternion.Euler(0,0,90)); ;
+                break;
+            case Rotation.up:
+                _itemRotation = Rotation.left;
+                _rectTransform.SetLocalPositionAndRotation(_rectTransform.localPosition, Quaternion.Euler(0, 0, 180));
+                break;
+            case Rotation.left:
+                _itemRotation = Rotation.down;
+                _rectTransform.SetLocalPositionAndRotation(_rectTransform.localPosition, Quaternion.Euler(0, 0, 270));
+                break;
+            case Rotation.down:
+                _itemRotation = Rotation.right;
+                _rectTransform.SetLocalPositionAndRotation(_rectTransform.localPosition, Quaternion.Euler(0, 0, 0)); ;
+                break;
+        }
+    }
+    public int GetItemRotationDir()
+    {
+        return (int)_itemRotation;
+    }
+    private Rotation GetItemRotation()
+    {
+        return _itemRotation;
+    }
 }
