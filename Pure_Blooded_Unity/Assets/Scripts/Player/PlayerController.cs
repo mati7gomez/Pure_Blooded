@@ -18,9 +18,12 @@ public class PlayerController : MonoBehaviour
     private float _horInput;
     private float _verInput;
     private bool _runPressed;
+    
 
     //Creo q hay q borrar este
     public bool CanMove = true;
+    private bool CanRun = true;
+    
 
     //Player extras
     private float _playerSpeed;
@@ -111,7 +114,7 @@ public class PlayerController : MonoBehaviour
     }
     private void SetPlayerSpeed()
     {
-        if (_runPressed && !_playerStats.IsRunning)
+        if (_runPressed && !_playerStats.IsRunning && CanRun)
         {
             _playerStats.SetRunningState(true);
             _playerSpeed = _playerRunSpeed;
@@ -158,8 +161,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other){
+        if(other.CompareTag("NoCorrer")){
+            CanRun = false;
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other){
+        if(other.CompareTag("NoCorrer")){
+            CanRun = true;
+        }
+    }
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+            
+        
         //float hitAngle = Vector3.Angle(hit.normal, Vector3.up);
         //if (hitAngle > _controller.slopeLimit)
         //{
