@@ -24,6 +24,7 @@ public class Grid : MonoBehaviour // Define la clase Grid y hereda de MonoBehavi
     {
         // Inicializa el estado de ocupación de la cuadrícula
         _tileOccupancyState = new bool[_width, _height];
+        //Debug.Log(_tileOccupancyState.Length);
     }
 
     // Método que devuelve la posición de la celda en la cuadrícula basada en una posición de entrada
@@ -53,9 +54,23 @@ public class Grid : MonoBehaviour // Define la clase Grid y hereda de MonoBehavi
     {
         return _tileOccupancyState[tilePosition.x, tilePosition.y];
     }
-    public void SetTileOccupancyState(Vector2Int tilePos, bool occupancyValue)
+    private void SetTileOccupancyState(Vector2Int tilePos, bool occupancyValue)
     {
         _tileOccupancyState[tilePos.x, tilePos.y] = occupancyValue;
+    }
+    public void SetTilesOccupancyState(int initX, int initY, int maxX, int maxY, bool occupancyValue)
+    {
+        //Debug.Log($"initx: {initX} inity: {initY} maxX: {maxX} maxY: {maxY}");
+        //Debug.Log($"{_tileOccupancyState.GetLength(0)},{_tileOccupancyState.GetLength(1)}");
+        for (int i = initX; i <= maxX; i++)
+        {
+            for (int j = initY; j <= maxY; j++)
+            {
+                Debug.Log($"Tile ({i},{j})");
+                SetTileOccupancyState(new Vector2Int(i, j), occupancyValue);
+                //Debug.Log($"Tile ({i},{j})");
+            }
+        }
     }
 
     // Métodos para obtener el tamaño de las celdas y las dimensiones de la cuadrícula

@@ -40,7 +40,7 @@ public class GridController : MonoBehaviour, IDropHandler
                 }
                 else
                 {
-                    Debug.Log("No deberia andar");
+                    Debug.Log("Mal colocado");
                 }
             }
         }
@@ -80,64 +80,125 @@ public class GridController : MonoBehaviour, IDropHandler
         switch (itemRot)
         {
             case 0:
-                if (inventoryTilePos.x + ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x) < maxW) /*Debug.Log("Rot: 0 - Inside x right")*/;
-                else /*Debug.Log("Rot: 0 - Outside x right")*/return false;
-
-                if (inventoryTilePos.x - itemPivotTile.x >= 0) /*Debug.Log("Rot: 0 - Inside x left")*/;
-                else /*Debug.Log("Rot: 0 - Outside x left") */return false;
-
-                if (inventoryTilePos.y + ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y) < maxH) /*Debug.Log("Rot: 0 - Inside x up")*/;
-                else /*Debug.Log("Rot: 0 - Outside x up") */return false;
-
-                if (inventoryTilePos.y - itemPivotTile.y >= 0) /*Debug.Log("Rot: 0 - Inside x down")*/;
-                else /*Debug.Log("Rot: 0 - Outside x down") */return false;
+                //Primero comprobamos si se intento colocar dentro de la grilla
+                if (!CheckOutOfBoundsRot0(inventoryTilePos, itemPivotTile, itemGrid, maxW, maxH)) return false;
+                //Si esta dentro de los bounds de la grilla, checkeamos la disponibilidad de las casillas dentro de la misma
+                if (!CheckInventoryOccupancyRot0(inventoryTilePos, itemPivotTile, itemGrid)) return false;
                 break;
 
             case 90:
-                if (inventoryTilePos.y + ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x) < maxH) /*Debug.Log("Rot: 90 - Inside x right")*/;
-                else /*Debug.Log("Rot: 90 - Outside x right") */return false;
-
-                if (inventoryTilePos.y - itemPivotTile.x >= 0) /*Debug.Log("Rot: 90 - Inside x left")*/;
-                else /*Debug.Log("Rot: 90 - Outside x left") */return false;
-
-                if (inventoryTilePos.x - ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y) >= 0) /*Debug.Log("Rot: 90 - Inside x up")*/;
-                else /*Debug.Log("Rot: 90 - Outside x up") */return false;
-
-                if (inventoryTilePos.x + itemPivotTile.y < maxW) /*Debug.Log("Rot: 90 - Inside x down")*/;
-                else /*Debug.Log("Rot: 90 - Outside x down") */return false;
+                //Primero comprobamos si se intento colocar dentro de la grilla
+                if (!CheckOutOfBoundsRot90(inventoryTilePos, itemPivotTile, itemGrid, maxW, maxH)) return false;
+                //Si esta dentro de los bounds de la grilla, checkeamos la disponibilidad de las casillas dentro de la misma
 
                 break;
+
             case 180:
-                if (inventoryTilePos.x - ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x) >= 0) /*Debug.Log("Rot: 180 - Inside x right")*/;
-                else /*Debug.Log("Rot: 180 - Outside x right") */return false;
+                //Primero comprobamos si se intento colocar dentro de la grilla
+                if (!CheckOutOfBoundsRot180(inventoryTilePos, itemPivotTile, itemGrid, maxW, maxH)) return false;
+                //Si esta dentro de los bounds de la grilla, checkeamos la disponibilidad de las casillas dentro de la misma
 
-                if (inventoryTilePos.x + itemPivotTile.x < maxW) /*Debug.Log("Rot: 180 - Inside x left")*/;
-                else /*Debug.Log("Rot: 180 - Outside x left") */return false;
-
-                if (inventoryTilePos.y - ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y) >= 0) /*Debug.Log("Rot: 180 - Inside x up")*/;
-                else /*Debug.Log("Rot: 180 - Outside x up") */return false;
-
-                if (inventoryTilePos.y + itemPivotTile.y < maxH) /*Debug.Log("Rot: 180 - Inside x down")*/;
-                else /*Debug.Log("Rot: 180 - Outside x down") */return false;
                 break;
 
             case 270:
-                if (inventoryTilePos.y - ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x) >= 0) /*Debug.Log("Rot: 270 - Inside x right")*/;
-                else /*Debug.Log("Rot: 270 - Outside x right") */return false;
+                //Primero comprobamos si se intento colocar dentro de la grilla
+                if (!CheckOutOfBoundsRot270(inventoryTilePos, itemPivotTile, itemGrid, maxW, maxH)) return false;
+                //Si esta dentro de los bounds de la grilla, checkeamos la disponibilidad de las casillas dentro de la misma
 
-                if (inventoryTilePos.y + itemPivotTile.x < maxH) /*Debug.Log("Rot: 270 - Inside x left")*/;
-                else /*Debug.Log("Rot: 270 - Outside x left") */return false;
-
-                if (inventoryTilePos.x + ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y) < maxW) /*Debug.Log("Rot: 270 - Inside x up")*/;
-                else /*Debug.Log("Rot: 270 - Outside x up") */return false;
-
-                if (inventoryTilePos.x - itemPivotTile.y >= 0) /*Debug.Log("Rot: 270 - Inside x down")*/;
-                else /*Debug.Log("Rot: 270 - Outside x down") */return false;
                 break;
         }
-        Debug.Log("No calcula algo");
+        Debug.Log("Item se puede colocar");
         return true;
     }
+
+    private bool CheckOutOfBoundsRot0(Vector2Int inventoryTilePos, Vector2Int itemPivotTile, Grid itemGrid, int maxW, int maxH)
+    {
+        if (inventoryTilePos.x + ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x) < maxW) /*Debug.Log("Rot: 0 - Inside x right")*/;
+        else /*Debug.Log("Rot: 0 - Outside x right")*/return false;
+
+        if (inventoryTilePos.x - itemPivotTile.x >= 0) /*Debug.Log("Rot: 0 - Inside x left")*/;
+        else /*Debug.Log("Rot: 0 - Outside x left") */return false;
+
+        if (inventoryTilePos.y + ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y) < maxH) /*Debug.Log("Rot: 0 - Inside x up")*/;
+        else /*Debug.Log("Rot: 0 - Outside x up") */return false;
+
+        if (inventoryTilePos.y - itemPivotTile.y >= 0) /*Debug.Log("Rot: 0 - Inside x down")*/;
+        else /*Debug.Log("Rot: 0 - Outside x down") */return false;
+
+        return true;
+    }
+    private bool CheckInventoryOccupancyRot0(Vector2Int inventoryTilePos, Vector2Int itemPivotTile, Grid itemGrid)
+    {
+        int startX = inventoryTilePos.x - itemPivotTile.x;
+        int startY = inventoryTilePos.y - itemPivotTile.y;
+        int endX = startX + (itemGrid.GetGridWidth() - 1);
+        int endY = startY + (itemGrid.GetGridHeight() - 1);
+        //Debug.Log($"Start: ({startX},{startY}");
+        //Debug.Log($"End: ({endX},{endY}");
+        for (int i = startX; i <= endX; i++)
+        {
+            for (int j = startY; j <= endY; j++)
+            {
+                Debug.Log("ayaya");
+                if (_selectedGrid.GetTileOccupancyState(new Vector2Int(i, j))) return false;
+                
+            }
+        }
+        _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, true);
+        return true;
+    }
+
+    private bool CheckOutOfBoundsRot90(Vector2Int inventoryTilePos, Vector2Int itemPivotTile, Grid itemGrid, int maxW, int maxH)
+    {
+        if (inventoryTilePos.y + ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x) < maxH) /*Debug.Log("Rot: 90 - Inside x right")*/;
+        else /*Debug.Log("Rot: 90 - Outside x right") */return false;
+
+        if (inventoryTilePos.y - itemPivotTile.x >= 0) /*Debug.Log("Rot: 90 - Inside x left")*/;
+        else /*Debug.Log("Rot: 90 - Outside x left") */return false;
+
+        if (inventoryTilePos.x - ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y) >= 0) /*Debug.Log("Rot: 90 - Inside x up")*/;
+        else /*Debug.Log("Rot: 90 - Outside x up") */return false;
+
+        if (inventoryTilePos.x + itemPivotTile.y < maxW) /*Debug.Log("Rot: 90 - Inside x down")*/;
+        else /*Debug.Log("Rot: 90 - Outside x down") */return false;
+
+        return true;
+    }
+
+    private bool CheckOutOfBoundsRot180(Vector2Int inventoryTilePos, Vector2Int itemPivotTile, Grid itemGrid, int maxW, int maxH)
+    {
+        if (inventoryTilePos.x - ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x) >= 0) /*Debug.Log("Rot: 180 - Inside x right")*/;
+        else /*Debug.Log("Rot: 180 - Outside x right") */return false;
+
+        if (inventoryTilePos.x + itemPivotTile.x < maxW) /*Debug.Log("Rot: 180 - Inside x left")*/;
+        else /*Debug.Log("Rot: 180 - Outside x left") */return false;
+
+        if (inventoryTilePos.y - ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y) >= 0) /*Debug.Log("Rot: 180 - Inside x up")*/;
+        else /*Debug.Log("Rot: 180 - Outside x up") */return false;
+
+        if (inventoryTilePos.y + itemPivotTile.y < maxH) /*Debug.Log("Rot: 180 - Inside x down")*/;
+        else /*Debug.Log("Rot: 180 - Outside x down") */return false;
+
+        return true;
+    }
+
+    private bool CheckOutOfBoundsRot270(Vector2Int inventoryTilePos, Vector2Int itemPivotTile, Grid itemGrid, int maxW, int maxH)
+    {
+        if (inventoryTilePos.y - ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x) >= 0) /*Debug.Log("Rot: 270 - Inside x right")*/;
+        else /*Debug.Log("Rot: 270 - Outside x right") */return false;
+
+        if (inventoryTilePos.y + itemPivotTile.x < maxH) /*Debug.Log("Rot: 270 - Inside x left")*/;
+        else /*Debug.Log("Rot: 270 - Outside x left") */return false;
+
+        if (inventoryTilePos.x + ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y) < maxW) /*Debug.Log("Rot: 270 - Inside x up")*/;
+        else /*Debug.Log("Rot: 270 - Outside x up") */return false;
+
+        if (inventoryTilePos.x - itemPivotTile.y >= 0) /*Debug.Log("Rot: 270 - Inside x down")*/;
+        else /*Debug.Log("Rot: 270 - Outside x down") */return false;
+
+        return true;
+    }
+
 
     //Por ahora este codigo de abajo ya no sirve, se resume con el metodo de arriba nomas
     //Yo creo que este metodo se puede achicar, o subdivir en varios metodos para que sea mas legible, pero por ahora me da paja
