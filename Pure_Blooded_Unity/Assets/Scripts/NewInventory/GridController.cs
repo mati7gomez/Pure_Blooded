@@ -33,8 +33,14 @@ public class GridController : MonoBehaviour, IDropHandler
                 Grid droppedItemGrid = droppedItem.GetComponent<Grid>();
                 if (CanItemBePlaced(tilePos, droppedItem.GetSelectedTile(), droppedItemGrid, droppedItem.GetItemRotationDir()))
                 {
+                    droppedItem.SetNewPivot();
                     droppedItem.SetNewPosition(GetNewPosition(tilePos));
                     droppedItem.SetNewRotation();
+                    
+                }
+                else
+                {
+                    Debug.Log("No deberia andar");
                 }
             }
         }
@@ -129,6 +135,7 @@ public class GridController : MonoBehaviour, IDropHandler
                 else /*Debug.Log("Rot: 270 - Outside x down") */return false;
                 break;
         }
+        Debug.Log("No calcula algo");
         return true;
     }
 
