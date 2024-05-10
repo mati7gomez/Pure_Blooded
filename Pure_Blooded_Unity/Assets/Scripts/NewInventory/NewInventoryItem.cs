@@ -34,6 +34,8 @@ public class NewInventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     private Rotation _lastRotation;
     private Vector2Int _selectedTile; //VectorInt que almacena el tile seleccionado para draggear
     private Vector2 _lastPivot; //Vector que almacena el pivot deseado para draggear
+    private Vector2 _mousePosBeforeDrag;
+    private bool _hasMovedToOtherPos;
 
 
     //--------------------------------
@@ -63,12 +65,17 @@ public class NewInventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     public void OnPointerDown(PointerEventData eventData)
     {
         _selectedTile = _itemGrid.GetTileInGrid(_rectTransform, Input.mousePosition, GetPivotOffset());
-        Debug.Log(_selectedTile);
+        _mousePosBeforeDrag = Input.mousePosition;
+        //Debug.Log(_selectedTile);
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+        _hasMovedToOtherPos = false;
         //Desactivamos el raycastTarget del item al moverlo para que cuando lo soltemos el mouse detecte el inventario y no la imagen del item
         SetImageRaycastTarget(false);
+
+        GridController invController = GameObject.Find("Inventario").GetComponent<GridController>();
+        invController.SetInventoryOccupancyStateWhileDragging(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation);
 
         //Guardamos la posicion, pivot, rotacion y parent antes de arrastrar el objeto
         SetLastPivot();
@@ -104,7 +111,11 @@ public class NewInventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHa
         SetRectTransformPivot(_lastPivot);
         SetRectTransformPosition();
         SetRectTransformRotation();
-
+        if (!_hasMovedToOtherPos)
+        {
+            GridController invController = GameObject.Find("Inventario").GetComponent<GridController>();
+            invController.SetInventoryOccupancyStateAfterDrag(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation);
+        }
 
         //Establecemos los valores de arrastrado en falso al soltar el item
         SetAnyItemIsBeingDragged(false);
@@ -194,5 +205,6 @@ public class NewInventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHa
     private void SetAnyItemIsBeingDragged(bool value) => _anyItemIsBeingDragged = value;
     public static bool GetAnyItemIsBeingDragged() => _anyItemIsBeingDragged;
     private void SetIsBeingDragged(bool value) => _isBeingDragged = value;
+    public void SetHasMovedToOtherPos(bool value) => _hasMovedToOtherPos = value;
     
 }

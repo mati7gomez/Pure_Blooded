@@ -66,7 +66,7 @@ public class Grid : MonoBehaviour // Define la clase Grid y hereda de MonoBehavi
         {
             for (int j = initY; j <= maxY; j++)
             {
-                Debug.Log($"Tile ({i},{j})");
+                //Debug.Log($"Tile ({i},{j})");
                 SetTileOccupancyState(new Vector2Int(i, j), occupancyValue);
                 //Debug.Log($"Tile ({i},{j})");
             }
