@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class Item : MonoBehaviour, IPickable, IInteractable
 {
@@ -13,7 +14,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
 
     private void Start()
     {
-
+        ToggleNotaCanvas(false);
     }
     private void Update()
     {
@@ -22,7 +23,17 @@ public class Item : MonoBehaviour, IPickable, IInteractable
             if (Input.GetButtonDown("Interact"))
             {
                 _canBePicked = false;
-                Pick();
+                //Estoy preparando un condicional para la notas de texto que encuentre por el camino
+                if(_itemSO.GetItemName() == "Nota"){
+                    ToggleNotaCanvas(true);
+                } else {
+                    Pick();
+                }
+                    
+
+                
+                 
+                
             }
         }
     }
@@ -88,5 +99,10 @@ public class Item : MonoBehaviour, IPickable, IInteractable
         Canvas pickableItemCanvas = GameObject.Find("InteractCanvas").GetComponent<Canvas>();
         pickableItemCanvas.enabled = enabled;
         _canBePicked = enabled;
+    }
+
+    public void ToggleNotaCanvas(bool enabled){
+        Canvas pickableItemCanvas = GameObject.Find("NotaCanvas").GetComponent<Canvas>();
+        pickableItemCanvas.enabled = enabled;
     }
 }

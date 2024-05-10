@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     private InventoryManager2 _inventoryManager;
-    private Color _defaultColor; //Color del fondo del slot (esto creo q con el diseño se va a quitar)
+    private Color _defaultColor; //Color del fondo del slot (esto creo q con el diseï¿½o se va a quitar)
 
     [SerializeField] private bool _equippedSlot;
     
@@ -20,7 +21,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerEnterHandler, 
         _inventoryManager = transform.root.GetComponent<InventoryManager2>();
     }
 
-
+    
 
     public void OnDrop(PointerEventData eventData) //Metodo de la interfaz IDropHandler para controlar cuando se suelta un InvenotryItem arriba del slot
     {
