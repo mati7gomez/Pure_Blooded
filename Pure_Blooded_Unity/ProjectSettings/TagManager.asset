@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Default
   - NoCorrer
+  - Doors
   layers:
   - Default
   - TransparentFX
