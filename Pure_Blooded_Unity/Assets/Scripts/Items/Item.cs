@@ -8,8 +8,6 @@ public class Item : MonoBehaviour, IPickable, IInteractable
 {
     [SerializeField] private ItemSO _itemSO; //Scriptable object del item
 
-    private GameObject _player; //Referencia del jugador
-
     private bool _canBePicked = false; //Bool para saber si el jugador esta en rango para agarrar el objeto
 
     private void Start()
@@ -28,12 +26,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
                     ToggleNotaCanvas(true);
                 } else {
                     Pick();
-                }
-                    
-
-                
-                 
-                
+                }  
             }
         }
     }
@@ -45,7 +38,6 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _player = other.gameObject;
             ToggleInteractCanvas(true);
         }
     }
@@ -54,7 +46,6 @@ public class Item : MonoBehaviour, IPickable, IInteractable
         if (other.gameObject.CompareTag("Player"))
         {
             ToggleInteractCanvas(false);
-            _player = null;
         }
     }
     //Metodos de la clase
@@ -72,13 +63,9 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     public void Pick()
     {
         ToggleInteractCanvas(false);
-        InventoryManager2 inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager2>();
-        if (inventoryManager.AddItem(GetItemSO()))
+        InventoryManager inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+        if (inventoryManager.AddItem(_itemSO))
         {
-            PlayerAnimatorController playerAnimator = _player.transform.GetChild(0).GetComponent<PlayerAnimatorController>();
-            PlayerController playerController = _player.GetComponent<PlayerController>();
-            playerAnimator.SetTrigger("Pick");
-            playerController.CanMove = false;
             Destroy(gameObject);
         }
         else

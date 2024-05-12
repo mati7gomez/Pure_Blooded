@@ -16,4 +16,5 @@ MonoBehaviour:
   itemDescription: Nota con un texto
   itemImage: {fileID: 0}
   itemPrefab: {fileID: 3269288721184316185, guid: 9a5a14503078cea4db7bf75870bccbc8, type: 3}
+  itemSizeInInventory: {x: 1, y: 1}
   canInteract: 1
