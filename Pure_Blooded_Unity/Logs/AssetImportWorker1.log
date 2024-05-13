@@ -1,0 +1,1183 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.24f1 (334eb2a0b267) revision 3362482'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'es' Physical Memory: 7934 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity 2022.3.8f1\Editor\2022.3.24f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+C:/Users/Usuario/Desktop/UnityProyects/Pure_Blooded/Pure_Blooded_Unity
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+62114
+Successfully changed project path to: C:/Users/Usuario/Desktop/UnityProyects/Pure_Blooded/Pure_Blooded_Unity
+C:/Users/Usuario/Desktop/UnityProyects/Pure_Blooded/Pure_Blooded_Unity
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [14516] Host "[IP] 192.168.100.48 [Port] 0 [Flags] 2 [Guid] 2211217924 [EditorId] 2211217924 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-1T2TQ2O) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [14516] Host "[IP] 192.168.100.48 [Port] 0 [Flags] 2 [Guid] 2211217924 [EditorId] 2211217924 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-1T2TQ2O) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
+Refreshing native plugins compatible for Editor in 15.46 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.24f1 (334eb2a0b267)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity 2022.3.8f1/Editor/2022.3.24f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Usuario/Desktop/UnityProyects/Pure_Blooded/Pure_Blooded_Unity/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) UHD Graphics (ID=0x8a56)
+    Vendor:   Intel
+    VRAM:     3967 MB
+    Driver:   30.0.100.9864
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity 2022.3.8f1/Editor/2022.3.24f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity 2022.3.8f1/Editor/2022.3.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity 2022.3.8f1/Editor/2022.3.24f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56780
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity 2022.3.8f1/Editor/2022.3.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.032342 seconds.
+- Loaded All Assemblies, in  1.335 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.921 seconds
+Domain Reload Profiling: 2249ms
+	BeginReloadAssembly (313ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (116ms)
+	RebuildNativeTypeToScriptingClass (66ms)
+	initialDomainReloadingComplete (283ms)
+	LoadAllAssembliesAndSetupDomain (548ms)
+		LoadAssemblies (305ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (541ms)
+			TypeCache.Refresh (538ms)
+				TypeCache.ScanAssembly (498ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (922ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (688ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (28ms)
+			SetLoadedEditorAssemblies (23ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (6ms)
+			ProcessInitializeOnLoadAttributes (473ms)
+			ProcessInitializeOnLoadMethodAttributes (157ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  2.465 seconds
+Refreshing native plugins compatible for Editor in 15.06 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.913 seconds
+Domain Reload Profiling: 4370ms
+	BeginReloadAssembly (501ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (27ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (81ms)
+	RebuildCommonClasses (97ms)
+	RebuildNativeTypeToScriptingClass (31ms)
+	initialDomainReloadingComplete (140ms)
+	LoadAllAssembliesAndSetupDomain (1685ms)
+		LoadAssemblies (1139ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (792ms)
+			TypeCache.Refresh (724ms)
+				TypeCache.ScanAssembly (674ms)
+			ScanForSourceGeneratedMonoScriptInfo (51ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1915ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1459ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (19ms)
+			SetLoadedEditorAssemblies (12ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (150ms)
+			ProcessInitializeOnLoadAttributes (1178ms)
+			ProcessInitializeOnLoadMethodAttributes (72ms)
+			AfterProcessingInitializeOnLoad (29ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (24ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
+Refreshing native plugins compatible for Editor in 17.16 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3329 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 49 unused Assets / (104.2 KB). Loaded Objects now: 3817.
+Memory consumption went from 146.4 MB to 146.3 MB.
+Total: 8.289700 ms (FindLiveObjects: 0.578900 ms CreateObjectMapping: 0.398400 ms MarkObjects: 6.533100 ms  DeleteObjects: 0.776700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 19976.178224 seconds.
+  path: Assets/DoorColor.mat
+  artifactKey: Guid(e31f1f56442986a4e9c0de2e6b5c928e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DoorColor.mat using Guid(e31f1f56442986a4e9c0de2e6b5c928e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77b6058c65dae9348611dd16612608cc') in 0.464301 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000119 seconds.
+  path: Assets/casa.fbx
+  artifactKey: Guid(81a572b83e4300a4ba84ab7c1cdb9a3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/casa.fbx using Guid(81a572b83e4300a4ba84ab7c1cdb9a3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70a2c99acd3c737ec0282dafca384d85') in 0.514459 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 69
+========================================================================
+Received Import Request.
+  Time since last request: 287.486591 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat
+  artifactKey: Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat using Guid(e73a58f6e2794ae7b1b7e50b7fb811b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36ceea6ea84949785b00572ff045cdad') in 0.101218 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat
+  artifactKey: Guid(79459efec17a4d00a321bdcc27bbc385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Outline.mat using Guid(79459efec17a4d00a321bdcc27bbc385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e0f447ea1a55b3d4f6e8365ae47b202') in 0.070961 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+  artifactKey: Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd10d5a394d900ad3915909cea0a6f018') in 0.116170 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.869 seconds
+Refreshing native plugins compatible for Editor in 5.91 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.857 seconds
+Domain Reload Profiling: 2723ms
+	BeginReloadAssembly (263ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (101ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (506ms)
+		LoadAssemblies (569ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (43ms)
+			TypeCache.Refresh (19ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (12ms)
+			ResolveRequiredComponents (11ms)
+	FinalizeReload (1858ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (496ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (11ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (83ms)
+			ProcessInitializeOnLoadAttributes (366ms)
+			ProcessInitializeOnLoadMethodAttributes (22ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 8.99 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3308 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (102.6 KB). Loaded Objects now: 3881.
+Memory consumption went from 148.8 MB to 148.7 MB.
+Total: 7.313500 ms (FindLiveObjects: 0.436800 ms CreateObjectMapping: 0.326900 ms MarkObjects: 6.423800 ms  DeleteObjects: 0.122800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.622 seconds
+Refreshing native plugins compatible for Editor in 5.82 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  3.065 seconds
+Domain Reload Profiling: 3683ms
+	BeginReloadAssembly (205ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (48ms)
+	RebuildCommonClasses (48ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (309ms)
+		LoadAssemblies (406ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (16ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (3065ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1754ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (214ms)
+			ProcessInitializeOnLoadAttributes (1492ms)
+			ProcessInitializeOnLoadMethodAttributes (24ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 8.05 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3308 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (102.8 KB). Loaded Objects now: 3896.
+Memory consumption went from 150.8 MB to 150.7 MB.
+Total: 4.669700 ms (FindLiveObjects: 0.371900 ms CreateObjectMapping: 0.264000 ms MarkObjects: 3.897000 ms  DeleteObjects: 0.135100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 537.252167 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Materials/BlueSky01.mat
+  artifactKey: Guid(bbe5e356a359cf44388ab49e187bb4ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Materials/BlueSky01.mat using Guid(bbe5e356a359cf44388ab49e187bb4ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f39e8dc96c4efc0ebb29e017f51442b1') in 0.197375 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky02_LF.png
+  artifactKey: Guid(f5e535df8c032354783ffe27854340e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky02_LF.png using Guid(f5e535df8c032354783ffe27854340e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc4075087523f2f3bf8b028d90b494d4') in 0.049639 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Prefabs/casa.prefab
+  artifactKey: Guid(436ba1c346b40314db0222630b54c288) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/casa.prefab using Guid(436ba1c346b40314db0222630b54c288) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c067579f19763c772d008df4c205d17') in 0.122690 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 128
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Materials/BlueSky02_CubeMap.mat
+  artifactKey: Guid(fa15184d0d280694b9b0c0bbf916e037) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Materials/BlueSky02_CubeMap.mat using Guid(fa15184d0d280694b9b0c0bbf916e037) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cc4e9f930b2fafef88d4ed1304eece3') in 0.169116 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky01_UP.png
+  artifactKey: Guid(f8ab40e2e177cc34e8b453c50052db34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky01_UP.png using Guid(f8ab40e2e177cc34e8b453c50052db34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fce1547288b748a072dfdaa3bacb7a59') in 0.044042 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000147 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky01_DN.png
+  artifactKey: Guid(0542d025081ed1346b859d82b6d02476) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky01_DN.png using Guid(0542d025081ed1346b859d82b6d02476) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c465c61eb694b9c8317e47c75329b1ea') in 0.030427 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky01_FR.png
+  artifactKey: Guid(0da1c0d92cd418c4c8b9a6ebad46da97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky01_FR.png using Guid(0da1c0d92cd418c4c8b9a6ebad46da97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20bbc7c8cbda0916bdc9f94cd7a1f91a') in 0.038150 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
+  artifactKey: Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset using Guid(2e498d1c8094910479dc3e1b768306a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49762bd5bb117cc3cc0d0486b11be664') in 0.121600 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/ÌmagesUse/RetratoDelPersonajeEjemplo.jpg
+  artifactKey: Guid(b004120bcce0694439749b63e222844c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ÌmagesUse/RetratoDelPersonajeEjemplo.jpg using Guid(b004120bcce0694439749b63e222844c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37e6a077ff715617cde5b51f0c76601c') in 0.052676 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Materials/BlueSky02_mobile.mat
+  artifactKey: Guid(fade81b8222df8d438165ac92d476d97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Materials/BlueSky02_mobile.mat using Guid(fade81b8222df8d438165ac92d476d97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3b1cdfdf0dd792f5012c86f6f64eb77') in 0.048590 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Demo/Prototype Materials Demo/Demo Lightmap Parameters.giparams
+  artifactKey: Guid(c833c6a9a24b72f40ae6e54d900acae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Demo/Prototype Materials Demo/Demo Lightmap Parameters.giparams using Guid(c833c6a9a24b72f40ae6e54d900acae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35709c161efc6afa01309faea6df6996') in 0.005530 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky02_UP.png
+  artifactKey: Guid(edf3439f8a81d3e4494530a8b83e283b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky02_UP.png using Guid(edf3439f8a81d3e4494530a8b83e283b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54f1c5697f1fbc77f7f6186519475f03') in 0.034147 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky02_BK.png
+  artifactKey: Guid(e890c99641c80204eb9982ad498b3e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky02_BK.png using Guid(e890c99641c80204eb9982ad498b3e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b15b0ef466dafe0130db1583d19f3234') in 0.034332 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky02_DN.png
+  artifactKey: Guid(d23d367acf2cf234fa2583c8faa26001) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/BlueSky02_DN.png using Guid(d23d367acf2cf234fa2583c8faa26001) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2f7ff91c00f7430233711080d2526a1') in 0.019137 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 13.961475 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Materials/BrightMorning.mat
+  artifactKey: Guid(8382abc3a94345740ad657962381421d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Materials/BrightMorning.mat using Guid(8382abc3a94345740ad657962381421d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02bee5fa37b6a523964449b455685974') in 0.029678 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Materials/BrightMorning_CubeMap.mat
+  artifactKey: Guid(0526090ba9bfbe34293051c3ce2e2200) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Materials/BrightMorning_CubeMap.mat using Guid(0526090ba9bfbe34293051c3ce2e2200) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '821bf5297d30f5feb01edd5cf26f0a4e') in 0.105029 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Materials/MoodySunrise01.mat
+  artifactKey: Guid(13d7303f58d363744860f2acc819e499) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Materials/MoodySunrise01.mat using Guid(13d7303f58d363744860f2acc819e499) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9257e46ee620f0e330ba01a541d5fb2') in 0.036927 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/MoodySunrise02_DN.jpg
+  artifactKey: Guid(54026c641623c5545a0db89d9d33ca87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/MoodySunrise02_DN.jpg using Guid(54026c641623c5545a0db89d9d33ca87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f67ff2db20a615e1220e710782bb16a0') in 0.030059 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/BrightMorning01_BK.png
+  artifactKey: Guid(54d66d0d3d0a78042878d941acba9079) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/BrightMorning01_BK.png using Guid(54d66d0d3d0a78042878d941acba9079) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf529af8613ed0dbcbb9d37ba822bf0e') in 0.032822 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/MoodySunrise01_RT.jpg
+  artifactKey: Guid(d2b33b4fee7833148a3180d8f6a8f53b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/MoodySunrise01_RT.jpg using Guid(d2b33b4fee7833148a3180d8f6a8f53b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16f77385d339af26ea9a593c4c9e1281') in 0.023664 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/BrightMorning01_FR.png
+  artifactKey: Guid(c0365a31c96ab8846b78de1091befba7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/BrightMorning01_FR.png using Guid(c0365a31c96ab8846b78de1091befba7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3570a53cf4949825c6ef9738f3b1dc1') in 0.026980 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Materials/MoodySunrise01_mobile.mat
+  artifactKey: Guid(f0848ebbc83114347a69bff5300ed5bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Materials/MoodySunrise01_mobile.mat using Guid(f0848ebbc83114347a69bff5300ed5bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8425988d32c7979668d666b6eb4a6cdc') in 0.044056 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Materials/GoldenHorizon_mobile.mat
+  artifactKey: Guid(7f6262d2b85b14747a6e44fce38c63b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Materials/GoldenHorizon_mobile.mat using Guid(7f6262d2b85b14747a6e44fce38c63b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9dd7d21a3a60e34fe0d5c74a223c725') in 0.050625 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/MoodySunrise02_FR.jpg
+  artifactKey: Guid(d324ce0a324529c4b82da6ecd379d436) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/MoodySunrise02_FR.jpg using Guid(d324ce0a324529c4b82da6ecd379d436) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6801d3acbe256ed8b125e1f7322e5bc0') in 0.028898 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000090 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/MoodySunrise01_UP.jpg
+  artifactKey: Guid(5913ce21f0b8cbb46adaa8ed1c8f6afe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/MoodySunrise01_UP.jpg using Guid(5913ce21f0b8cbb46adaa8ed1c8f6afe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9819c966a3071f041abd3b85597cb3a8') in 0.024298 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Materials/MoodySunrise02.mat
+  artifactKey: Guid(4c814e746e6cf4643aac18643f529320) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Materials/MoodySunrise02.mat using Guid(4c814e746e6cf4643aac18643f529320) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08c8e7ea11e6c532a9008faee35dcb9f') in 0.046951 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/MoodySunrise02_LF.jpg
+  artifactKey: Guid(f5d7c8bf9f745de4488cfa2a8a162ebe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/MoodySunrise02_LF.jpg using Guid(f5d7c8bf9f745de4488cfa2a8a162ebe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30f0727151839614cf4e73d725f6c020') in 0.020024 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Prefabs/InventoryItem.prefab
+  artifactKey: Guid(5d1943c460913de4f9969448b5e9891c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/InventoryItem.prefab using Guid(5d1943c460913de4f9969448b5e9891c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54b4c27463c65a09f5038ec8337e8cf1') in 0.017177 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Cubemaps/MoodySunrise01.cubemap
+  artifactKey: Guid(e811188ea6997a248920852a0e94888c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Cubemaps/MoodySunrise01.cubemap using Guid(e811188ea6997a248920852a0e94888c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b12fa88dec1769f28f663d56be054d17') in 0.153906 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/MoodySunrise01_DN.jpg
+  artifactKey: Guid(be9b1d3dcae821746b415b554ba597ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/MoodySunrise01_DN.jpg using Guid(be9b1d3dcae821746b415b554ba597ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c42b24397b8490126431ae5319dfec7') in 0.024363 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Materials/BrightMorning_mobile.mat
+  artifactKey: Guid(197a0928386bb034a897e9574dcac965) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Materials/BrightMorning_mobile.mat using Guid(197a0928386bb034a897e9574dcac965) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8edd58368286843d817fe6f61767287f') in 0.032709 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/BrightMorning01_UP.png
+  artifactKey: Guid(292071fdbd5156949b71129416ca2bdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/BrightMorning01_UP.png using Guid(292071fdbd5156949b71129416ca2bdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95f458f7c3021f61cd1ece09fec60610') in 0.027292 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Materials/GoldenHorizon_CubeMap.mat
+  artifactKey: Guid(5704139db67bef94a8831d6934524f72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Materials/GoldenHorizon_CubeMap.mat using Guid(5704139db67bef94a8831d6934524f72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68c1d77f8b5604dc26d061bd0fc19665') in 0.145449 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 2.019194 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/GoldenHorizon01_LF.png
+  artifactKey: Guid(8a38692fcba609343af21daafdfe7fab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/GoldenHorizon01_LF.png using Guid(8a38692fcba609343af21daafdfe7fab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd237c993593af28d763dfe9300e066e') in 0.017057 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000116 seconds.
+  path: Assets/FreeNightSky/Textures/nightsky1_left.png
+  artifactKey: Guid(3a9af5d0bfef716468800c6f0396a0c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FreeNightSky/Textures/nightsky1_left.png using Guid(3a9af5d0bfef716468800c6f0396a0c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2709cf305b2720968ec8e3a93aa2e260') in 0.020694 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000341 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/PinkSunset02_LF.png
+  artifactKey: Guid(355f077a4a013a04b93abc34bfc7bf40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/PinkSunset02_LF.png using Guid(355f077a4a013a04b93abc34bfc7bf40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdf91f36cb70dba8c8f27356f57f29ad') in 0.019407 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000239 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/PinkSunset01_FR.png
+  artifactKey: Guid(9de0476b83985c84e918d9bcdbf505f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/PinkSunset01_FR.png using Guid(9de0476b83985c84e918d9bcdbf505f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8232f62b3e281d704042687fe1f58048') in 0.035697 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/StormySky01_LF.png
+  artifactKey: Guid(53622a9086d94de49949e7227b4fb1b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/StormySky01_LF.png using Guid(53622a9086d94de49949e7227b4fb1b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82cbd40972caca90aaa4238f47901c0d') in 0.028636 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000076 seconds.
+  path: Assets/FreeNightSky/Textures/nightsky2_front.png
+  artifactKey: Guid(653e15a9445960f4b91dbbedf4785830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FreeNightSky/Textures/nightsky2_front.png using Guid(653e15a9445960f4b91dbbedf4785830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea95cab66cc789571c9cb98ff724be5b') in 0.032729 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 7.912543 seconds.
+  path: Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Demo/Prototype Materials Demo/GI Blocker.mat
+  artifactKey: Guid(f9a5ce4748e5abd4288cab387226ef27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Demo/Prototype Materials Demo/GI Blocker.mat using Guid(f9a5ce4748e5abd4288cab387226ef27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ff623fa9dc3933b1ca35755add94657') in 0.017101 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.019240 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Cubemaps/GoldenHorizon.cubemap
+  artifactKey: Guid(395747037b63b554889e5b6c06dec1c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Cubemaps/GoldenHorizon.cubemap using Guid(395747037b63b554889e5b6c06dec1c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b59789451df09bc04e1251549145e10f') in 0.133256 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/GoldenHorizon01_BK.png
+  artifactKey: Guid(da7c21e3514b87b46aa23c58f8973e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/GoldenHorizon01_BK.png using Guid(da7c21e3514b87b46aa23c58f8973e33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4599b102662204b0c158573dda4f502b') in 0.020864 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Grey1.mat
+  artifactKey: Guid(64859cf955a5fb047880af754183e463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Grey1.mat using Guid(64859cf955a5fb047880af754183e463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d6c0e374159c17bd3baae8750175ca6') in 0.035164 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Green3.mat
+  artifactKey: Guid(8474bf551220f0e4993899dfdc95aed3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Green3.mat using Guid(8474bf551220f0e4993899dfdc95aed3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '718cbc89558ff98209b4081572898a64') in 0.017993 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Green3.mat
+  artifactKey: Guid(f6298605825d7154f8923c76872aa46e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Green3.mat using Guid(f6298605825d7154f8923c76872aa46e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8a736080c96f9212436ee719126a410') in 0.151744 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/FreeNightSky/Textures/nightsky2_back.png
+  artifactKey: Guid(a6d0619a7d443a3419dc673e3afd916a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FreeNightSky/Textures/nightsky2_back.png using Guid(a6d0619a7d443a3419dc673e3afd916a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6fbd869d5ff0c738af7b17b3adbd208') in 0.027650 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Green2.mat
+  artifactKey: Guid(35e2a03bbcc6739409a02bb46883d128) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/HDRP/Prototype_512x512_Green2.mat using Guid(35e2a03bbcc6739409a02bb46883d128) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa501f25225fc9645279a2b04951204f') in 0.020215 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Sprites/hoz png.png
+  artifactKey: Guid(ee01940a96b8db04690b6d9c65b1e909) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/hoz png.png using Guid(ee01940a96b8db04690b6d9c65b1e909) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1f935a01d5f618f4c614b03fdf51878') in 0.038041 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Green3.mat
+  artifactKey: Guid(bce32739db90b6843ac7f0179bcaa6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/URP/Prototype_512x512_Green3.mat using Guid(bce32739db90b6843ac7f0179bcaa6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e5ed93a34713f2bc9526f868ec7877f') in 0.014813 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Arkham Interactive/Toony/Skies/Textures/GoldenHorizon01_UP.png
+  artifactKey: Guid(507508518f00e5449bddd2659180a0f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Arkham Interactive/Toony/Skies/Textures/GoldenHorizon01_UP.png using Guid(507508518f00e5449bddd2659180a0f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dfc02ac6e6a22c02280a6de84f66084') in 0.025556 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/FreeNightSky/Textures/nightsky1_back.png
+  artifactKey: Guid(bae71e184bb7c624ca7301000f585d80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FreeNightSky/Textures/nightsky1_back.png using Guid(bae71e184bb7c624ca7301000f585d80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd56698b28be53cf122b91f62c429e90') in 0.030295 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/FreeNightSky/Textures/nightsky1_up.png
+  artifactKey: Guid(5d6ababd5b9f2054389b09e11efa8f93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FreeNightSky/Textures/nightsky1_up.png using Guid(5d6ababd5b9f2054389b09e11efa8f93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c27280ebe9e03d66fc5fca857d69b254') in 0.026679 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_green3.png
+  artifactKey: Guid(988b6610bda0aca4286aff060b8d16b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Textures/prototype_512x512_green3.png using Guid(988b6610bda0aca4286aff060b8d16b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bed5773f157cb48c00bb56ec1c06605') in 0.023254 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Green1.mat
+  artifactKey: Guid(79f64ed6f5d6d374d91c3a0af4070258) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Thirdparty/Ciathyza/Gridbox Prototype Materials/Materials/Standard/Prototype_512x512_Green1.mat using Guid(79f64ed6f5d6d374d91c3a0af4070258) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dde8ddd7e6ec135574eca07507c042eb') in 0.035001 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Sprites/linterna png.png
+  artifactKey: Guid(54c2c028fd86cd3459219d8a35ec4e46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/linterna png.png using Guid(54c2c028fd86cd3459219d8a35ec4e46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1388fedf5139b5104c08789edcb51e11') in 0.036314 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/Sprites/llave png.png
+  artifactKey: Guid(14c6a29469860a14bbe727c9bff57df8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/llave png.png using Guid(14c6a29469860a14bbe727c9bff57df8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2da2e8c21c9d7e47d916624e51fd3ec6') in 0.038602 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000105 seconds.
+  path: Assets/FreeNightSky/Textures/nightsky1_down.png
+  artifactKey: Guid(6b7c3e2dbc9de77409a75e02838ac08c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FreeNightSky/Textures/nightsky1_down.png using Guid(6b7c3e2dbc9de77409a75e02838ac08c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c77efefdcec02cb3d697401fd469debe') in 0.014989 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.651 seconds
+Refreshing native plugins compatible for Editor in 4.45 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.526 seconds
+Domain Reload Profiling: 2174ms
+	BeginReloadAssembly (203ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (56ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (21ms)
+	initialDomainReloadingComplete (35ms)
+	LoadAllAssembliesAndSetupDomain (340ms)
+		LoadAssemblies (418ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (28ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (8ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (1527ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (437ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (66ms)
+			ProcessInitializeOnLoadAttributes (331ms)
+			ProcessInitializeOnLoadMethodAttributes (21ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 8.56 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3308 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (102.6 KB). Loaded Objects now: 3918.
+Memory consumption went from 152.8 MB to 152.7 MB.
+Total: 4.995400 ms (FindLiveObjects: 0.408100 ms CreateObjectMapping: 0.381700 ms MarkObjects: 4.102600 ms  DeleteObjects: 0.101400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.628 seconds
+Refreshing native plugins compatible for Editor in 5.43 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.134 seconds
+Domain Reload Profiling: 1759ms
+	BeginReloadAssembly (216ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (53ms)
+	RebuildCommonClasses (48ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (302ms)
+		LoadAssemblies (390ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (29ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (7ms)
+			ResolveRequiredComponents (11ms)
+	FinalizeReload (1135ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (496ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (70ms)
+			ProcessInitializeOnLoadAttributes (383ms)
+			ProcessInitializeOnLoadMethodAttributes (21ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 7.88 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3308 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (102.6 KB). Loaded Objects now: 3933.
+Memory consumption went from 154.7 MB to 154.6 MB.
+Total: 4.821600 ms (FindLiveObjects: 0.415700 ms CreateObjectMapping: 0.280700 ms MarkObjects: 4.003800 ms  DeleteObjects: 0.119500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 138.104541 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMuteButtonDisabled@2x.png
+  artifactKey: Guid(9c706019afb28944eb19b500ea0da38c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMuteButtonDisabled@2x.png using Guid(9c706019afb28944eb19b500ea0da38c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5242ecc9eec34e9e8fc551cae5f4f5c2') in 0.091368 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/TrackMuteButtonDisabled@2x.png
+  artifactKey: Guid(db31466324572e740a431e4e0e03a016) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/TrackMuteButtonDisabled@2x.png using Guid(db31466324572e740a431e4e0e03a016) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b4be5516f09a1d3c2820244ef3b7355') in 0.025178 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/TrackMuteButtonEnabled@2x.png
+  artifactKey: Guid(512aaee9b220348408a2e518f98d6e14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/TrackMuteButtonEnabled@2x.png using Guid(512aaee9b220348408a2e518f98d6e14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1692b1326eaa4787ca56c735840122b') in 0.022378 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMuteButtonEnabled@2x.png
+  artifactKey: Guid(e54e20c7a9730fe4c822d63228527ae4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMuteButtonEnabled@2x.png using Guid(e54e20c7a9730fe4c822d63228527ae4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81d48751870537c6ef6b02d473c61063') in 0.017018 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.544 seconds
+Refreshing native plugins compatible for Editor in 4.75 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.890 seconds
+Domain Reload Profiling: 2431ms
+	BeginReloadAssembly (178ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (42ms)
+	RebuildCommonClasses (43ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (271ms)
+		LoadAssemblies (351ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (16ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (1891ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1172ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (83ms)
+			ProcessInitializeOnLoadAttributes (978ms)
+			ProcessInitializeOnLoadMethodAttributes (72ms)
+			AfterProcessingInitializeOnLoad (28ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (25ms)
+Refreshing native plugins compatible for Editor in 17.74 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3308 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (102.6 KB). Loaded Objects now: 3949.
+Memory consumption went from 156.7 MB to 156.6 MB.
+Total: 10.619700 ms (FindLiveObjects: 0.455300 ms CreateObjectMapping: 0.491800 ms MarkObjects: 9.130200 ms  DeleteObjects: 0.536600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 291.142686 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/BOCINA AUTO 1.mp3
+  artifactKey: Guid(d7498b7df270c064b8341e342822637f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/BOCINA AUTO 1.mp3 using Guid(d7498b7df270c064b8341e342822637f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4660e06a69f9fb7bb51e11454262d7b') in 0.183738 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/PASOS (CORRIENDO) 2.mp3
+  artifactKey: Guid(c0b5eac8222fe8342827a014c4c51f34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/PASOS (CORRIENDO) 2.mp3 using Guid(c0b5eac8222fe8342827a014c4c51f34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1693000e9a95dfae2c035572514c3884') in 0.031361 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/RUIDO BLANCO 2.mp3
+  artifactKey: Guid(f06928173c9e3424d92d42c7bf592640) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/RUIDO BLANCO 2.mp3 using Guid(f06928173c9e3424d92d42c7bf592640) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d9cc07cc6977a03f2b3da1eacf64bc4') in 0.019104 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/CUCHILLO RASPANDO PISO.mp3
+  artifactKey: Guid(ef6b8f6f217144d4b918203c105ffb24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/CUCHILLO RASPANDO PISO.mp3 using Guid(ef6b8f6f217144d4b918203c105ffb24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb946b258d1c7a2f97de05ed40328d2f') in 0.027314 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/PASOS (CORRIENDO SOBRE CHARCOS).mp3
+  artifactKey: Guid(009763ae56431884194f712e58946529) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/PASOS (CORRIENDO SOBRE CHARCOS).mp3 using Guid(009763ae56431884194f712e58946529) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51ae17465929150d11600946f754e3d5') in 0.025942 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/LLUVIA SUAVE 1.mp3
+  artifactKey: Guid(a447e05e61f3e354db046d52c4986ac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/LLUVIA SUAVE 1.mp3 using Guid(a447e05e61f3e354db046d52c4986ac4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b1ecf72f8ad0bad2d5f11cfad2a21e5') in 0.030792 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/SONIDO DE VENTILACION.mp3
+  artifactKey: Guid(8a1eb8ca6c1b2884bbca7dbded1717f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/SONIDO DE VENTILACION.mp3 using Guid(8a1eb8ca6c1b2884bbca7dbded1717f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bd083524b36ca3b888d4c07e86d7f87') in 0.020186 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/EFECTO EN LA VOZ EJ2.mp3
+  artifactKey: Guid(1bd33f55d69dc84448e9c58ccbadf7a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/EFECTO EN LA VOZ EJ2.mp3 using Guid(1bd33f55d69dc84448e9c58ccbadf7a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a05dd5c8392c73333f50c35545ecb427') in 0.026092 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/LLUVIA SUAVE 2.mp3
+  artifactKey: Guid(1d54cbfecb9981a478e1790cd6833ccc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/LLUVIA SUAVE 2.mp3 using Guid(1d54cbfecb9981a478e1790cd6833ccc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdfa02c687edf1d1646530317a96ac14') in 0.025868 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/PRESS START (ponele)..mp3
+  artifactKey: Guid(e91dd531600be7349b11f8b69ed1c556) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/PRESS START (ponele)..mp3 using Guid(e91dd531600be7349b11f8b69ed1c556) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '131a2efb29ee2e3ffd29c5ea15b964ef') in 0.024322 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/MADERA DE VIENTO.mp3
+  artifactKey: Guid(afa64d270e8fe1b4cb40d2cd58b629f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/MADERA DE VIENTO.mp3 using Guid(afa64d270e8fe1b4cb40d2cd58b629f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3e3f417e211d608d4c49bd08fe8c039') in 0.016833 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/EFECTO EN LA VOZ EJ1.mp3
+  artifactKey: Guid(fa5f8ddfd06d1dd49bae4a3963e70562) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/EFECTO EN LA VOZ EJ1.mp3 using Guid(fa5f8ddfd06d1dd49bae4a3963e70562) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'faa01983ff44ee596b3455b5c011a66e') in 0.024193 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/SONIDO DE ESTATICA.mp3
+  artifactKey: Guid(7db8eec1b4793f4458ec4c4ecb097b98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/SONIDO DE ESTATICA.mp3 using Guid(7db8eec1b4793f4458ec4c4ecb097b98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '289965c28bb57b4b06fc2589c8700432') in 0.022360 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/RUIDO BLANCO 3.mp3
+  artifactKey: Guid(e9c4e880b560b43459f79b202cefffea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/RUIDO BLANCO 3.mp3 using Guid(e9c4e880b560b43459f79b202cefffea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e25f31162e26ebcff6890e538c4fee05') in 0.017433 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/BOCINA AUTO 4.mp3
+  artifactKey: Guid(956cacb666e01554081de0910987350b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/BOCINA AUTO 4.mp3 using Guid(956cacb666e01554081de0910987350b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '716c552dee67941853f4496bee26edaa') in 0.018725 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/EFECTO EN LA VOZ EJ3.mp3
+  artifactKey: Guid(8f2e9252a615b3e4ab2e0f0a28693989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/EFECTO EN LA VOZ EJ3.mp3 using Guid(8f2e9252a615b3e4ab2e0f0a28693989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffcea1ba913e8f2ebe0a1ff1ee91f7ad') in 0.023241 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/LINTERNA 2.mp3
+  artifactKey: Guid(1f74175dbd1bc8d459a89fd19eb53316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/LINTERNA 2.mp3 using Guid(1f74175dbd1bc8d459a89fd19eb53316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28a2b933f5d478c30abee46e3de4926f') in 0.023782 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Music/PURE BLOODED-SONIDOS/PASOS (CAMINANDO) 2.mp3
+  artifactKey: Guid(8e0a38f9195c1a54db2608e012762eff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Music/PURE BLOODED-SONIDOS/PASOS (CAMINANDO) 2.mp3 using Guid(8e0a38f9195c1a54db2608e012762eff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cddc4a1d563e8a8a44d0b3902c527f8') in 0.021128 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
