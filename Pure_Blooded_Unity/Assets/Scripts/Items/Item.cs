@@ -89,7 +89,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     }
 
     public void ToggleNotaCanvas(bool enabled){
-        Canvas pickableItemCanvas = GameObject.Find("NotaCanvas").GetComponent<Canvas>();
+        Canvas pickableItemCanvas = GameObject.Find("NotasCanvas").GetComponent<Canvas>();
         pickableItemCanvas.enabled = enabled;
     }
 }
