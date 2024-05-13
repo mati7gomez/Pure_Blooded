@@ -51,8 +51,8 @@ public class AbrirPuertas : MonoBehaviour
             Vector3 posicionActual = puerta.position;
 
             // Incrementar la posición actual en 1 en el eje X y 2 en el eje Z
-            posicionActual.x += 1f;
-            posicionActual.z += 2f;
+            posicionActual.x += 0.90f;
+            posicionActual.z += 0.80f;
 
             // Establecer la nueva posición de la puerta
             puerta.position = posicionActual;
