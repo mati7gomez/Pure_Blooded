@@ -24,7 +24,7 @@ public class MouseLook : MonoBehaviour
 	{
 		
 		if (allowEscape && Input.GetKeyDown (KeyCode.Escape))
-			Screen.lockCursor = !Screen.lockCursor;//check if we should unlock cursor
+			Cursor.lockState = CursorLockMode.Locked;//check if we should unlock cursor
 		/*
 		if (Screen.lockCursor != lockCursor) {
 			if (lockCursor && Input.GetMouseButton (0))

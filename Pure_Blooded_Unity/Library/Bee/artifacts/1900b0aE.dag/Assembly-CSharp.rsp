@@ -371,7 +371,6 @@
 "Assets/Scripts/Inventory/InventoryManager.cs"
 "Assets/Scripts/Items/Item.cs"
 "Assets/Scripts/Items/ItemStats.cs"
-"Assets/Scripts/Items/Nota.cs"
 "Assets/Scripts/Player/PlayerController.cs"
 "Assets/Scripts/Player/PlayerStats.cs"
 "Assets/Scripts/PlayerStatsSave.cs"
