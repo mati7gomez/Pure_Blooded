@@ -10,6 +10,8 @@ public class Item : MonoBehaviour, IPickable, IInteractable
 
     private bool _canBePicked = false; //Bool para saber si el jugador esta en rango para agarrar el objeto
 
+    private bool _isReading = false;
+
     private void Start()
     {
         ToggleNotaCanvas(false);
@@ -22,8 +24,8 @@ public class Item : MonoBehaviour, IPickable, IInteractable
             {
                 _canBePicked = false;
                 //Estoy preparando un condicional para la notas de texto que encuentre por el camino
-                if(_itemSO.GetItemName() == "Nota"){
-                    ToggleNotaCanvas(true);
+                if(gameObject.CompareTag("NotaTexto")){
+                    ReadNote(true);
                 } else {
                     Pick();
                 }  
@@ -45,6 +47,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            ToggleNotaCanvas(false);
             ToggleInteractCanvas(false);
         }
     }
@@ -88,8 +91,18 @@ public class Item : MonoBehaviour, IPickable, IInteractable
         _canBePicked = enabled;
     }
 
-    public void ToggleNotaCanvas(bool enabled){
-        Canvas pickableItemCanvas = GameObject.Find("NotasCanvas").GetComponent<Canvas>();
-        pickableItemCanvas.enabled = enabled;
+    public void ReadNote(bool enabled){
+        ToggleNotaCanvas(enabled);
+        _isReading = enabled;
     }
+    public void ToggleNotaCanvas(bool enabled){
+        if(gameObject.CompareTag("NotaTexto")){
+            GameObject pickableItemCanvas = GameObject.Find("NotasCanvas");
+            pickableItemCanvas.GetComponent<Canvas>().enabled = enabled;
+
+            GameObject imagen = pickableItemCanvas.transform.Find("FondoNota").gameObject;
+            GameObject texto = imagen.transform.Find("Nota Text").gameObject;
+            
+            texto.GetComponent<TextMeshProUGUI>().text = gameObject.GetComponent<Nota>().texto;
+        }
 }
