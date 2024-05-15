@@ -104,7 +104,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
             GameObject imagen = pickableItemCanvas.transform.Find("FondoNota").gameObject;
             GameObject texto = imagen.transform.Find("Nota Text").gameObject;
             
-            //texto.GetComponent<TextMeshProUGUI>().text = gameObject.GetComponent<Nota>().texto;
+            texto.GetComponent<TextMeshProUGUI>().text = gameObject.GetComponent<Nota>().texto;
         }
 }
 }

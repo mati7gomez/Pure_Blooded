@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6786744935984229547}
   - component: {fileID: 2214232072970420566}
   - component: {fileID: 1964195095927062271}
-  - component: {fileID: 1033465650878989861}
+  - component: {fileID: 6547074218864591304}
   m_Layer: 0
   m_Name: Nota
   m_TagString: NotaTexto
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemSO: {fileID: 11400000, guid: 6c0b45cfadc5fa248b48a85e22c1a056, type: 2}
---- !u!114 &1033465650878989861
+--- !u!114 &6547074218864591304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3269288721184316185}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204eb72adf12be841897aa381e369c2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4acccbdd852255f4a8a3817306a5d5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   texto: 
