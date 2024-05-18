@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class PortadaCanvas : MonoBehaviour
 {
     // Hay que asignar este metodo al boton en la escena
-    public GameObject B_Pausa; 
+    public GameObject B_Pausa;
     public GameObject B_Despausa;
     public GameObject FondoPanel;
     private void Start()
