@@ -1186,7 +1186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219196650}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.029526616, y: 0.9656877, z: -0.12692732, w: -0.22464424}
+  m_LocalRotation: {x: -0.029526614, y: 0.96568763, z: -0.12692729, w: -0.22464426}
   m_LocalPosition: {x: 3.02, y: -1.63, z: 15.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2175,7 +2175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563865296}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.029850284, y: 0.92382824, z: -0.07364166, w: -0.37446925}
+  m_LocalRotation: {x: -0.029850278, y: 0.9238283, z: -0.073641635, w: -0.37446934}
   m_LocalPosition: {x: 14.460554, y: -1.720798, z: 19.61736}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7126,6 +7126,10 @@ PrefabInstance:
     - target: {fileID: 1033465650878989861, guid: 9a5a14503078cea4db7bf75870bccbc8, type: 3}
       propertyPath: texto
       value: Si funciona!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964195095927062271, guid: 9a5a14503078cea4db7bf75870bccbc8, type: 3}
+      propertyPath: _spawnDistance
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3269288721184316185, guid: 9a5a14503078cea4db7bf75870bccbc8, type: 3}
       propertyPath: m_Name
