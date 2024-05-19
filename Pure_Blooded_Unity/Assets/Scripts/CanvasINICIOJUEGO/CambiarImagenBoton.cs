@@ -13,11 +13,14 @@ public class CambiarImagenBoton : MonoBehaviour, IPointerEnterHandler, IPointerE
         botonImage = GetComponent<Image>();
         AudioSource = GetComponent<AudioSource>();
 
-        AudioSource.Stop();
+        AudioSource.enabled = false;
+        botonImage.enabled = false;
     }
 
     public void OnPointerEnter(PointerEventData eventData) // CUANDO ENTRA EL MOUSE
     {
+        AudioSource.enabled = true;
+        botonImage.enabled = true;
         // Invertir el valor de fillCenter cuando el ratón se pase por encima
         if (botonImage != null)
         {
@@ -28,6 +31,8 @@ public class CambiarImagenBoton : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerExit(PointerEventData eventData) // CUANDO SALE EL MOUSE
     {
+        AudioSource.enabled = true;
+        botonImage.enabled = false;
         // Volver a invertir el valor de fillCenter cuando el ratón salga del botón
         if (botonImage != null)
         {
