@@ -8,6 +8,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Analytics;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour, IPickable, IInteractable
 {
@@ -20,15 +22,16 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     private bool _isReading = false;
     private bool _isExaminating = false;
     
+    [Header("Examinate")]
 
-    [Header("Examinar")]
     private CinemachineBrain _mainCamera;
     private GameObject _objectExaminated;
+    private Item3DExamin _item3DExamin;
 
     private void Start()
     {
         ToggleNotaCanvas(false);
-        
+        _item3DExamin = FindObjectOfType<Item3DExamin>();
     }
     private void Update()
     {
@@ -47,12 +50,20 @@ public class Item : MonoBehaviour, IPickable, IInteractable
 
             if(Input.GetKeyDown(KeyCode.T) && !_isExaminating){
                 _player.GetComponent<PlayerController>().CanMove = false;
-                Examine();
+                
+                GameObject _rawImage = _item3DExamin.gameObject.transform.Find("FondoExaminar").gameObject;
+                _rawImage.GetComponent<RawImage>().enabled = true;
+
+                _objectExaminated = _item3DExamin.Examine(_itemSO);
                 _isExaminating = true;
             } 
             
             if(Input.GetKeyDown(KeyCode.Y)) {
-                _player.GetComponent<PlayerController>().CanMove = false;
+                _player.GetComponent<PlayerController>().CanMove = true;
+                
+                GameObject _rawImage = _item3DExamin.gameObject.transform.Find("FondoExaminar").gameObject;
+                _rawImage.GetComponent<RawImage>().enabled = false;
+                
                 Destroy(_objectExaminated);
                 _isExaminating = false;
             }
@@ -133,21 +144,5 @@ public class Item : MonoBehaviour, IPickable, IInteractable
             texto.GetComponent<TextMeshProUGUI>().text = gameObject.GetComponent<Nota>().texto;
         }
     }
-
-    public void Examine(){
-        //Solo hay uno, que pertenece al Main Camera
-        _mainCamera = FindObjectOfType<CinemachineBrain>();
-
-        if(_mainCamera != null){
-            UnityEngine.Vector3 spawnPosition = _mainCamera.transform.position + _mainCamera.transform.forward * 0.4f;
-        
-            GameObject objetoPrefab = _itemSO.GetItemPrefab();
-
-            _objectExaminated = Instantiate(objetoPrefab, spawnPosition, _mainCamera.transform.rotation);
-        } else {
-            Debug.Log("No hay camaraas activas");
-        }
-    }
-
 
 }
