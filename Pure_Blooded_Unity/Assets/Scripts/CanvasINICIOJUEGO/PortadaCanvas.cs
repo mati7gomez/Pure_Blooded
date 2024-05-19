@@ -12,10 +12,13 @@ public class PortadaCanvas : MonoBehaviour
     public GameObject FondoPanel;
     private void Start()
     {
-        Time.timeScale = 1f;
-        B_Pausa.SetActive(true);
-        B_Despausa.SetActive(false);
-        FondoPanel.SetActive(false);
+        if (B_Pausa != null)
+        {
+            Time.timeScale = 1f;
+            B_Pausa.SetActive(true);
+            B_Despausa.SetActive(false);
+            FondoPanel.SetActive(false);
+        }
     }
 
     public void CambiarEscena()
