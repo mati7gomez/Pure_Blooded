@@ -1,43 +1,50 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class CambiarImagenBoton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Image botonImage;
-    private AudioSource AudioSource;
+    private AudioSource audioSource;
 
     private void Start()
     {
-        // Obtener la imagen del componente Button
+        // Obtener los componentes Image y AudioSource del GameObject
         botonImage = GetComponent<Image>();
-        AudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
-        AudioSource.enabled = false;
+        // Inicialmente desactivar el AudioSource y la imagen
+        audioSource.enabled = false;
         botonImage.enabled = false;
+
     }
 
-    public void OnPointerEnter(PointerEventData eventData) // CUANDO ENTRA EL MOUSE
+    public void OnPointerEnter(PointerEventData eventData) // Cuando el ratón entra
     {
-        AudioSource.enabled = true;
-        botonImage.enabled = true;
-        // Invertir el valor de fillCenter cuando el ratón se pase por encima
-        if (botonImage != null)
+        if (botonImage != null && audioSource != null)
         {
-            AudioSource.Play();
-            botonImage.fillCenter = !botonImage.fillCenter;
+            // Activar y reproducir el audio
+            audioSource.enabled = true;
+            audioSource.Play();
+
+            // Activar la imagen
+            botonImage.enabled = true;
+
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData) // CUANDO SALE EL MOUSE
+    public void OnPointerExit(PointerEventData eventData) // Cuando el ratón sale
     {
-        AudioSource.enabled = true;
-        botonImage.enabled = false;
-        // Volver a invertir el valor de fillCenter cuando el ratón salga del botón
-        if (botonImage != null)
+        if (botonImage != null && audioSource != null)
         {
-            AudioSource.Stop();
-            botonImage.fillCenter = !botonImage.fillCenter;
+            // Detener y desactivar el audio
+            audioSource.Stop();
+            audioSource.enabled = false;
+
+            // Desactivar la imagen
+            botonImage.enabled = false;
+
         }
     }
 }
