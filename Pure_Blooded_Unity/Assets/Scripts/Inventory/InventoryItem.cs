@@ -75,7 +75,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
         SetImageRaycastTarget(false);
 
         InventoryGridController invController = GameObject.Find("Inventario").GetComponent<InventoryGridController>();
-        invController.SetInventoryOccupancyStateWhileDragging(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation);
+        invController.SetInventoryOccupancyStateOnDrag(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation, false);
 
         //Guardamos la posicion, pivot, rotacion y parent antes de arrastrar el objeto
         SetLastPivot();
@@ -114,7 +114,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
         if (!_hasMovedToOtherPos)
         {
             InventoryGridController invController = GameObject.Find("Inventario").GetComponent<InventoryGridController>();
-            invController.SetInventoryOccupancyStateAfterDrag(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation);
+            invController.SetInventoryOccupancyStateOnDrag(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation, true);
         }
 
         //Establecemos los valores de arrastrado en falso al soltar el item
@@ -155,6 +155,12 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     {
         return new Vector2(_rectTransform.rect.width * _rectTransform.pivot.x, _rectTransform.rect.height * _rectTransform.pivot.y);
     }
+    //private Vector2Int GetPivotTile()
+    //{
+    //    Vector2Int pivotTile = new Vector2Int(_lastPivot.x );
+
+    //    return pivotTile;
+    //}
     private void SetRectTransformPivot(Vector2 newPivot) => _rectTransform.pivot = newPivot; //Metodo para cambiar el pivot del _rectTransform
 
     //Position
@@ -210,5 +216,36 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     public static bool GetAnyItemIsBeingDragged() => _anyItemIsBeingDragged;
     private void SetIsBeingDragged(bool value) => _isBeingDragged = value;
     public void SetHasMovedToOtherPos(bool value) => _hasMovedToOtherPos = value;
+
+    public void SetItemVariablesOnCreated(ItemSO itemSO, Vector2Int tilePosInInvntory, int rot, Vector3 newPos)
+    {
+        _rectTransform = GetComponent<RectTransform>();
+        _itemSO = itemSO;
+        _itemImage = GetComponent<Image>();
+        _itemImage.sprite = _itemSO.GetItemImage();
+        _itemGrid = GetComponent<Grid>();
+        _itemGrid.SetGridWidth(_itemSO.GetItemSizeInInventory().x);
+        _itemGrid.SetGridHeight(_itemSO.GetItemSizeInInventory().y);
+        SetDefaultPivot();
+        SetDefaultPosition(newPos);
+        SetDefaultRotation(rot);
+        _rectTransform.sizeDelta = new Vector2(_itemGrid.GetGridWidth() * _itemGrid.GetTileWidthSize(), _itemGrid.GetGridHeight() * _itemGrid.GetTileHeightSize());
+    }
+
+    private void SetDefaultPivot()
+    {
+        SetRectTransformPivot(GetDesiredItemPivot(Vector2Int.zero));
+    }
+    private void SetDefaultPosition(Vector3 newPos)
+    {
+        _lastPosition = newPos;
+        SetRectTransformPosition();
+    }
+    private void SetDefaultRotation(int rot)
+    {
+        _itemRotation = (Rotation)rot;
+        _lastRotation = (Rotation)rot;
+        SetRectTransformRotation();
+    }
     
 }
