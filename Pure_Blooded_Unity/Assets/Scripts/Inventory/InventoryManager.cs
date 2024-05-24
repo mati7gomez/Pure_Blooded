@@ -20,13 +20,13 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public bool AddItem(ItemSO itemSO)
+    public bool CanAddItem(ItemSO itemSO)
     {
         if (_inventoryGridController.TryToAddItem(itemSO))
         {
-            
+            return true;
         }
-        return true;
+        return false;
     }
 
     private void ToggleInventoryCanvas()

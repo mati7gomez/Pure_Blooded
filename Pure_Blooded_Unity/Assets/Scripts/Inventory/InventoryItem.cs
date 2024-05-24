@@ -217,6 +217,9 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     private void SetIsBeingDragged(bool value) => _isBeingDragged = value;
     public void SetHasMovedToOtherPos(bool value) => _hasMovedToOtherPos = value;
 
+
+
+    //Metodos que se van a ejecutar al crear un nuevo item en el inventario (cuando se agarra el objeto)
     public void SetItemVariablesOnCreated(ItemSO itemSO, Vector2Int tilePosInInvntory, int rot, Vector3 newPos)
     {
         _rectTransform = GetComponent<RectTransform>();

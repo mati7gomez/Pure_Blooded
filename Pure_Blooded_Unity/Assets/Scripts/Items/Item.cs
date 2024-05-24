@@ -94,7 +94,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     {
         ToggleInteractCanvas(false);
         InventoryManager inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
-        if (inventoryManager.AddItem(_itemSO))
+        if (inventoryManager.CanAddItem(_itemSO))
         {
             Destroy(gameObject);
         }
