@@ -14,17 +14,16 @@ public class Item3DExamin : MonoBehaviour, IDragHandler
         
         if(_mainCamera !=null){
             Vector3 inspectOffSet = _itemSO.GetItemInspectOffSet(); //Eje X e Y
-            
+            Quaternion inspectRotation = _itemSO.GetItemInspectRotation(); //Rotacion del objeto
             Vector3 cameraPosition = _mainCamera.transform.position;
-
             Vector3 forwardPosition = _mainCamera.transform.forward;
             
             Vector3 spawnPosition = cameraPosition + forwardPosition + new Vector3(inspectOffSet.x, inspectOffSet.y, 0);
             
-            //Vector3 spawnPosition = _mainCamera.transform.position + _mainCamera.transform.forward * inspectDistance;
+            Quaternion spawnRotation = _mainCamera.transform.rotation * inspectRotation;
 
             GameObject objetoPrefab = _itemSO.GetItemPrefab();
-            _objectExaminated = Instantiate(objetoPrefab, spawnPosition, _mainCamera.transform.rotation);
+            _objectExaminated = Instantiate(objetoPrefab, spawnPosition, spawnRotation);
         
         }
         return _objectExaminated;

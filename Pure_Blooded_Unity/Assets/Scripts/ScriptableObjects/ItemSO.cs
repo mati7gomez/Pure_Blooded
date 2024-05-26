@@ -13,7 +13,7 @@ public class ItemSO : ScriptableObject //ScriptableObject para los atributos de 
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private Vector2Int itemSizeInInventory;
     [SerializeField] private Vector3 itemInspectOffSet; //Distancia en eje X e Y
-
+    [SerializeField] private Quaternion itemInspectRotation;
     //States
     [SerializeField] private bool canInteract; //Al final creo q todos podran interactuar de alguna forma (ej: una llave abre, la linterna prende y apaga, una nota se puede  lerr, etc)
 
@@ -25,4 +25,5 @@ public class ItemSO : ScriptableObject //ScriptableObject para los atributos de 
     public GameObject GetItemPrefab() => itemPrefab;
     public Vector2Int GetItemSizeInInventory() => itemSizeInInventory;
     public Vector3 GetItemInspectOffSet() => itemInspectOffSet;
+    public Quaternion GetItemInspectRotation() => itemInspectRotation;
 }
