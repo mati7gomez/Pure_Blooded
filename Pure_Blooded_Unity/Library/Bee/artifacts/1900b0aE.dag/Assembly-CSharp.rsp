@@ -371,6 +371,7 @@
 "Assets/Scripts/Inventory/InventoryGridController.cs"
 "Assets/Scripts/Inventory/InventoryItem.cs"
 "Assets/Scripts/Inventory/InventoryManager.cs"
+"Assets/Scripts/Item3DExamin.cs"
 "Assets/Scripts/Items/Item.cs"
 "Assets/Scripts/Items/ItemStats.cs"
 "Assets/Scripts/Items/Nota.cs"
