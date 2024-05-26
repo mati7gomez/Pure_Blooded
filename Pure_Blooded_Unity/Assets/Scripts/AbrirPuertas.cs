@@ -42,7 +42,7 @@ public class AbrirPuertas : MonoBehaviour
     // LOGICA PARA ABRIR LA PUERTA
     private void AbrirPuerta()
     {
-        if (Input.GetKeyDown(KeyCode.C) && puedeAbrirPuerta)
+        if (Input.GetKeyDown(KeyCode.F) && puedeAbrirPuerta)
         {
             // Girar la puerta -90 grados en el eje Y
             puerta.Rotate(0f, -90f, 0f, Space.Self);
