@@ -22,10 +22,12 @@ public class InventoryManager : MonoBehaviour
 
     public bool CanAddItem(ItemSO itemSO)
     {
-        if (_inventoryGridController.TryToAddItem(itemSO))
+        if (_inventoryGridController.AddItem(itemSO))
         {
+            Debug.Log("Item agregado");
             return true;
         }
+        else Debug.Log("Item no se pudo agregar");
         return false;
     }
 

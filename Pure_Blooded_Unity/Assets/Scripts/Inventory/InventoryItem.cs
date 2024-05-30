@@ -10,12 +10,13 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     //Variable static para controlar el abrir y cerrar del menu
     static bool _anyItemIsBeingDragged;
 
-    [SerializeField] private ItemSO _itemSO;
+    //Variable que contiene la informacion del item
+    private ItemSO _itemSO;
 
-    //Variables para el uso del Grid en el objeto
-
-    private Grid _itemGrid; //Objeto grid del item
-    private RectTransform _rectTransform; //Componente rect transform del item
+    //Componentes
+    private Grid _itemGrid; //Componente Grid del item
+    private RectTransform _rectTransform; //Componente RectTransform del item
+    private Image _itemImage; //Componente Image del item
 
     private Rotation _itemRotation = new Rotation(); //Inicializacion del enum que guarda la rotacion actual del item
     private enum Rotation
@@ -26,7 +27,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
         down = 270,
     }
 
-    private Image _itemImage;
+    
     private bool _isBeingDragged;
 
     private Transform _lastParent;
@@ -40,14 +41,9 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
 
     //--------------------------------
 
-    private void Awake()
-    {
-        _itemImage = GetComponent<Image>();
-    }
     private void Start()
     {
-        _itemGrid = GetComponent<Grid>();
-        _rectTransform = GetComponent<RectTransform>();
+        LoadComponents();
     }
     private void Update()
     {
@@ -66,11 +62,9 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     {
         _selectedTile = _itemGrid.GetTileInGrid(_rectTransform, Input.mousePosition, GetPivotOffset());
         _mousePosBeforeDrag = Input.mousePosition;
-        //Debug.Log(_selectedTile);
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        _hasMovedToOtherPos = false;
         //Desactivamos el raycastTarget del item al moverlo para que cuando lo soltemos el mouse detecte el inventario y no la imagen del item
         SetImageRaycastTarget(false);
 
@@ -109,12 +103,16 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
         //Aplicamos 
         transform.SetParent(_lastParent);
         SetRectTransformPivot(_lastPivot);
-        SetRectTransformPosition();
-        SetRectTransformRotation();
+        SetRectTransformPosition(_lastPosition);
+        SetRectTransformRotation(_lastRotation);
         if (!_hasMovedToOtherPos)
         {
             InventoryGridController invController = GameObject.Find("Inventario").GetComponent<InventoryGridController>();
             invController.SetInventoryOccupancyStateOnDrag(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation, true);
+        }
+        else
+        {
+            _hasMovedToOtherPos = false;
         }
 
         //Establecemos los valores de arrastrado en falso al soltar el item
@@ -167,7 +165,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     private void SetLastPosition(Vector3 lastPos) => _lastPosition = lastPos; //Metodo para guardar la posicion antes de mover el objeto
     public void SetNewPosition(Vector3 newPos) => SetLastPosition(newPos); //Metodo para cambiar la ultima posicion guardada por la nueva al ser colocado en el nuevo slot del inv
     private void MoveImageToPosition(Vector3 position) => transform.position = position; //Metodo para mover el objeto mientras se arrastra
-    private void SetRectTransformPosition() => _rectTransform.localPosition = _lastPosition;
+    private void SetRectTransformPosition(Vector3 position) => _rectTransform.localPosition = position;
 
     //Rotation
     private void SetLastRotation() => _lastRotation = GetItemRotation(); //Metodo para guardar la rotacion antes de mover el objeto
@@ -196,10 +194,10 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     }
     public int GetItemRotationDir() => (int)_itemRotation; //Metodo para obtener la direccion de rotacion actual del item
     private Rotation GetItemRotation() => _itemRotation; //Metodo para obtener la rotacion actual del item
-    private void SetRectTransformRotation()
+    private void SetRectTransformRotation(Rotation rotation)
     {
-        _rectTransform.localRotation = Quaternion.Euler(0f, 0f, (int)_lastRotation);
-        _itemRotation = _lastRotation;
+        _rectTransform.localRotation = Quaternion.Euler(0f, 0f, (int)rotation);
+        _itemRotation = rotation;
     }
 
     //Parent
@@ -220,35 +218,34 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
 
 
     //Metodos que se van a ejecutar al crear un nuevo item en el inventario (cuando se agarra el objeto)
-    public void SetItemVariablesOnCreated(ItemSO itemSO, Vector2Int tilePosInInvntory, int rot, Vector3 newPos)
+    public void SetItemVariablesOnCreated(ItemSO itemSO, int itemRotation, Vector3 itemPosition)
     {
-        _rectTransform = GetComponent<RectTransform>();
-        _itemSO = itemSO;
-        _itemImage = GetComponent<Image>();
-        _itemImage.sprite = _itemSO.GetItemImage();
+        LoadComponents();
+        SetItemSO(itemSO);
+        SetImageSprite();
+        SetItemGridSize();
+        SetInitialPivot();
+        SetInitialPosition(itemPosition);
+        SetInitialRotation(itemRotation);
+        SetRectTransformSize();
+    }
+    private void LoadComponents()
+    {
         _itemGrid = GetComponent<Grid>();
+        _rectTransform = GetComponent<RectTransform>();
+        _itemImage = GetComponent<Image>();
+        
+    }
+    private void SetInitialPivot() => SetRectTransformPivot(GetDesiredItemPivot(Vector2Int.zero));
+    private void SetInitialPosition(Vector3 newPos) => SetRectTransformPosition(newPos);
+    private void SetInitialRotation(int rot) => SetRectTransformRotation((Rotation)rot);
+    private void SetItemSO(ItemSO newItemSO) => _itemSO = newItemSO;
+    private void SetImageSprite() => _itemImage.sprite = _itemSO.GetItemImage();
+    private void SetItemGridSize()
+    {
         _itemGrid.SetGridWidth(_itemSO.GetItemSizeInInventory().x);
         _itemGrid.SetGridHeight(_itemSO.GetItemSizeInInventory().y);
-        SetDefaultPivot();
-        SetDefaultPosition(newPos);
-        SetDefaultRotation(rot);
-        _rectTransform.sizeDelta = new Vector2(_itemGrid.GetGridWidth() * _itemGrid.GetTileWidthSize(), _itemGrid.GetGridHeight() * _itemGrid.GetTileHeightSize());
     }
-
-    private void SetDefaultPivot()
-    {
-        SetRectTransformPivot(GetDesiredItemPivot(Vector2Int.zero));
-    }
-    private void SetDefaultPosition(Vector3 newPos)
-    {
-        _lastPosition = newPos;
-        SetRectTransformPosition();
-    }
-    private void SetDefaultRotation(int rot)
-    {
-        _itemRotation = (Rotation)rot;
-        _lastRotation = (Rotation)rot;
-        SetRectTransformRotation();
-    }
+    private void SetRectTransformSize() => _rectTransform.sizeDelta = new Vector2(_itemGrid.GetGridWidth() * _itemGrid.GetTileWidthSize(), _itemGrid.GetGridHeight() * _itemGrid.GetTileHeightSize());
     
 }

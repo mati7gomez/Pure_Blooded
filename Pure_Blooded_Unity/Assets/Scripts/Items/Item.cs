@@ -14,7 +14,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
 {
     [SerializeField] private ItemSO _itemSO; //Scriptable object del item
 
-    private GameObject _player;
+    private GameObject _player; //Referencia al
 
     private bool _canBePicked = false; //Bool para saber si el jugador esta en rango para agarrar el objeto
 
@@ -96,7 +96,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     public void Pick()
     {
         ToggleInteractCanvas(false);
-        InventoryManager inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+        InventoryManager inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
         if (inventoryManager.CanAddItem(_itemSO))
         {
             Destroy(gameObject);

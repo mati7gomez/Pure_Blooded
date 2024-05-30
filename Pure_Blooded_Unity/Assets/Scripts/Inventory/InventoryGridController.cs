@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class InventoryGridController : MonoBehaviour, IDropHandler
 {
@@ -49,7 +50,7 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
     //-----------Metodos de la clase---------------------//
 
     //Metodos para calcular la nueva posicion del item en el inventario al ser colocado correctamente
-    private Vector3 GetNewPosition(Vector2Int tilePos) //Metodo para obtener la nueva posicion del item al ser colocado correctamente en la grilla del inventario
+    private Vector3 GetNewPosition(Vector2Int inventoryTile) //Metodo para obtener la nueva posicion del item al ser colocado correctamente en la grilla del inventario
     {
         float x = 0f; // valor en x a mover
         float y = 0f; // valor en y a mover
@@ -59,8 +60,8 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
 
         if (gridWidthTiles > 1 && gridHeightTiles > 1) //Si la grilla es igual o mayor a 2x2 se puede interactuar
         {
-            CalculateNewPositionAxis(tilePos.x, _selectedGrid.GetTileWidthSize(), out x);
-            CalculateNewPositionAxis(tilePos.y, _selectedGrid.GetTileHeightSize(), out y);
+            CalculateNewPositionAxis(inventoryTile.x, _selectedGrid.GetTileWidthSize(), out x);
+            CalculateNewPositionAxis(inventoryTile.y, _selectedGrid.GetTileHeightSize(), out y);
         }
         //Debug.Log($"TilePos: ({tileX},{tileY}) - TileMovement: ({x},{y})");
         return new Vector2(x, y);
@@ -74,6 +75,34 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
         }
     }
 
+    public bool AddItem(ItemSO itemSO)
+    {
+        int invGridWidth = _selectedGrid.GetGridWidth();
+        int invGridHeight = _selectedGrid.GetGridHeight();
+
+        Vector2Int inventoryTile = new Vector2Int();
+        Vector2Int defaultPivotTile = Vector2Int.zero;
+        Grid itemGrid = new Grid(itemSO.GetItemSizeInInventory().x, itemSO.GetItemSizeInInventory().y);
+
+        for (int itemRotation = 0; itemRotation <= 270; itemRotation += 90)
+        {
+            for (int i = 0; i < invGridWidth; i++)
+            {
+                inventoryTile.x = i;
+                for (int j = 0; j < invGridHeight; j++)
+                {
+                    inventoryTile.y = j;
+                    if (CanItemBePlaced(inventoryTile, defaultPivotTile, itemGrid, itemRotation))
+                    {
+                        SetInventoryOccupancyStateOnItemPicked(inventoryTile, defaultPivotTile, itemGrid, itemRotation, true);
+                        PlaceItem(itemSO, itemRotation, GetNewPosition(inventoryTile));
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
     private bool CanItemBePlaced(Vector2Int inventoryTilePos, Vector2Int itemPivotTile , Grid itemGrid, int itemRot)
     {
         int maxW = _selectedGrid.GetGridWidth();
@@ -103,35 +132,10 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
         Debug.Log("Item se puede colocar");
         return true;
     }
-    public bool TryToAddItem(ItemSO itemSO)
+    private void PlaceItem(ItemSO itemSO, int itemRotation, Vector3 itemPosition)
     {
-        int invGridWidth = _selectedGrid.GetGridWidth();
-        int invGridHeight = _selectedGrid.GetGridHeight();
-        Vector2Int tilePos = new Vector2Int();
-        Vector2Int defaultPivotTile = Vector2Int.zero;
-        Vector2Int itemSize = itemSO.GetItemSizeInInventory();
-        Grid itemGrid = new Grid();
-        itemGrid.SetGridWidth(itemSize.x);
-        itemGrid.SetGridHeight(itemSize.y);
-        for (int rot = 0; rot <= 270; rot += 90)
-        {
-            for (int i = 0; i < invGridWidth; i++)
-            {
-                tilePos.x = i;
-                for (int j = 0; j < invGridHeight; j++)
-                {
-                    tilePos.y = j;
-                    if (CanItemBePlaced(tilePos, defaultPivotTile, itemGrid, rot))
-                    {
-                        SetInventoryOccupancyStateOnItemPicked(tilePos, defaultPivotTile, itemGrid, rot, true); ;
-                        GameObject itemCreated = Instantiate(_inventoryItemPrefab, transform);
-                        itemCreated.GetComponent<InventoryItem>().SetItemVariablesOnCreated(itemSO, tilePos, rot, GetNewPosition(tilePos));
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
+        GameObject itemCreated = Instantiate(_inventoryItemPrefab, transform);
+        itemCreated.GetComponent<InventoryItem>().SetItemVariablesOnCreated(itemSO, itemRotation, itemPosition);
     }
 
 
@@ -233,7 +237,7 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
 
     //Metodos para establecer el estado de ocupacion de los tiles del inventario
 
-    public void SetInventoryOccupancyStateOnDrag(Vector2 mousePos, Vector2Int itemPivotTile, Grid itemGrid, int itemRot, bool value)
+    public void SetInventoryOccupancyStateOnDrag(Vector2 mousePos, Vector2Int itemPivotTile, Grid itemGrid, int itemRot, bool state)
     {
         int startX;
         int startY;
@@ -247,7 +251,7 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
                 startY = inventoryTilePos.y - itemPivotTile.y;
                 endX = startX + (itemGrid.GetGridWidth() - 1);
                 endY = startY + (itemGrid.GetGridHeight() - 1);
-                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, value);
+                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, state);
                 break;
 
             case 90:
@@ -255,7 +259,7 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
                 startY = inventoryTilePos.y - itemPivotTile.x;
                 endX = startX + (itemGrid.GetGridHeight() - 1);
                 endY = startY + (itemGrid.GetGridWidth() - 1);
-                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, value);
+                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, state);
                 break;
 
             case 180:
@@ -263,7 +267,7 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
                 startY = inventoryTilePos.y - ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y);
                 endX = startX + (itemGrid.GetGridWidth() - 1);
                 endY = startY + (itemGrid.GetGridHeight() - 1);
-                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, value);
+                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, state);
                 break;
 
             case 270:
@@ -271,17 +275,16 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
                 startY = inventoryTilePos.y - ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x);
                 endX = startX + (itemGrid.GetGridHeight() - 1);
                 endY = startY + (itemGrid.GetGridWidth() - 1);
-                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, value);
+                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, state);
                 break;
         }
     }
-    public void SetInventoryOccupancyStateOnItemPicked(Vector2Int tilePos, Vector2Int itemPivotTile, Grid itemGrid, int itemRot, bool value)
+    public void SetInventoryOccupancyStateOnItemPicked(Vector2Int inventoryTilePos, Vector2Int itemPivotTile, Grid itemGrid, int itemRot, bool state)
     {
         int startX;
         int startY;
         int endX;
         int endY;
-        Vector2Int inventoryTilePos = tilePos;
         switch (itemRot)
         {
             case 0:
@@ -289,7 +292,7 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
                 startY = inventoryTilePos.y - itemPivotTile.y;
                 endX = startX + (itemGrid.GetGridWidth() - 1);
                 endY = startY + (itemGrid.GetGridHeight() - 1);
-                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, value);
+                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, state);
                 break;
 
             case 90:
@@ -297,7 +300,7 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
                 startY = inventoryTilePos.y - itemPivotTile.x;
                 endX = startX + (itemGrid.GetGridHeight() - 1);
                 endY = startY + (itemGrid.GetGridWidth() - 1);
-                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, value);
+                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, state);
                 break;
 
             case 180:
@@ -305,7 +308,7 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
                 startY = inventoryTilePos.y - ((itemGrid.GetGridHeight() - 1) - itemPivotTile.y);
                 endX = startX + (itemGrid.GetGridWidth() - 1);
                 endY = startY + (itemGrid.GetGridHeight() - 1);
-                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, value);
+                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, state);
                 break;
 
             case 270:
@@ -313,7 +316,7 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
                 startY = inventoryTilePos.y - ((itemGrid.GetGridWidth() - 1) - itemPivotTile.x);
                 endX = startX + (itemGrid.GetGridHeight() - 1);
                 endY = startY + (itemGrid.GetGridWidth() - 1);
-                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, value);
+                _selectedGrid.SetTilesOccupancyState(startX, startY, endX, endY, state);
                 break;
         }
     }

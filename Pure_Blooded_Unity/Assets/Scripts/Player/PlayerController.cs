@@ -48,8 +48,6 @@ public class PlayerController : MonoBehaviour
     private float _initialGravity = -9.8f;
     [SerializeField] private float _gravityMultiplier;
 
-    //Variables para calcular si esta en un slope (una subida empinada)
-    private bool _isOnSlope;
 
     private void Start()
     {

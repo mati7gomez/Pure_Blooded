@@ -14,21 +14,30 @@ public class Grid : MonoBehaviour // Define la clase Grid y hereda de MonoBehavi
     [SerializeField] private int _height;
 
     // Estado de ocupación de cada celda de la cuadrícula
+    [SerializeField] private bool _isConteiner;
     private bool[,] _tileOccupancyState;
 
     // Posición en la cuadrícula y posición de la celda en la cuadrícula
     private Vector2 _positionOnTheGrid = new Vector2();
     private Vector2Int _tileGridPosition = new Vector2Int();
 
+    public Grid(int width, int height)
+    {
+        _width = width;
+        _height = height;
+    }
+
     private void Start()
     {
         // Inicializa el estado de ocupación de la cuadrícula
-        _tileOccupancyState = new bool[_width, _height];
+        if (_isConteiner)
+            _tileOccupancyState = new bool[_width, _height];
+
         //Debug.Log(_tileOccupancyState.Length);
     }
 
     // Método que devuelve la posición de la celda en la cuadrícula basada en una posición de entrada
-    public Vector2Int GetTileInGrid(Vector2 inputPosition)
+    private Vector2Int GetTileInGrid(Vector2 inputPosition)
     {
         _positionOnTheGrid.x = inputPosition.x;
         _positionOnTheGrid.y = inputPosition.y;
@@ -40,10 +49,9 @@ public class Grid : MonoBehaviour // Define la clase Grid y hereda de MonoBehavi
     }
 
     // Método que devuelve la posición de la celda en la cuadrícula basada en una posición de entrada y un desplazamiento
-    public Vector2Int GetTileInGrid(RectTransform rectTransform, Vector2 position, Vector2 offset)
+    public Vector2Int GetTileInGrid(RectTransform rectTransform, Vector2 inputPosition, Vector2 offset)
     {
-        Vector2 localPointInGrid;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, position, null, out localPointInGrid);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, inputPosition, null, out Vector2 localPointInGrid);
         Vector2 pivotOffset = offset;
         Vector2 adjustedLocalPoint = localPointInGrid + pivotOffset;
         return GetTileInGrid(adjustedLocalPoint);
