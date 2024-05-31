@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -19,7 +21,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     private Image _itemImage; //Componente Image del item
 
     private Rotation _itemRotation = new Rotation(); //Inicializacion del enum que guarda la rotacion actual del item
-    private enum Rotation
+    public enum Rotation
     {
         right = 0,
         up  = 90,
@@ -27,16 +29,17 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
         down = 270,
     }
 
-    
     private bool _isBeingDragged;
+    private bool _isInHand;
+    private bool _hasMovedToOtherPos;
+
+    private Vector2Int _selectedTile; //VectorInt que almacena el tile seleccionado para draggear
+    private Vector2 _mousePosBeforeDrag;
 
     private Transform _lastParent;
     private Vector3 _lastPosition;
     private Rotation _lastRotation;
-    private Vector2Int _selectedTile; //VectorInt que almacena el tile seleccionado para draggear
     private Vector2 _lastPivot; //Vector que almacena el pivot deseado para draggear
-    private Vector2 _mousePosBeforeDrag;
-    private bool _hasMovedToOtherPos;
 
 
     //--------------------------------
@@ -47,7 +50,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     }
     private void Update()
     {
-        if (_isBeingDragged && Input.GetKeyDown(KeyCode.R))
+        if (_isBeingDragged && (Input.GetKeyDown(KeyCode.R) || Input.GetMouseButtonDown(1)))
         {
             ChangeItemRotation();
         }
@@ -67,9 +70,13 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     {
         //Desactivamos el raycastTarget del item al moverlo para que cuando lo soltemos el mouse detecte el inventario y no la imagen del item
         SetImageRaycastTarget(false);
-
-        InventoryGridController invController = GameObject.Find("Inventario").GetComponent<InventoryGridController>();
-        invController.SetInventoryOccupancyStateOnDrag(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation, false);
+        SetSizeOnDrag();
+        if (!_isInHand)
+        {
+            InventoryGridController invController = GameObject.Find("Inventario").GetComponent<InventoryGridController>();
+            invController.SetInventoryOccupancyStateOnDrag(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation, false);
+        }
+        
 
         //Guardamos la posicion, pivot, rotacion y parent antes de arrastrar el objeto
         SetLastPivot();
@@ -78,7 +85,13 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
         SetLastParent(transform.parent);
 
         //Cambiamos el pivot al mover el item
+        
         SetRectTransformPivot(GetDesiredItemPivot(_selectedTile));
+        if (_isInHand) 
+        {
+            SetSelectedTile(Vector2Int.zero);
+            SetRectTransformPivot(GetDesiredItemPivot(_selectedTile));
+        } 
 
         //Ponemos el item fuera del inventario y al final de la jerarquia para que al moverlo se muestre por encima de las demas imagenes
         transform.SetParent(transform.root.GetChild(0));
@@ -105,7 +118,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
         SetRectTransformPivot(_lastPivot);
         SetRectTransformPosition(_lastPosition);
         SetRectTransformRotation(_lastRotation);
-        if (!_hasMovedToOtherPos)
+        if (!_hasMovedToOtherPos && !_isInHand)
         {
             InventoryGridController invController = GameObject.Find("Inventario").GetComponent<InventoryGridController>();
             invController.SetInventoryOccupancyStateOnDrag(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation, true);
@@ -114,6 +127,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
         {
             _hasMovedToOtherPos = false;
         }
+        if (_isInHand) SetSizeOnHand();
 
         //Establecemos los valores de arrastrado en falso al soltar el item
         SetAnyItemIsBeingDragged(false);
@@ -125,14 +139,15 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     //-----------Metodos de la clase---------------------//
 
     public Vector2Int GetSelectedTile() => _selectedTile;
-    public void SetSelectedTile(Vector2Int tile)
-    {
-        _selectedTile = tile;
-    }
+    public void SetSelectedTile(Vector2Int tile) => _selectedTile = tile;
 
     //Pivot
     private void SetLastPivot() => _lastPivot = _rectTransform.pivot; //Metodo para guardar el pivot antes de mover el objeto
     public void SetNewPivot() => SetLastPivot(); //Metodo para cambiar el ultimo pivot guardado por el nuevo pivot
+    public void SetNewPivot(Vector2 newPivot)
+    {
+        _lastPivot = newPivot;
+    }
     private Vector2 GetDesiredItemPivot(Vector2Int tilePos) //Metodo para obtener el pivot deseado dependiendo de que tile se quiere arrastrar el item
     {
         float xPivot = SetAxisPivot(tilePos.x, _itemGrid.GetGridWidth()); //Obtenemos el pivot en x
@@ -153,12 +168,6 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     {
         return new Vector2(_rectTransform.rect.width * _rectTransform.pivot.x, _rectTransform.rect.height * _rectTransform.pivot.y);
     }
-    //private Vector2Int GetPivotTile()
-    //{
-    //    Vector2Int pivotTile = new Vector2Int(_lastPivot.x );
-
-    //    return pivotTile;
-    //}
     private void SetRectTransformPivot(Vector2 newPivot) => _rectTransform.pivot = newPivot; //Metodo para cambiar el pivot del _rectTransform
 
     //Position
@@ -170,50 +179,61 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     //Rotation
     private void SetLastRotation() => _lastRotation = GetItemRotation(); //Metodo para guardar la rotacion antes de mover el objeto
     public void SetNewRotation() => SetLastRotation(); //Metodo para cambiar la ultima rotacion guardada por la actual al ser colocado en el nuevo slot del inv
+    public void SetHandRotation()
+    {
+        SetItemRotation(Rotation.right);
+        SetLastRotation();
+    }
     private void ChangeItemRotation() //Metodo para cambiar la rotacion del item al apretar la tecla de rotar item al moverlo
     {
         switch (_itemRotation)
         {
             case Rotation.right:
-                _itemRotation = Rotation.up;
-                _rectTransform.SetLocalPositionAndRotation(_rectTransform.localPosition, Quaternion.Euler(0, 0, 90)); ;
+                SetRectTransformRotation(Rotation.up);
                 break;
             case Rotation.up:
-                _itemRotation = Rotation.left;
-                _rectTransform.SetLocalPositionAndRotation(_rectTransform.localPosition, Quaternion.Euler(0, 0, 180));
+                SetRectTransformRotation(Rotation.left);
                 break;
             case Rotation.left:
-                _itemRotation = Rotation.down;
-                _rectTransform.SetLocalPositionAndRotation(_rectTransform.localPosition, Quaternion.Euler(0, 0, 270));
+                SetRectTransformRotation(Rotation.down);
                 break;
             case Rotation.down:
-                _itemRotation = Rotation.right;
-                _rectTransform.SetLocalPositionAndRotation(_rectTransform.localPosition, Quaternion.Euler(0, 0, 0)); ;
+                SetRectTransformRotation(Rotation.right);
                 break;
         }
     }
-    public int GetItemRotationDir() => (int)_itemRotation; //Metodo para obtener la direccion de rotacion actual del item
-    private Rotation GetItemRotation() => _itemRotation; //Metodo para obtener la rotacion actual del item
+    //public int GetItemRotationInt() => (int)_itemRotation; //Metodo para obtener la direccion de rotacion actual del item
+    public Rotation GetItemRotation() => _itemRotation; //Metodo para obtener la rotacion actual del item
+    private void SetItemRotation(Rotation desiredRotation) => _itemRotation = desiredRotation;
     private void SetRectTransformRotation(Rotation rotation)
     {
         _rectTransform.localRotation = Quaternion.Euler(0f, 0f, (int)rotation);
-        _itemRotation = rotation;
+        SetItemRotation(rotation);
     }
 
     //Parent
     private void SetLastParent(Transform lastParent) => _lastParent = lastParent; //Metodo para guardar el anterior parent del transform
+    public void SetNewParent(Transform newParent) => SetLastParent(newParent);
 
-
-
-    private void SetImageRaycastTarget(bool value)
+    //Size
+    private void SetSizeOnDrag()
     {
-        if (_itemImage == null) _itemImage = GetComponent<Image>();
-        _itemImage.raycastTarget = value;
+        _rectTransform.sizeDelta = new Vector2(_itemSO.GetItemSizeInInventory().x * _itemGrid.GetTileWidthSize(), _itemSO.GetItemSizeInInventory().y * _itemGrid.GetTileHeightSize());
     }
+    public void SetSizeOnHand()
+    {
+        _rectTransform.sizeDelta = new Vector2(300,300);
+        _itemImage.preserveAspect = true;
+    }
+
+    
+
+    private void SetImageRaycastTarget(bool value) => _itemImage.raycastTarget = value;
     private void SetAnyItemIsBeingDragged(bool value) => _anyItemIsBeingDragged = value;
     public static bool GetAnyItemIsBeingDragged() => _anyItemIsBeingDragged;
     private void SetIsBeingDragged(bool value) => _isBeingDragged = value;
     public void SetHasMovedToOtherPos(bool value) => _hasMovedToOtherPos = value;
+    public void SetIsInHand(bool value) => _isInHand = value;
 
 
 

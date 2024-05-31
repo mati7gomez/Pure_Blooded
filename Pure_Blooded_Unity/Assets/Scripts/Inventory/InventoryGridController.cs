@@ -30,13 +30,15 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
             {
                 Vector2Int tilePos = _selectedGrid.GetTileInGrid(_rectTransform, eventData.position, Vector2.zero); //Obtenemos el tile donde se solto el item en la grilla del inventario
                 Grid droppedItemGrid = droppedItem.GetComponent<Grid>(); //Obtenemos el componente grid del item droppeado
-                if (CanItemBePlaced(tilePos, droppedItem.GetSelectedTile(), droppedItemGrid, droppedItem.GetItemRotationDir())) 
+                if (CanItemBePlaced(tilePos, droppedItem.GetSelectedTile(), droppedItemGrid, (int)droppedItem.GetItemRotation())) 
                 {
+                    droppedItem.SetIsInHand(false);
+                    droppedItem.SetNewParent(transform);
                     droppedItem.SetNewPivot();
                     droppedItem.SetNewPosition(GetNewPosition(tilePos));
                     droppedItem.SetNewRotation();
                     droppedItem.SetHasMovedToOtherPos(true);
-                    SetInventoryOccupancyStateOnItemPicked(tilePos, droppedItem.GetSelectedTile(), droppedItemGrid, droppedItem.GetItemRotationDir(), true);
+                    SetInventoryOccupancyStateOnItemPicked(tilePos, droppedItem.GetSelectedTile(), droppedItemGrid, (int)droppedItem.GetItemRotation(), true);
                     Debug.Log("Item colocado correctamente en su nueva posicion");
                 }
                 else

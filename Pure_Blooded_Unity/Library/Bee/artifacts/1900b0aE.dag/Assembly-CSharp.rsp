@@ -368,6 +368,7 @@
 "Assets/Scripts/Interfaces/IInteractable.cs"
 "Assets/Scripts/Interfaces/IPickable.cs"
 "Assets/Scripts/Inventory/Grid.cs"
+"Assets/Scripts/Inventory/HandController.cs"
 "Assets/Scripts/Inventory/InventoryGridController.cs"
 "Assets/Scripts/Inventory/InventoryItem.cs"
 "Assets/Scripts/Inventory/InventoryManager.cs"
