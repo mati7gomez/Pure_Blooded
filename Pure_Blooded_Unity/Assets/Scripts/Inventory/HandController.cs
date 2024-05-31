@@ -6,25 +6,47 @@ using UnityEngine.EventSystems;
 
 public class HandController : MonoBehaviour, IDropHandler
 {
-
-
-
     //Implementacion de interfaces
+    InventoryGridController _inventoryGridController;
+
+    private void Start()
+    {
+        _inventoryGridController = GameObject.Find("Inventario").GetComponent<InventoryGridController>();
+    }
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log(eventData.pointerDrag);
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            HandleHandDrop(eventData);
+        }
+    }
+
+    private void HandleHandDrop(PointerEventData eventData)
+    {
         InventoryItem droppedItem = eventData.pointerDrag.GetComponent<InventoryItem>();
-        Debug.Log(droppedItem);
         if (droppedItem != null && transform.childCount == 0)
         {
-            droppedItem.SetSizeOnHand();
             droppedItem.SetIsInHand(true);
+            droppedItem.SetSizeOnHand();
             droppedItem.SetHasMovedToOtherPos(true);
-            Debug.Log("bbbbbbbbbbbbb");
             droppedItem.SetNewParent(transform);
-            droppedItem.SetNewPivot(new Vector2(0.5f,0.5f));
+            droppedItem.SetNewPivot(new Vector2(0.5f, 0.5f));
             droppedItem.SetNewPosition(Vector2.zero);
             droppedItem.SetHandRotation();
+        }
+        else if (droppedItem != null && transform.childCount == 1)
+        {
+            if (_inventoryGridController.MoveItem(transform.GetChild(0).gameObject.GetComponent<InventoryItem>()))
+            {
+                droppedItem.SetIsInHand(true);
+                droppedItem.SetSizeOnHand();
+                droppedItem.SetHasMovedToOtherPos(true);
+                droppedItem.SetNewParent(transform);
+                droppedItem.SetNewPivot(new Vector2(0.5f, 0.5f));
+                droppedItem.SetNewPosition(Vector2.zero);
+                droppedItem.SetHandRotation();
+            }
+            
         }
     }
 }

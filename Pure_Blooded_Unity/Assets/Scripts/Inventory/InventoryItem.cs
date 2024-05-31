@@ -63,75 +63,93 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     #region Interfaces
     public void OnPointerDown(PointerEventData eventData)
     {
-        _selectedTile = _itemGrid.GetTileInGrid(_rectTransform, Input.mousePosition, GetPivotOffset());
-        _mousePosBeforeDrag = Input.mousePosition;
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            _selectedTile = _itemGrid.GetTileInGrid(_rectTransform, Input.mousePosition, GetPivotOffset());
+            _mousePosBeforeDrag = Input.mousePosition;
+        }
+        
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //Desactivamos el raycastTarget del item al moverlo para que cuando lo soltemos el mouse detecte el inventario y no la imagen del item
-        SetImageRaycastTarget(false);
-        SetSizeOnDrag();
-        if (!_isInHand)
+        if (!GetAnyItemIsBeingDragged() && !_isBeingDragged && eventData.button == PointerEventData.InputButton.Left)
         {
-            InventoryGridController invController = GameObject.Find("Inventario").GetComponent<InventoryGridController>();
-            invController.SetInventoryOccupancyStateOnDrag(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation, false);
+            Debug.Log(eventData.button + "Estoy mal");
+            //Desactivamos el raycastTarget del item al moverlo para que cuando lo soltemos el mouse detecte el inventario y no la imagen del item
+            SetImageRaycastTarget(false);
+            SetSizeOnDrag();
+            if (!_isInHand)
+            {
+                InventoryGridController invController = GameObject.Find("Inventario").GetComponent<InventoryGridController>();
+                invController.SetInventoryOccupancyStateOnDrag(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation, false);
+            }
+
+
+            //Guardamos la posicion, pivot, rotacion y parent antes de arrastrar el objeto
+            SetLastPivot();
+            SetLastPosition(_rectTransform.localPosition);
+            SetLastRotation();
+            SetLastParent(transform.parent);
+
+            //Cambiamos el pivot al mover el item
+
+            SetRectTransformPivot(GetDesiredItemPivot(_selectedTile));
+            if (_isInHand)
+            {
+                SetSelectedTile(Vector2Int.zero);
+                SetRectTransformPivot(GetDesiredItemPivot(_selectedTile));
+            }
+
+            //Ponemos el item fuera del inventario y al final de la jerarquia para que al moverlo se muestre por encima de las demas imagenes
+            transform.SetParent(transform.root.GetChild(0));
+            transform.SetAsLastSibling();
+
+            //Establecemos los valores de arrastrado en verdadero al mover el item
+            SetAnyItemIsBeingDragged(true);
+            SetIsBeingDragged(true);
         }
         
 
-        //Guardamos la posicion, pivot, rotacion y parent antes de arrastrar el objeto
-        SetLastPivot();
-        SetLastPosition(_rectTransform.localPosition);
-        SetLastRotation();
-        SetLastParent(transform.parent);
-
-        //Cambiamos el pivot al mover el item
-        
-        SetRectTransformPivot(GetDesiredItemPivot(_selectedTile));
-        if (_isInHand) 
-        {
-            SetSelectedTile(Vector2Int.zero);
-            SetRectTransformPivot(GetDesiredItemPivot(_selectedTile));
-        } 
-
-        //Ponemos el item fuera del inventario y al final de la jerarquia para que al moverlo se muestre por encima de las demas imagenes
-        transform.SetParent(transform.root.GetChild(0));
-        transform.SetAsLastSibling();
-
-        //Establecemos los valores de arrastrado en verdadero al mover el item
-        SetAnyItemIsBeingDragged(true);
-        SetIsBeingDragged(true);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //Movemos el item a la posicion del mouse
-        MoveImageToPosition(Input.mousePosition);
+        if (GetAnyItemIsBeingDragged() && _isBeingDragged && eventData.button == PointerEventData.InputButton.Left)
+        {
+            //Movemos el item a la posicion del mouse
+            MoveImageToPosition(Input.mousePosition);
+        }
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //Activamos el raycastTarget de la imagen de nuevo para que el mouse pueda detectar el item al querer arrastrarlo nuevamente
-        SetImageRaycastTarget(true);
-
-        //Aplicamos 
-        transform.SetParent(_lastParent);
-        SetRectTransformPivot(_lastPivot);
-        SetRectTransformPosition(_lastPosition);
-        SetRectTransformRotation(_lastRotation);
-        if (!_hasMovedToOtherPos && !_isInHand)
+        if (GetAnyItemIsBeingDragged() && _isBeingDragged && eventData.button == PointerEventData.InputButton.Left)
         {
-            InventoryGridController invController = GameObject.Find("Inventario").GetComponent<InventoryGridController>();
-            invController.SetInventoryOccupancyStateOnDrag(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation, true);
-        }
-        else
-        {
-            _hasMovedToOtherPos = false;
-        }
-        if (_isInHand) SetSizeOnHand();
+            //Activamos el raycastTarget de la imagen de nuevo para que el mouse pueda detectar el item al querer arrastrarlo nuevamente
+            SetImageRaycastTarget(true);
 
-        //Establecemos los valores de arrastrado en falso al soltar el item
-        SetAnyItemIsBeingDragged(false);
-        SetIsBeingDragged(false);
+            //Aplicamos 
+            transform.SetParent(_lastParent);
+            SetRectTransformPivot(_lastPivot);
+            SetRectTransformPosition(_lastPosition);
+            SetRectTransformRotation(_lastRotation);
+            if (!_hasMovedToOtherPos && !_isInHand)
+            {
+                InventoryGridController invController = GameObject.Find("Inventario").GetComponent<InventoryGridController>();
+                invController.SetInventoryOccupancyStateOnDrag(_mousePosBeforeDrag, _selectedTile, _itemGrid, (int)_itemRotation, true);
+            }
+            else
+            {
+                _hasMovedToOtherPos = false;
+            }
+            if (_isInHand) SetSizeOnHand();
+
+            //Establecemos los valores de arrastrado en falso al soltar el item
+            SetAnyItemIsBeingDragged(false);
+            SetIsBeingDragged(false);
+        }
+        
     }
     #endregion
 
@@ -234,6 +252,7 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     private void SetIsBeingDragged(bool value) => _isBeingDragged = value;
     public void SetHasMovedToOtherPos(bool value) => _hasMovedToOtherPos = value;
     public void SetIsInHand(bool value) => _isInHand = value;
+    public ItemSO GetItemSO() => _itemSO;
 
 
 

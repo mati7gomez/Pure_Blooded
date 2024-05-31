@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
@@ -23,30 +24,35 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
     //----------------Implementacion interfaces----------------//
     public void OnDrop(PointerEventData eventData) //Metodo que controla cuando un item se solto en la grilla del inventario
     {
-        InventoryItem droppedItem = eventData.pointerDrag.GetComponent<InventoryItem>();
-        if (droppedItem != null)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if (_selectedGrid != null)
+            Debug.Log("Item droppeado");
+            InventoryItem droppedItem = eventData.pointerDrag.GetComponent<InventoryItem>();
+            if (droppedItem != null)
             {
-                Vector2Int tilePos = _selectedGrid.GetTileInGrid(_rectTransform, eventData.position, Vector2.zero); //Obtenemos el tile donde se solto el item en la grilla del inventario
-                Grid droppedItemGrid = droppedItem.GetComponent<Grid>(); //Obtenemos el componente grid del item droppeado
-                if (CanItemBePlaced(tilePos, droppedItem.GetSelectedTile(), droppedItemGrid, (int)droppedItem.GetItemRotation())) 
+                if (_selectedGrid != null)
                 {
-                    droppedItem.SetIsInHand(false);
-                    droppedItem.SetNewParent(transform);
-                    droppedItem.SetNewPivot();
-                    droppedItem.SetNewPosition(GetNewPosition(tilePos));
-                    droppedItem.SetNewRotation();
-                    droppedItem.SetHasMovedToOtherPos(true);
-                    SetInventoryOccupancyStateOnItemPicked(tilePos, droppedItem.GetSelectedTile(), droppedItemGrid, (int)droppedItem.GetItemRotation(), true);
-                    Debug.Log("Item colocado correctamente en su nueva posicion");
-                }
-                else
-                {
-                    Debug.Log("Error al colocar item en la nueva posicion, volviendo a la anterior");
+                    Vector2Int tilePos = _selectedGrid.GetTileInGrid(_rectTransform, eventData.position, Vector2.zero); //Obtenemos el tile donde se solto el item en la grilla del inventario
+                    Grid droppedItemGrid = droppedItem.GetComponent<Grid>(); //Obtenemos el componente grid del item droppeado
+                    if (CanItemBePlaced(tilePos, droppedItem.GetSelectedTile(), droppedItemGrid, (int)droppedItem.GetItemRotation()))
+                    {
+                        droppedItem.SetIsInHand(false);
+                        droppedItem.SetNewParent(transform);
+                        droppedItem.SetNewPivot();
+                        droppedItem.SetNewPosition(GetNewPosition(tilePos));
+                        droppedItem.SetNewRotation();
+                        droppedItem.SetHasMovedToOtherPos(true);
+                        SetInventoryOccupancyStateOnItemPicked(tilePos, droppedItem.GetSelectedTile(), droppedItemGrid, (int)droppedItem.GetItemRotation(), true);
+                        Debug.Log("Item colocado correctamente en su nueva posicion");
+                    }
+                    else
+                    {
+                        Debug.Log("Error al colocar item en la nueva posicion, volviendo a la anterior");
+                    }
                 }
             }
         }
+        
     }
 
     //-----------Metodos de la clase---------------------//
@@ -97,7 +103,39 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
                     if (CanItemBePlaced(inventoryTile, defaultPivotTile, itemGrid, itemRotation))
                     {
                         SetInventoryOccupancyStateOnItemPicked(inventoryTile, defaultPivotTile, itemGrid, itemRotation, true);
-                        PlaceItem(itemSO, itemRotation, GetNewPosition(inventoryTile));
+                        Debug.Log("xxxxxxxxxxx");
+                        PlaceNewItem(itemSO, itemRotation, GetNewPosition(inventoryTile));
+                        Debug.Log("zzzzzzzzzzzz");
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public bool MoveItem(InventoryItem inventoryItem)
+    {
+        int invGridWidth = _selectedGrid.GetGridWidth();
+        int invGridHeight = _selectedGrid.GetGridHeight();
+
+        Vector2Int inventoryTile = new Vector2Int();
+        Vector2Int defaultPivotTile = Vector2Int.zero;
+        Grid itemGrid = new Grid(inventoryItem.GetItemSO().GetItemSizeInInventory().x, inventoryItem.GetItemSO().GetItemSizeInInventory().y);
+
+        for (int itemRotation = 0; itemRotation <= 270; itemRotation += 90)
+        {
+            for (int i = 0; i < invGridWidth; i++)
+            {
+                inventoryTile.x = i;
+                for (int j = 0; j < invGridHeight; j++)
+                {
+                    inventoryTile.y = j;
+                    if (CanItemBePlaced(inventoryTile, defaultPivotTile, itemGrid, itemRotation))
+                    {
+                        SetInventoryOccupancyStateOnItemPicked(inventoryTile, defaultPivotTile, itemGrid, itemRotation, true);
+                        Debug.Log("xxxxxxxxxxx");
+                        PlaceMovedItem(inventoryItem, itemRotation, GetNewPosition(inventoryTile));
+                        Debug.Log("zzzzzzzzzzzz");
                         return true;
                     }
                 }
@@ -134,10 +172,18 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
         Debug.Log("Item se puede colocar");
         return true;
     }
-    private void PlaceItem(ItemSO itemSO, int itemRotation, Vector3 itemPosition)
+    private void PlaceNewItem(ItemSO itemSO, int itemRotation, Vector3 itemPosition)
     {
         GameObject itemCreated = Instantiate(_inventoryItemPrefab, transform);
         itemCreated.GetComponent<InventoryItem>().SetItemVariablesOnCreated(itemSO, itemRotation, itemPosition);
+    }
+    private void PlaceMovedItem(InventoryItem inventoryItem, int itemRotation, Vector3 itemPosition)
+    {
+        inventoryItem.SetIsInHand(false);
+        inventoryItem.SetHasMovedToOtherPos(true);
+        inventoryItem.transform.SetParent(transform);
+        inventoryItem.SetNewParent(transform);
+        inventoryItem.SetItemVariablesOnCreated(inventoryItem.GetItemSO(), itemRotation, itemPosition);
     }
 
 
