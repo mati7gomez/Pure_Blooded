@@ -9,12 +9,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.UI;
+using Vector3 = UnityEngine.Vector3;
 
 public class Item : MonoBehaviour, IPickable, IInteractable
 {
     [SerializeField] private ItemSO _itemSO; //Scriptable object del item
 
-    private GameObject _player; //Referencia al
+    private GameObject _player; //Referencia al jugador
 
     private bool _canBePicked = false; //Bool para saber si el jugador esta en rango para agarrar el objeto
 
@@ -38,6 +39,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
             if (Input.GetButtonDown("Interact"))
             {
                 _canBePicked = false;
+
                 //Estoy preparando un condicional para la notas de texto que encuentre por el camino
                 if(gameObject.CompareTag("NotaTexto")){
                     ReadNote(true);
@@ -95,6 +97,14 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     //IPickable
     public void Pick()
     {
+        GameObject _itemUbication = _player.GetComponent<PlayerController>().GetItemUbication();
+        Vector3 _itemPosition = _itemUbication.transform.position;
+        UnityEngine.Quaternion _itemRotation = _itemUbication.transform.rotation;
+        GameObject _itemPrefab = _itemSO.GetItemPrefab();
+
+        GameObject _itemInstance = Instantiate(_itemPrefab, _itemPosition, _itemRotation);
+        _itemInstance.transform.SetParent(_itemUbication.transform, true);
+
         ToggleInteractCanvas(false);
         InventoryManager inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
         if (inventoryManager.CanAddItem(_itemSO))

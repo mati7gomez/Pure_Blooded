@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private Camera _mainCamera;
     private Transform _playerBody;
     private PlayerStats _playerStats;
+    private GameObject _itemUbication;
 
     //Inputs
     private float _horInput;
@@ -57,6 +58,8 @@ public class PlayerController : MonoBehaviour
         _playerStats = new PlayerStats();
 
         _playerSpeed = _playerNormalSpeed;
+
+        _itemUbication = FindChildByName(this.gameObject, "itemUbication");
     }
 
     private void Update()
@@ -211,6 +214,29 @@ public class PlayerController : MonoBehaviour
         {
             
         }
+    }
+
+    //Esta funcion se encarga de buscar recursivamente el hijo del objeto padre
+    //En este caso, busca a itemUbication, pero puede usarse para encontrar cualquier hijo de cualquier objeto;
+    private GameObject FindChildByName(GameObject parent, string name){
+        //El parametro "name" es el nombre del objeto que buscamos
+        if(parent.name == name){
+            return parent;
+        }
+
+        foreach(Transform child in parent.transform){
+            GameObject result = FindChildByName(child.gameObject, name);
+
+            if(result != null){
+                return result;
+            }
+        }
+
+        return null;
+    }
+
+    public GameObject GetItemUbication(){
+        return _itemUbication;
     }
 
 }
