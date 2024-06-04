@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private Transform _playerBody;
     private PlayerStats _playerStats;
     private GameObject _itemUbication;
+    private GameObject _itemInstance;
 
     //Inputs
     private float _horInput;
@@ -237,6 +238,20 @@ public class PlayerController : MonoBehaviour
 
     public GameObject GetItemUbication(){
         return _itemUbication;
+    }
+
+    public void PickUpItem(ItemSO _itemSO){
+        if(_itemInstance != null){
+            Destroy(_itemInstance.gameObject);
+        }
+        GameObject _itemPrefab = _itemSO.GetItemPrefab();
+
+        _itemInstance = Instantiate(_itemPrefab, _itemUbication.transform.position, _itemUbication.transform.rotation);
+        _itemInstance.transform.SetParent(_itemUbication.transform, true);
+
+        //Tengo que desactivar el collider del objeto que agarro para que no estorbe en las demas funciones
+        //que requieren colliders
+        _itemInstance.GetComponent<SphereCollider>().enabled = false;
     }
 
 }

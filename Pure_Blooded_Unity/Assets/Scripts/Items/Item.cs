@@ -21,6 +21,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
 
     private bool _isReading = false;
     private bool _isExaminating = false;
+    private GameObject _itemInstance;
     
 
     [Header("Examinar")]
@@ -97,13 +98,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     //IPickable
     public void Pick()
     {
-        GameObject _itemUbication = _player.GetComponent<PlayerController>().GetItemUbication();
-        Vector3 _itemPosition = _itemUbication.transform.position;
-        UnityEngine.Quaternion _itemRotation = _itemUbication.transform.rotation;
-        GameObject _itemPrefab = _itemSO.GetItemPrefab();
-
-        GameObject _itemInstance = Instantiate(_itemPrefab, _itemPosition, _itemRotation);
-        _itemInstance.transform.SetParent(_itemUbication.transform, true);
+        _player.GetComponent<PlayerController>().PickUpItem(_itemSO);
 
         ToggleInteractCanvas(false);
         InventoryManager inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
@@ -115,6 +110,9 @@ public class Item : MonoBehaviour, IPickable, IInteractable
         {
             Debug.Log("No hay espacio para agregar el item");
         }
+        
+        
+
     }
 
     //IInteractable
