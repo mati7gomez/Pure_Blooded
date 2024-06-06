@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour // Define la clase Grid y hereda de MonoBehaviour, lo que permite que sea un componente de un objeto en Unity
 {
+    //
     // Tamaño de cada celda de la cuadrícula
     private const float _tileSizeWidth = 180;
     private const float _tileSizeHeight = 180;

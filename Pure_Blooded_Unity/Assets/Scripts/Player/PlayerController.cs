@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
     {
         HandleInputs();
         Debug.DrawRay(transform.position - new Vector3(0f,_controller.height / 2f,0f), _moveDir, Color.red);
+        Debug.Log(_moveDir.y);
     }
 
     private void FixedUpdate()
@@ -97,18 +98,18 @@ public class PlayerController : MonoBehaviour
     private void SetPlayerMoveDir()
     {
         if (_horInput == 0)
-            {
-                // Bloquea el componente vertical del movimiento horizontal para que este no afecte la direccion general, solo
-                // la horizontal
-                _camRightTemporal = Vector3.ProjectOnPlane(_camRight, Vector3.up);
-            }
+        {
+            // Bloquea el componente vertical del movimiento horizontal para que este no afecte la direccion general, solo
+            // la horizontal
+            _camRightTemporal = Vector3.ProjectOnPlane(_camRight, Vector3.up);
+        }
 
         if (_verInput == 0)
-            {
-                // Bloquea el componente horizontal del movimiento horizontal para que este no afecte la direccion general, solo
-                // la vertical
-                _camForwardTemporal = Vector3.ProjectOnPlane(_camForward, Vector3.up);
-            }
+        {
+            //Bloquea el componente horizontal del movimiento horizontal para que este no afecte la direccion general, solo
+            // la vertical
+            _camForwardTemporal = Vector3.ProjectOnPlane(_camForward, Vector3.up);
+        }
         
         _playerDir = _camForwardTemporal * _verInput + _camRightTemporal * _horInput;
 
@@ -134,7 +135,7 @@ public class PlayerController : MonoBehaviour
         _moveDir.z = _playerDir.z * _playerSpeed;
         if (_playerDir.magnitude != 0) _controller.Move(_playerBody.forward * _playerSpeed * Time.fixedDeltaTime);
 
-        //_controller.Move(_moveDir * Time.fixedDeltaTime);
+        _controller.Move(_moveDir * Time.fixedDeltaTime);
     }
     private void RotatePlayer()
     {
@@ -144,12 +145,6 @@ public class PlayerController : MonoBehaviour
             _finalAngle = Mathf.SmoothDampAngle(_playerBody.eulerAngles.y, _targetAngle, ref _turnSmoothVelocity, 0.2f);
             _playerBody.rotation = Quaternion.Euler(0f, _finalAngle, 0f);
         }
-        //if (_playerDir.magnitude != 0)
-        //{
-        //    Quaternion toRotation = Quaternion.LookRotation(_playerDir, Vector3.up);
-        //    _playerBody.rotation = Quaternion.RotateTowards(_playerBody.rotation, toRotation, 500f * Time.fixedDeltaTime);
-        //}
-
     }
     private void HandlePlayerGravity()
     {
@@ -160,6 +155,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             _moveDir.y += _initialGravity * _gravityMultiplier * Time.fixedDeltaTime;
+            _moveDir.y = Mathf.Clamp(_moveDir.y, -15f, -1f);
         }
     }
 
@@ -167,7 +163,6 @@ public class PlayerController : MonoBehaviour
         if(other.CompareTag("NoCorrer")){
             CanRun = false;
         }
-
     }
 
     private void OnTriggerExit(Collider other){
@@ -176,33 +171,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-            
-        
-        //float hitAngle = Vector3.Angle(hit.normal, Vector3.up);
-        //if (hitAngle > _controller.slopeLimit)
-        //{
-        //    Debug.DrawRay(hit.point, hit.normal.normalized, Color.red, 15f);
-        //    Debug.Log("Jugador debe deslizar");
-        //}
-        //else Debug.DrawRay(hit.point, hit.normal.normalized, Color.cyan, 15f);
-    }
-
-    //public void DisableMovement()
-    //{
-    //    CanMove = false;
-    //    _horInput = 0;
-    //    _verInput = 0;
-    //    _playerDir = Vector3.zero;
-    //    //Debug.Log("ayayaya q capo q soy");
-    //    Invoke("ActivateMovement", 0.1f);
-    //}
-    //private void ActivateMovement()
-    //{
-    //    CanMove = true;
-    //}
-
     private void HandleInputs(bool deactivate = false)
     {
         if (!deactivate)
@@ -210,10 +178,6 @@ public class PlayerController : MonoBehaviour
             _horInput = Input.GetAxisRaw("Horizontal");
             _verInput = Input.GetAxisRaw("Vertical");
             _runPressed = Input.GetButton("Run");
-        }
-        else
-        {
-            
         }
     }
 
