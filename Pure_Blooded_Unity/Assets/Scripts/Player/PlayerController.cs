@@ -210,8 +210,18 @@ public class PlayerController : MonoBehaviour
         }
         GameObject _itemPrefab = _itemSO.GetItemPrefab();
 
+        /*
+        [SerializeField] private Vector3 itemHoldPosition;
+    [SerializeField] private Quaternion itemHoldRotation;
+    [SerializeField] private double itemHoldScale;*/
+
         _itemInstance = Instantiate(_itemPrefab, _itemUbication.transform.position, _itemUbication.transform.rotation);
         _itemInstance.transform.SetParent(_itemUbication.transform, true);
+
+        // Ajustar la posición, rotación y escala usando las variables especificadas
+        _itemInstance.transform.localPosition += _itemSO.GetItemHoldPosition(); // Sumar la posición
+        _itemInstance.transform.localRotation *= _itemSO.GetItemHoldRotation(); // Multiplicar la rotación
+        _itemInstance.transform.localScale *= _itemSO.GetItemHoldScale(); // Multiplicar la escala
 
         //Tengo que desactivar el collider del objeto que agarro para que no estorbe en las demas funciones
         //que requieren colliders

@@ -17,4 +17,9 @@ MonoBehaviour:
   itemImage: {fileID: 21300000, guid: 54c2c028fd86cd3459219d8a35ec4e46, type: 3}
   itemPrefab: {fileID: 4770223232541363947, guid: cd71774371e07fb4baffd450b936aa11, type: 3}
   itemSizeInInventory: {x: 2, y: 1}
+  itemInspectOffSet: {x: 0, y: 0, z: 0}
+  itemInspectRotation: {x: 0, y: 0, z: 0, w: 0}
+  itemHoldPosition: {x: 0, y: -0.02, z: 0.04}
+  itemHoldRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  itemHoldScale: 0.3
   canInteract: 1
