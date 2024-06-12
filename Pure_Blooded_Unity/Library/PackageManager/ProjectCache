@@ -3369,9 +3369,13 @@ m_ResolvedPackages:
     - 1.8.11
     - 1.8.12
     - 1.8.13
+    - 1.8.14
+    - 1.8.15
     compatible:
     - 1.8.13
-    recommended: 1.8.13
+    - 1.8.14
+    - 1.8.15
+    recommended: 1.8.15
     deprecated: []
   dependencies:
   - name: com.unity.mathematics

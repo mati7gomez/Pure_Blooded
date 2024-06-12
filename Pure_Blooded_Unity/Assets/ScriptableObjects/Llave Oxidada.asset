@@ -19,4 +19,7 @@ MonoBehaviour:
   itemSizeInInventory: {x: 1, y: 1}
   itemInspectOffSet: {x: -0.5, y: 0.15, z: 0}
   itemInspectRotation: {x: 0, y: 0, z: 0, w: 0}
+  itemHoldPosition: {x: 0, y: 0, z: 0.02}
+  itemHoldRotation: {x: 0.49999997, y: -0.49999997, z: -0.49999997, w: 0.49999997}
+  itemHoldScale: 1
   canInteract: 1
