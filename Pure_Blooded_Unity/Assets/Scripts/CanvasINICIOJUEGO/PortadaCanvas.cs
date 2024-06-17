@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +21,7 @@ public class PortadaCanvas : MonoBehaviour
 
     // Variable estática para almacenar el nombre de la escena anterior
     private static string ultimaEscena = "";
+    private static string escenaActual = "";
     // Booleana para manejar la lógica de volver de la escena 2
     private static bool VengoDeLa2 = false;
 
@@ -34,16 +36,19 @@ public class PortadaCanvas : MonoBehaviour
             OptionsInGame?.SetActive(false);
             Exit?.SetActive(false);
         }
-        string escenaActual = (SceneManager.GetActiveScene().name);
+    }
+    private void Update()
+    {
+        // Guardo la escenaActual como el nombre de la escenaActual
+        escenaActual = (SceneManager.GetActiveScene().name);
 
-        // Llamar a VengoDelJuego en Start en lugar de Update
-        VengoDelJuego(escenaActual, ultimaEscena);
+        ComprobacionEscenaAnterior();
     }
 
     public void CambiarEscena(string escena)
     {
         // Antes de cambiar la escena, almacenamos el nombre de la escena actual
-        ultimaEscena = SceneManager.GetActiveScene().name;
+        ultimaEscena = escenaActual;
         SceneManager.LoadSceneAsync(escena);
     }
 
@@ -76,22 +81,22 @@ public class PortadaCanvas : MonoBehaviour
         Exit?.SetActive(false);
     }
 
-    public void VengoDelJuego(string escenaActual, string ultimaEscena)
+    public void ComprobacionEscenaAnterior()
     {
         if (escenaActual == "2_MenúOptions" && ultimaEscena == "0_PortadaArranque") // Si estoy en Options y vengo de portada
         {
             B_Play.SetActive(true);
             B_Options_de1a2.SetActive(false);
         }
-        else if (escenaActual == "2_MenúOptions" && ultimaEscena == "1_1_inicioDelJuego") // Si estoy en Options y vengo del Game
+        else if (escenaActual == "2_MenúOptions" && ultimaEscena == "1.1_Juego") // Si estoy en Options y vengo del Juego
         {
             B_Play.SetActive(false);
             B_Options_de1a2.SetActive(true);
         }
-        else if (escenaActual == "2_MenúOptions" && ultimaEscena == "2_MenúOptions" && !VengoDeLa2)
+        /*else if (escenaActual == "2_MenúOptions" && ultimaEscena == "2_MenúOptions" && !VengoDeLa2)
         {
             Time.timeScale = 0f;
-            B_Pausa.SetActive(false);
+            B_Pausa.SetActive(true);
             B_Despausa.SetActive(true);
             FondoPanel?.SetActive(true);
             OptionsInGame?.SetActive(true);
@@ -101,6 +106,6 @@ public class PortadaCanvas : MonoBehaviour
         else if (VengoDeLa2 && escenaActual == "2_MenúOptions")
         {
             VengoDeLa2 = false;
-        }
+        }*/
     }
 }
