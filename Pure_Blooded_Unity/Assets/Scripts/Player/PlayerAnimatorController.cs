@@ -14,14 +14,14 @@ public class PlayerAnimatorController : MonoBehaviour
     }
     private void Update()
     {
-        if (_playerController.GetPlayerDir.magnitude != 0)
-        {
-            _animatorController.SetFloat("Movement", _playerController.GetPlayerDir.magnitude);
-        }
-        else
-        {
-            _animatorController.SetFloat("Movement", 0);
-        }
+        //if (_playerController.GetPlayerDir.magnitude != 0)
+        //{
+        //    _animatorController.SetFloat("Movement", _playerController.GetPlayerDir.magnitude);
+        //}
+        //else
+        //{
+        //    _animatorController.SetFloat("Movement", 0);
+        //}
     }
     public void SetTrigger(string triggerName)
     {

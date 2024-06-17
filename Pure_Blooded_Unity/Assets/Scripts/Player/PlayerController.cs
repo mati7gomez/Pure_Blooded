@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     //Creo q hay q borrar este
     public bool CanMove = true;
+    private bool _hasProjectedRight;
+    private bool _hasProjectedForward;
     private bool CanRun = true;
     
 
@@ -59,7 +62,6 @@ public class PlayerController : MonoBehaviour
         _playerStats = new PlayerStats();
 
         _playerSpeed = _playerNormalSpeed;
-
         _itemUbication = FindChildByName(this.gameObject, "itemUbication");
     }
 
@@ -67,20 +69,20 @@ public class PlayerController : MonoBehaviour
     {
         HandleInputs();
         Debug.DrawRay(transform.position - new Vector3(0f,_controller.height / 2f,0f), _moveDir, Color.red);
-        Debug.Log(_moveDir.y);
     }
 
     private void FixedUpdate()
     {
-        GetCamVectors();
-        SetPlayerMoveDir();
-        HandlePlayerGravity();
+        
         if (CanMove)
         {
-            MovePlayer();
+            GetCamVectors();
+            SetPlayerMoveDir();
+            
             RotatePlayer();
         }
-        
+        HandlePlayerGravity();
+        MovePlayer();
 
         HandleInputs(true);
     }
@@ -97,18 +99,32 @@ public class PlayerController : MonoBehaviour
     }
     private void SetPlayerMoveDir()
     {
-        if (_horInput == 0)
+        if (_horInput == 0 && !_hasProjectedRight)
         {
             // Bloquea el componente vertical del movimiento horizontal para que este no afecte la direccion general, solo
             // la horizontal
+            Debug.Log("Optimizar 1");
+            _hasProjectedRight = true;
             _camRightTemporal = Vector3.ProjectOnPlane(_camRight, Vector3.up);
         }
+        if (_horInput != 0 && _hasProjectedRight)
+        {
+            Debug.Log("Optimizar 2");
+            _hasProjectedRight = false;
+        }
 
-        if (_verInput == 0)
+        if (_verInput == 0 && !_hasProjectedForward)
         {
             //Bloquea el componente horizontal del movimiento horizontal para que este no afecte la direccion general, solo
             // la vertical
+            Debug.Log("Optimizar 3");
+            _hasProjectedForward = true;
             _camForwardTemporal = Vector3.ProjectOnPlane(_camForward, Vector3.up);
+        }
+        if (_verInput != 0 && _hasProjectedForward)
+        {
+            Debug.Log("Optimizar 4");
+            _hasProjectedForward = false;
         }
         
         _playerDir = _camForwardTemporal * _verInput + _camRightTemporal * _horInput;
@@ -142,7 +158,7 @@ public class PlayerController : MonoBehaviour
         if (_playerDir.x != 0f || _playerDir.z != 0f)
         {
             _targetAngle = Mathf.Atan2(_playerDir.x, _playerDir.z) * Mathf.Rad2Deg;
-            _finalAngle = Mathf.SmoothDampAngle(_playerBody.eulerAngles.y, _targetAngle, ref _turnSmoothVelocity, 0.2f);
+            _finalAngle = Mathf.SmoothDampAngle(_playerBody.eulerAngles.y, _targetAngle, ref _turnSmoothVelocity, 0.1f);
             _playerBody.rotation = Quaternion.Euler(0f, _finalAngle, 0f);
         }
     }
@@ -150,12 +166,18 @@ public class PlayerController : MonoBehaviour
     {
         if (_controller.isGrounded)
         {
-            _moveDir.y = -1f;
+            if (_moveDir.y != -1f)
+                _moveDir.y = -1f;
+
         }
         else
         {
-            _moveDir.y += _initialGravity * _gravityMultiplier * Time.fixedDeltaTime;
-            _moveDir.y = Mathf.Clamp(_moveDir.y, -15f, -1f);
+            if (_moveDir.y > -15f)
+            {
+                _moveDir.y += _initialGravity * _gravityMultiplier * Time.fixedDeltaTime;
+                _moveDir.y = Mathf.Clamp(_moveDir.y, -15f, -1f);
+            }
+            
         }
     }
 
@@ -198,10 +220,6 @@ public class PlayerController : MonoBehaviour
         }
 
         return null;
-    }
-
-    public GameObject GetItemUbication(){
-        return _itemUbication;
     }
 
     public void PickUpItem(ItemSO _itemSO){
