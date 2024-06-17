@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1891887083}
-  m_IndirectSpecularColor: {r: 0.008680698, g: 0.008848519, b: 0.01971401, a: 1}
+  m_IndirectSpecularColor: {r: 0.008625037, g: 0.008817622, b: 0.019593151, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22987,7 +22987,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Pure Blooded
 
-    Presenta anashex'
+    PRESENTA . . .'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 230888317168f254c8bde135bd14f3eb, type: 2}
   m_sharedMaterial: {fileID: -7843984108052834033, guid: 230888317168f254c8bde135bd14f3eb, type: 2}

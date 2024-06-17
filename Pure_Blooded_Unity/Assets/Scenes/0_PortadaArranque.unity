@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.008680698, g: 0.008848519, b: 0.01971401, a: 1}
+  m_IndirectSpecularColor: {r: 0.008625037, g: 0.008817622, b: 0.019593151, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -335,13 +335,13 @@ MonoBehaviour:
       - m_Target: {fileID: 122963555}
         m_TargetAssemblyTypeName: PortadaCanvas, Assembly-CSharp
         m_MethodName: CambiarEscena
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: 1_1_inicioDelJuego
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 122963554}
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.19607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -590,13 +590,25 @@ MonoBehaviour:
       - m_Target: {fileID: 122963555}
         m_TargetAssemblyTypeName: PortadaCanvas, Assembly-CSharp
         m_MethodName: CambiarEscena
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: "2_Men\xFAOptions"
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 122963555}
+        m_TargetAssemblyTypeName: PortadaCanvas, Assembly-CSharp
+        m_MethodName: VengoDelJuego
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 0_PortadaArranque
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &377540922
@@ -612,7 +624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.11764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -877,15 +889,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Options
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3776653d33a95004787d61f495b9f645, type: 2}
-  m_sharedMaterial: {fileID: 8985675719116947978, guid: 3776653d33a95004787d61f495b9f645, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 230888317168f254c8bde135bd14f3eb, type: 2}
+  m_sharedMaterial: {fileID: -7843984108052834033, guid: 230888317168f254c8bde135bd14f3eb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283387727
-  m_fontColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1088,15 +1100,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: PLAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3776653d33a95004787d61f495b9f645, type: 2}
-  m_sharedMaterial: {fileID: 8985675719116947978, guid: 3776653d33a95004787d61f495b9f645, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 230888317168f254c8bde135bd14f3eb, type: 2}
+  m_sharedMaterial: {fileID: -7843984108052834033, guid: 230888317168f254c8bde135bd14f3eb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190280
-  m_fontColor: {r: 0.78431374, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1216,7 +1228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8862746, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1693,7 +1705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.11764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1777,15 +1789,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: close
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3776653d33a95004787d61f495b9f645, type: 2}
-  m_sharedMaterial: {fileID: 8985675719116947978, guid: 3776653d33a95004787d61f495b9f645, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 230888317168f254c8bde135bd14f3eb, type: 2}
+  m_sharedMaterial: {fileID: -7843984108052834033, guid: 230888317168f254c8bde135bd14f3eb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283387727
-  m_fontColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -1631,7 +1631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219196650}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.046871267, y: -0.08277539, z: 0.0038974907, w: 0.99545777}
+  m_LocalRotation: {x: 0.04687129, y: -0.08277542, z: 0.003897494, w: 0.99545777}
   m_LocalPosition: {x: 2.16, y: -3.77, z: -18.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8253,13 +8253,25 @@ MonoBehaviour:
       - m_Target: {fileID: 1456821454}
         m_TargetAssemblyTypeName: PortadaCanvas, Assembly-CSharp
         m_MethodName: CambiarEscena
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: "2_Men\xFAOptions"
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1456821454}
+        m_TargetAssemblyTypeName: PortadaCanvas, Assembly-CSharp
+        m_MethodName: VengoDelJuego
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 1_Juego
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1847701657
@@ -8530,7 +8542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870494795}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.053981423, y: 0.75599474, z: -0.0628505, w: 0.6493134}
+  m_LocalRotation: {x: 0.053981412, y: 0.7559948, z: -0.062850505, w: 0.6493133}
   m_LocalPosition: {x: -17.688852, y: -2.7417078, z: 2.9800234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9051,7 +9063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010517531}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.053981423, y: 0.75599474, z: -0.0628505, w: 0.6493134}
+  m_LocalRotation: {x: 0.053981412, y: 0.7559948, z: -0.062850505, w: 0.6493133}
   m_LocalPosition: {x: -25.288853, y: 4.2682924, z: -9.159977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10068,7 +10080,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141128543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.018661704, y: -0.5211129, z: 0.011397995, w: 0.8532076}
+  m_LocalRotation: {x: 0.018661695, y: -0.521113, z: 0.0113979895, w: 0.8532076}
   m_LocalPosition: {x: 35.6, y: -3.77, z: -18.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
