@@ -1,11 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 public class InventoryManager : MonoBehaviour
 {
     private Canvas _inventoryCanvas;
     private InventoryGridController _inventoryGridController;
+    public static InventoryManager _instance;
+
+    public void Awake(){
+        if(InventoryManager._instance == null){
+            InventoryManager._instance = this;
+            DontDestroyOnLoad(this.gameObject);
+            } else {
+                Destroy(gameObject);
+            }
+        }
+        
+        
+    
     private void Start()
     {
         _inventoryCanvas = transform.GetChild(0).GetComponent<Canvas>();
