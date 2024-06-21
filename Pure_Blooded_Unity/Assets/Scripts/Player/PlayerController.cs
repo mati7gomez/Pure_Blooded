@@ -224,15 +224,14 @@ public class PlayerController : MonoBehaviour
 
     public void PickUpItem(ItemSO _itemSO){
         if(_itemInstance != null){
-            Destroy(_itemInstance.gameObject);
+            Destroy(_itemInstance);
         }
         GameObject _itemPrefab = _itemSO.GetItemPrefab();
 
-        /*
-        [SerializeField] private Vector3 itemHoldPosition;
-    [SerializeField] private Quaternion itemHoldRotation;
-    [SerializeField] private double itemHoldScale;*/
 
+        /*
+        Parece que cambiaron las texturas del personaje, por eso ya no existe el objeto "_itemUbication"
+        */
         _itemInstance = Instantiate(_itemPrefab, _itemUbication.transform.position, _itemUbication.transform.rotation);
         _itemInstance.transform.SetParent(_itemUbication.transform, true);
 

@@ -11,6 +11,18 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
     private RectTransform _rectTransform; //Componente rect transform
     Grid _selectedGrid; //Referencia de la grilla seleccionada
     [SerializeField] GameObject _inventoryItemPrefab;
+    public static InventoryGridController _instance;
+
+    //------------Metodo que asegura que no se borre y que solo haya uno-------------//
+    private void Awake(){
+        if(InventoryGridController._instance == null){
+            InventoryGridController._instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        } else {
+            Destroy(gameObject);
+        }
+    }
+
 
     //------------Metodos propios de MonoBehaviour-------------//
     private void Start()
@@ -74,8 +86,8 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
     }
     private void CalculateNewPositionAxis(int tilePos, float tileSize, out float i) //Metodo para calcular la nueva posicion del item (en x o y)
     {
-        i = tileSize / 2f; //Inicialmente movemos la ubicacion del item en el inventario la mitad del tamaño del tile para que quede en el centro del mismo
-        for (int j = 0; j < tilePos; j++) //Por cada tile menor a la posicion del tile que queremos colocar el item, movemos el mismo el tamaño del tile
+        i = tileSize / 2f; //Inicialmente movemos la ubicacion del item en el inventario la mitad del tamaï¿½o del tile para que quede en el centro del mismo
+        for (int j = 0; j < tilePos; j++) //Por cada tile menor a la posicion del tile que queremos colocar el item, movemos el mismo el tamaï¿½o del tile
         {
             i += tileSize;
         }
@@ -218,7 +230,7 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
                 end.y = start.y + itemGrid.GetGridWidth() - 1;
                 break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(itemRot), "Rotación no válida");
+                throw new ArgumentOutOfRangeException(nameof(itemRot), "Rotaciï¿½n no vï¿½lida");
         }
 
         return CheckBounds(start, end, maxW, maxH);
@@ -263,7 +275,7 @@ public class InventoryGridController : MonoBehaviour, IDropHandler
                 end = new Vector2Int(start.x + (itemGrid.GetGridHeight() - 1), start.y + (itemGrid.GetGridWidth() - 1));
                 break;
             default:
-                throw new ArgumentOutOfRangeException(nameof(itemRot), "Rotación no válida");
+                throw new ArgumentOutOfRangeException(nameof(itemRot), "Rotaciï¿½n no vï¿½lida");
         }
     }
 

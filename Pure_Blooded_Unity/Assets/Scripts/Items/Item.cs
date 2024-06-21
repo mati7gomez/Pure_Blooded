@@ -41,7 +41,6 @@ public class Item : MonoBehaviour, IPickable, IInteractable
             {
                 _canBePicked = false;
 
-                //Estoy preparando un condicional para la notas de texto que encuentre por el camino
                 if(gameObject.CompareTag("NotaTexto")){
                     ReadNote(true);
                 } else {
@@ -98,7 +97,8 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     //IPickable
     public void Pick()
     {
-        _player.GetComponent<PlayerController>().PickUpItem(_itemSO);
+        //Funcion en mantenimiento, cualquier cosa hablar con Franco
+        //_player.GetComponent<PlayerController>().PickUpItem(_itemSO);
 
         ToggleInteractCanvas(false);
         InventoryManager inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();

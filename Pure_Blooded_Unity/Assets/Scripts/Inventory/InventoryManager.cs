@@ -9,14 +9,14 @@ public class InventoryManager : MonoBehaviour
     private InventoryGridController _inventoryGridController;
     public static InventoryManager _instance;
 
-    public void Awake(){
+    private void Awake(){
         if(InventoryManager._instance == null){
             InventoryManager._instance = this;
             DontDestroyOnLoad(this.gameObject);
-            } else {
-                Destroy(gameObject);
-            }
+        } else {
+            Destroy(gameObject);
         }
+    }
         
         
     
