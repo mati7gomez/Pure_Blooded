@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -54,6 +56,29 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _gravityMultiplier;
 
 
+    public static PlayerController instance;
+    //Esto permite que solo haya un unico PlayerController y que se mantenga durante todo el juego
+    private void Awake(){
+        if(instance == null){
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+        }
+
+        //Esto permite que el programa vuelva a determinar cual es el MainCamera una vez cambia de escena
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        _mainCamera = Camera.main;
+    }
+
+    private void OnDestroy(){
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -69,6 +94,10 @@ public class PlayerController : MonoBehaviour
     {
         HandleInputs();
         Debug.DrawRay(transform.position - new Vector3(0f,_controller.height / 2f,0f), _moveDir, Color.red);
+    
+        if(Input.GetKeyDown(KeyCode.K)){
+            SceneManager.LoadScene("1.1_Juego");
+        }
     }
 
     private void FixedUpdate()

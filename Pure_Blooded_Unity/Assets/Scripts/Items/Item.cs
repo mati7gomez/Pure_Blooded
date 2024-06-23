@@ -97,8 +97,7 @@ public class Item : MonoBehaviour, IPickable, IInteractable
     //IPickable
     public void Pick()
     {
-        //Funcion en mantenimiento, cualquier cosa hablar con Franco
-        //_player.GetComponent<PlayerController>().PickUpItem(_itemSO);
+        _player.GetComponent<PlayerController>().PickUpItem(_itemSO);
 
         ToggleInteractCanvas(false);
         InventoryManager inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
