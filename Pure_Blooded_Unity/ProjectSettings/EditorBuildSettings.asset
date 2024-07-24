@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/1.1_Juego.unity
+    guid: dce9793ca630e4e47a8493ff2e1ab166
+  - enabled: 1
     path: Assets/Scenes/0_PortadaArranque.unity
     guid: 363c4a11505b4f34381c8abbf6469d94
   - enabled: 1
     path: Assets/Scenes/1_Juego.unity
     guid: f7aaa9ae58df745438005b846a464852
-  - enabled: 1
-    path: Assets/Scenes/1.1_Juego.unity
-    guid: dce9793ca630e4e47a8493ff2e1ab166
   - enabled: 1
     path: "Assets/Scenes/2_Men\xFAOptions.unity"
     guid: 759fb7a5401bf0c439f03faa74d000b7
