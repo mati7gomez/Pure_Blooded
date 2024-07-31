@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: Dialogue1
   m_EditorClassIdentifier: 
   _lines:
-  - 'Prota: soy la protaaa yupi'
-  - 'Amigo: soy el amigueiro'
-  - 'Prota: hola mi amigueirou'
+  - (Paloma y Ayrton caminan por la ciudad yendo hacia la lomiteria)
+  - "Ayrton: Ac\xE1 cerca hay una lomiteria buen\xEDsima, te pinta comer algo ah\xED?"
+  - "Paloma: Dale de una, mientras m\xE1s nos demores mejor, asi no estoy en esa
+    casa de mierda."
+  - "Ayrton: Uh, sigue todo mal ah\xED?"
+  - "Paloma: Si, encima mi t\xEDo cada vez se sarpa m\xE1s y\u2026 no s\xE9, no quiero
+    hablar de eso ahora\u2026 sal\xED con vos para distraerme un toque."
+  - 'Ayrton: Che, estas bien? si queres podemos ir a otro lado o- '
+  - 'Paloma: No no deja, comamos algo, encima manejo un hambre. '
+  - "Ayrton: Bueno\u2026 dale."

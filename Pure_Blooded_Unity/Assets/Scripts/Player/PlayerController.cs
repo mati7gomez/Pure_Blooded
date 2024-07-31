@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private bool _hasProjectedRight;
     private bool _hasProjectedForward;
     private bool CanRun = true;
+    private bool CanTalk = false;
     
 
     //Player extras
@@ -54,6 +55,9 @@ public class PlayerController : MonoBehaviour
     //Variables para calcular la gravedad
     private float _initialGravity = -9.8f;
     [SerializeField] private float _gravityMultiplier;
+
+    //Si no existe un DialogueManager en la escena, este no tendrá referencia
+    DialogueManager _dialogueManager;
 
 
     public static PlayerController instance;
@@ -88,6 +92,9 @@ public class PlayerController : MonoBehaviour
 
         _playerSpeed = _playerNormalSpeed;
         _itemUbication = FindChildByName(this.gameObject, "itemUbication");
+
+        _dialogueManager = FindObjectOfType<DialogueManager>();
+
     }
 
     private void Update()
@@ -98,6 +105,14 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.K)){
             SceneManager.LoadScene("1.1_Juego");
         }
+
+        if (Input.GetKeyDown(KeyCode.F) && CanTalk)
+            {
+                CanTalk = false;
+                _dialogueManager.StartDialogue(_dialogueManager._dialogues[_dialogueManager._indexOfDialogues]);
+                
+            }
+        
     }
 
     private void FixedUpdate()
@@ -211,14 +226,29 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other){
-        if(other.CompareTag("NoCorrer")){
+        if(other.CompareTag("NoCorrer"))
+        {
             CanRun = false;
         }
+
+        
+        if(other.CompareTag("PuedeHablar"))
+        {
+            CanTalk = true;
+        }
+        
+
     }
 
     private void OnTriggerExit(Collider other){
-        if(other.CompareTag("NoCorrer")){
+        if(other.CompareTag("NoCorrer"))
+        {
             CanRun = true;
+        }
+
+        if(other.CompareTag("PuedeHablar"))
+        {
+            CanTalk = false;
         }
     }
 

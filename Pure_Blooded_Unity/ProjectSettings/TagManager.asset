@@ -8,6 +8,7 @@ TagManager:
   - NoCorrer
   - Doors
   - NotaTexto
+  - PuedeHablar
   layers:
   - Default
   - TransparentFX

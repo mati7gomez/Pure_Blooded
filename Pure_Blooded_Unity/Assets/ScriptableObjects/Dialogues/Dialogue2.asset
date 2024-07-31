@@ -13,5 +13,22 @@ MonoBehaviour:
   m_Name: Dialogue2
   m_EditorClassIdentifier: 
   _lines:
-  - 'Prota: toy caga de angre'
-  - 'Amigo: vamo a come eso super panchos nashe inssssta'
+  - '(llegan a la lomiteria y empiezan a hablar con el Vendedor) '
+  - 'Vendedor: Buenas, que se van a pedir?'
+  - "Ayrton: Hola, yo te pido un\u2026 pancho con papitas y ketchup. Y vos palo?"
+  - "Paloma: Yo te pido un pancho tambi\xE9n, tenes algo picante?"
+  - "Vendedor: Si si tengo salsa picante, un chimichurri de la casa que tambi\xE9n
+    es picante\u2026"
+  - 'Paloma: Ah, entonces solo con la salsa.'
+  - 'Vendedor: Perfecto, ahi se los preparo'
+  - (El vendedor se pone a preparar los panchos mientras Ayr y Palo hablan)
+  - "C\xF3mo hiciste para venir? Pens\xE9 que ni ibas a poder."
+  - "Ayrton: C\xF3mo hiciste para venir? Pens\xE9 que ni ibas a poder."
+  - "Paloma: Ni me dejaron venir, as\xED que bloquee la puerta y sal\xED por la ventana.
+    Me la voy a tener que bancar cuando vuelva."
+  - 'Ayrton: ...'
+  - 'Paloma: ...'
+  - '(El vendedor les das los panchos, justo al momento de querer recibirlos se corta
+    la luz) '
+  - "Paloma: Uh la puta madre, que paso con la luz? \xBFMe alumbras Ayr?"
+  - 'Ayrton: Si si ahi va'
