@@ -46,6 +46,10 @@ public class DialogueManager : MonoBehaviour
     {
         LoadComponents();
 
+        foreach(var dialogo in _orderOfDialogues)
+        {
+            dialogo.SetActive(false);
+        }   
         _orderOfDialogues[_indexOfDialogues].SetActive(true);
         //foreach (string line in dialogue1) { }
         //StartDialogue(new Dialogues.Dialogue1());
