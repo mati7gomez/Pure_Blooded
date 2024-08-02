@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -35,7 +36,7 @@ public class DialogueManager : MonoBehaviour
     //Este indice es para los dialogos por separado
     public int _indexOfDialogues = 0;
 
-    private List<string> _lines = new List<string>();
+    private List<string> _lines;
     [SerializeField] private float _textSpeed;
 
     //Este indice es para las lineas de un dialogo
@@ -81,6 +82,8 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogue != null)
         {
+            _lines = new List<string>();
+
             //Inmediatamente desactiva el collider del circulo alrededor del dialogo, para que no estorbe con el skip de las lineas
             _orderOfDialogues[_indexOfDialogues].SetActive(false);
 
@@ -114,7 +117,13 @@ public class DialogueManager : MonoBehaviour
 
         //Cuando termina un dialogo, este indice determina que debe avanzar al siguiente
         _indexOfDialogues += 1;
-        _orderOfDialogues[_indexOfDialogues].SetActive(true);
+
+        //Si ya se completaron todos los dialogos, entonces no hace falta activar ninguna otra zona donde pueda ocurrir un dialogo
+        if(_indexOfDialogues + 1 == _orderOfDialogues.Length)
+        {
+            _orderOfDialogues[_indexOfDialogues].SetActive(true);
+            return;
+        }
     }
     IEnumerator TypeLine()
     {
@@ -135,6 +144,7 @@ public class DialogueManager : MonoBehaviour
     }
     private void LoadLines(DialogueSO dialogue)
     {
+        Debug.Log(_lines);
         _lines.Clear();
         foreach (string str in dialogue.Lines)
         {
