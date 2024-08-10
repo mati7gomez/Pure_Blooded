@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1128534916}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0019879155, g: 0.0020261128, b: 0.004514836, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6624,6 +6624,79 @@ Transform:
   - {fileID: 1549277735}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1946136100
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.037918
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.108900666
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.4717603
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 609979887925343530, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 580840de4f0b29942b6e1a9ae2c8dec9, type: 2}
+    - target: {fileID: 919132149155446097, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_Name
+      value: Ayrtom
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362982523483511969, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 580840de4f0b29942b6e1a9ae2c8dec9, type: 2}
+    - target: {fileID: 7291382469405863189, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09a51030ec31385459d83ee223b7e34a, type: 2}
+    - target: {fileID: 8517849541657501797, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 580840de4f0b29942b6e1a9ae2c8dec9, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6555aac8570471d4486bf72c18021a26, type: 3}
 --- !u!4 &2011548201 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400096, guid: 0ee78a4d576343145b941b9999014e56, type: 3}
@@ -7267,3 +7340,4 @@ SceneRoots:
   - {fileID: 708163512}
   - {fileID: 791070435}
   - {fileID: 1897822832}
+  - {fileID: 1946136100}
