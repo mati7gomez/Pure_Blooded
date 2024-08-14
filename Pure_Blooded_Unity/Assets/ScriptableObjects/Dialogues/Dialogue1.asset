@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Dialogue1
   m_EditorClassIdentifier: 
   _lines:
-  - (Paloma y Ayrton caminan por la ciudad yendo hacia la lomiteria)
   - "Ayrton: Ac\xE1 cerca hay una lomiteria buen\xEDsima, te pinta comer algo ah\xED?"
   - "Paloma: Dale de una, mientras m\xE1s nos demores mejor, asi no estoy en esa
     casa de mierda."
@@ -23,3 +22,8 @@ MonoBehaviour:
   - 'Ayrton: Che, estas bien? si queres podemos ir a otro lado o- '
   - 'Paloma: No no deja, comamos algo, encima manejo un hambre. '
   - "Ayrton: Bueno\u2026 dale."
+  _audios:
+  - {fileID: 8300000, guid: eb0eee04a36a3704aa9fbab050b411bd, type: 3}
+  - {fileID: 8300000, guid: 16c9de6d558ed4b4cbbafddc9be18faa, type: 3}
+  - {fileID: 8300000, guid: c65c977e3e31b304b850c0dd312dfa52, type: 3}
+  _audioSource: {fileID: 7175178710329497578, guid: 7a1d33a14f33e41438feb0c22121204f, type: 3}

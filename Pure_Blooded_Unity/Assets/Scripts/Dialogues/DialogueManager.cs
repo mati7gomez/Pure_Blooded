@@ -24,6 +24,7 @@ public struct Dialogues
 public class DialogueManager : MonoBehaviour
 {
     public DialogueSO[] _dialogues;
+    public DialogueSO _actualDialogue;
     private Canvas _dialogueCanvas;
     private TextMeshProUGUI _txtDialogue;
 
@@ -41,6 +42,7 @@ public class DialogueManager : MonoBehaviour
 
     //Este indice es para las lineas de un dialogo
     private int _index;
+    [SerializeField] private AudioSource _audioSource;
 
 
     private void Start()
@@ -67,7 +69,7 @@ public class DialogueManager : MonoBehaviour
             {
                 if (_txtDialogue.text == _lines[_index])
                 {
-                    SkipDialogue();
+                    SkipDialogue(_actualDialogue);
                 }
                 else
                 {
@@ -82,23 +84,35 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogue != null)
         {
+            _actualDialogue = dialogue;
+
             _lines = new List<string>();
 
             //Inmediatamente desactiva el collider del circulo alrededor del dialogo, para que no estorbe con el skip de las lineas
             _orderOfDialogues[_indexOfDialogues].SetActive(false);
 
+            
+
             LoadLines(dialogue);
             _index = 0;
             _isInDialogue = true;
+
+            _audioSource = dialogue.AudioSource.GetComponent<AudioSource>();
+            _audioSource.clip = dialogue.Audios[_index];
+            _audioSource.Play();
+
             EnableDialogueCanvas();
             StopPlayerMovement();
             StartCoroutine(TypeLine());
         }
     }
-    private void SkipDialogue()
+    private void SkipDialogue(DialogueSO _actualDialogue)
     {
         _txtDialogue.text = string.Empty;
         _index++;
+        
+        _audioSource.clip = _actualDialogue.Audios[_index];
+        _audioSource.Play();
         if (IsLastDialogue())
         {
             EndDialogue();
@@ -117,6 +131,7 @@ public class DialogueManager : MonoBehaviour
 
         //Cuando termina un dialogo, este indice determina que debe avanzar al siguiente
         _indexOfDialogues += 1;
+        
 
         //Si ya se completaron todos los dialogos, entonces no hace falta activar ninguna otra zona donde pueda ocurrir un dialogo
         if(_indexOfDialogues + 1 == _orderOfDialogues.Length)
