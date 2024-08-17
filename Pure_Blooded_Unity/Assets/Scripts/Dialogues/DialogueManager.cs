@@ -24,7 +24,7 @@ public struct Dialogues
 public class DialogueManager : MonoBehaviour
 {
     public DialogueSO[] _dialogues;
-    public DialogueSO _actualDialogue;
+    //public DialogueSO _actualDialogue;
     private Canvas _dialogueCanvas;
     private TextMeshProUGUI _txtDialogue;
 
@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
     //Este indice es para las lineas de un dialogo
     private int _index;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClips _audioClips;
 
 
     private void Start()
@@ -61,15 +62,13 @@ public class DialogueManager : MonoBehaviour
     }
     private void Update()
     {
-
-
         if (_isInDialogue)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
                 if (_txtDialogue.text == _lines[_index])
                 {
-                    SkipDialogue(_actualDialogue);
+                    SkipDialogue();
                 }
                 else
                 {
@@ -84,21 +83,20 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogue != null)
         {
-            _actualDialogue = dialogue;
 
             _lines = new List<string>();
 
             //Inmediatamente desactiva el collider del circulo alrededor del dialogo, para que no estorbe con el skip de las lineas
-            _orderOfDialogues[_indexOfDialogues].SetActive(false);
-
-            
-
+            _orderOfDialogues[_indexOfDialogues].GetComponent<SphereCollider>().isTrigger = false;
+     
             LoadLines(dialogue);
             _index = 0;
             _isInDialogue = true;
 
-            _audioSource = dialogue.AudioSource.GetComponent<AudioSource>();
-            _audioSource.clip = dialogue.Audios[_index];
+            _audioSource = _orderOfDialogues[_indexOfDialogues].transform.GetChild(0).GetComponent<AudioSource>();
+            _audioClips = _orderOfDialogues[_indexOfDialogues].transform.GetChild(1).GetComponent<AudioClips>();
+
+            _audioSource.clip = _audioClips.ListAudioClips[_index];
             _audioSource.Play();
 
             EnableDialogueCanvas();
@@ -106,18 +104,20 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(TypeLine());
         }
     }
-    private void SkipDialogue(DialogueSO _actualDialogue)
+    private void SkipDialogue()
     {
         _txtDialogue.text = string.Empty;
         _index++;
         
-        _audioSource.clip = _actualDialogue.Audios[_index];
-        _audioSource.Play();
+        
         if (IsLastDialogue())
         {
             EndDialogue();
             return;
         }
+        
+        _audioSource.clip = _audioClips.ListAudioClips[_index];
+        _audioSource.Play();
         
         StartCoroutine(TypeLine());
     }

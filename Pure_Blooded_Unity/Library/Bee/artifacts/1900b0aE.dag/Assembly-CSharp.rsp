@@ -377,6 +377,7 @@
 "Assets/PSXShaderKit/Scripts/PSXPostProcessEffect.cs"
 "Assets/PSXShaderKit/Scripts/PSXShaderManager.cs"
 "Assets/Scripts/AbrirPuertas.cs"
+"Assets/Scripts/AudioClips.cs"
 "Assets/Scripts/CanvasINICIOJUEGO/CambiarImagenBoton.cs"
 "Assets/Scripts/CanvasINICIOJUEGO/PortadaCanvas.cs"
 "Assets/Scripts/DataManager.cs"
