@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public struct Dialogues
@@ -43,6 +44,8 @@ public class DialogueManager : MonoBehaviour
     //Este indice es para las lineas de un dialogo
     private int _index;
     [SerializeField] private AudioSource _audioSource;
+
+    //Ayuda a detectar que audio es usado para el silencio
     [SerializeField] private AudioClips _audioClips;
 
 
@@ -97,6 +100,7 @@ public class DialogueManager : MonoBehaviour
             _audioClips = _orderOfDialogues[_indexOfDialogues].transform.GetChild(1).GetComponent<AudioClips>();
 
             _audioSource.clip = _audioClips.ListAudioClips[_index];
+
             _audioSource.Play();
 
             EnableDialogueCanvas();
