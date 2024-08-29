@@ -9,6 +9,7 @@ TagManager:
   - Doors
   - NotaTexto
   - PuedeHablar
+  - ConversacionSorpresa
   layers:
   - Default
   - TransparentFX

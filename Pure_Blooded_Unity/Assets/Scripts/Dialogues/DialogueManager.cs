@@ -86,11 +86,12 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogue != null)
         {
-
+            Debug.Log("Indice de conversacion: " + _indexOfDialogues);
             _lines = new List<string>();
 
             //Inmediatamente desactiva el collider del circulo alrededor del dialogo, para que no estorbe con el skip de las lineas
-            _orderOfDialogues[_indexOfDialogues].GetComponent<SphereCollider>().isTrigger = false;
+            //_orderOfDialogues[_indexOfDialogues].GetComponent<SphereCollider>().isTrigger = false;
+            Destroy(_orderOfDialogues[_indexOfDialogues].GetComponent<SphereCollider>());
      
             LoadLines(dialogue);
             _index = 0;
@@ -116,6 +117,7 @@ public class DialogueManager : MonoBehaviour
         
         if (IsLastDialogue())
         {
+            Debug.Log("Es ultima linea");
             EndDialogue();
             return;
         }
@@ -133,14 +135,19 @@ public class DialogueManager : MonoBehaviour
         EnablePlayerMovement();
         DisableDialogueCanvas();
 
+        //Desactiva la Zona de Conversacion actual
+        _orderOfDialogues[_indexOfDialogues].SetActive(false);
+
         //Cuando termina un dialogo, este indice determina que debe avanzar al siguiente
         _indexOfDialogues += 1;
-        
+
+        //Activa la siguiente Zona de Dialogo
+        _orderOfDialogues[_indexOfDialogues].SetActive(true);
 
         //Si ya se completaron todos los dialogos, entonces no hace falta activar ninguna otra zona donde pueda ocurrir un dialogo
         if(_indexOfDialogues + 1 == _orderOfDialogues.Length)
         {
-            _orderOfDialogues[_indexOfDialogues].SetActive(true);
+            //_orderOfDialogues[_indexOfDialogues].SetActive(true);
             return;
         }
     }

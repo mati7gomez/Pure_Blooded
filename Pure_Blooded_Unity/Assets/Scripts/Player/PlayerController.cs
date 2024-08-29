@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
     private bool _hasProjectedRight;
     private bool _hasProjectedForward;
     private bool CanRun = true;
-    private bool CanTalk = false;
+    private bool CanTalk = false; //Este permite que el personaje hable cuando apriete "F"
+    private bool SurpriceTalk = false; //Este desencadena una conversacion cuando se aleja de la "Conversacion Sorpresa" 
     
 
     //Player extras
@@ -102,17 +103,22 @@ public class PlayerController : MonoBehaviour
         HandleInputs();
         Debug.DrawRay(transform.position - new Vector3(0f,_controller.height / 2f,0f), _moveDir, Color.red);
     
-        if(Input.GetKeyDown(KeyCode.K)){
+        if(Input.GetKeyDown(KeyCode.K))
+        {
             SceneManager.LoadScene("1.1_Juego");
         }
 
         if (Input.GetKeyDown(KeyCode.F) && CanTalk)
-            {
-                CanTalk = false;
-                _dialogueManager.StartDialogue(_dialogueManager._dialogues[_dialogueManager._indexOfDialogues]);
-                
-            }
-        
+        {
+            CanTalk = false;
+            _dialogueManager.StartDialogue(_dialogueManager._dialogues[_dialogueManager._indexOfDialogues]);
+        }
+
+        if(SurpriceTalk)
+        {
+            SurpriceTalk = false;
+            _dialogueManager.StartDialogue(_dialogueManager._dialogues[_dialogueManager._indexOfDialogues]);
+        }        
     }
 
     private void FixedUpdate()
@@ -124,9 +130,9 @@ public class PlayerController : MonoBehaviour
             SetPlayerMoveDir();
             
             RotatePlayer();
+            MovePlayer();
         }
         HandlePlayerGravity();
-        MovePlayer();
 
         HandleInputs(true);
     }
@@ -249,6 +255,11 @@ public class PlayerController : MonoBehaviour
         if(other.CompareTag("PuedeHablar"))
         {
             CanTalk = false;
+        }
+
+        if(other.CompareTag("ConversacionSorpresa"))
+        {
+            SurpriceTalk = true;
         }
     }
 
