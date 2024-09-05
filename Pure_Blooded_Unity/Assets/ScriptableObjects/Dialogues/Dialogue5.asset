@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c97674eae5b07498d7b9abbee3e333, type: 3}
+  m_Name: Dialogue5
+  m_EditorClassIdentifier: 
+  _lines:
+  - "Paloma: \xA1Ay dios! me re asustaste "
+  - "Vendedor: Uh\u2026 te pido mil disculpas, \xBFqu\xE9 queres pedir?"
+  - "Paloma: \xBFY el otro chico? "
+  - "Vendedor: Disculpa, no te estar\xEDa entendiendo"
+  - 'Paloma: El chico que estaba hace como 10 o 15 minutos'
+  - "Vendedor: No hab\xEDa nadie, yo tuve que ir a hacer unas cosas personales y
+    cerr\xE9 el local un tiempo, te debiste haber confundido "
+  - "Paloma: \u2026"
+  - "Vendedor: \xBFEst\xE1s bien?  "
+  - "Paloma: S-si, seguro me confundi, queria ver si mi celular esta por aca\u2026"
+  - "Vendedor: Ah s\xED, encontr\xE9 este aca en la ventana, lo guarde por las dudas,
+    aca tenes"
+  - "Paloma: Oh te re agradezco, pens\xE9 que lo hab\xEDa perdido (insertar animacion
+    de vendedor dando celular) "
+  - 'Vendedor: De nada, disculpa por el susto '
+  - "Paloma: No pasa nada\u2026 \xA1chau gracias!"

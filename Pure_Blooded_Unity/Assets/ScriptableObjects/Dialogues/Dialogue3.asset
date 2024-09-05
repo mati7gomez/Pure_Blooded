@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Dialogue3
   m_EditorClassIdentifier: 
   _lines:
-  - PRUEBA DE CONVERSACION SORPRESA
+  - "Vendedor: \xA1Eu! Anden con cuidado, dicen que hay un enfermito suelto por ah\xED
+    y es peligroso, con este corte puede ser que est\xE9 dando vueltas\u2026 "

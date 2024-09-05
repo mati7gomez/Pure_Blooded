@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c97674eae5b07498d7b9abbee3e333, type: 3}
+  m_Name: Dialogue4
+  m_EditorClassIdentifier: 
+  _lines:
+  - 'Ayrton: Vos decis que sea verdad eso?'
+  - 'Paloma: No tengo idea, pero por las dudas vayamos con cuidado '
+  - ... (insertar animacion de buscar celu)
+  - 'Paloma: La concha de la lora, no tengo mi celu  '
+  - "Ayrton: \xBFSe te habr\xE1 ca\xEDdo por ah\xED?"
+  - "Paloma: No\u2026 creo que lo deje en la ventana de los panchos, me acompa\xF1as
+    a buscarlo? "
+  - "Ayrton: Estoy intentando llamar a mis viejos y no hay se\xF1al en ese comercio,
+    te jode si te espero aca?"
+  - "Paloma: No no deja, no hay drama\u2026  "
