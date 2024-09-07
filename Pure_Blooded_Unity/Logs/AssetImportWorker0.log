@@ -15,7 +15,7 @@ C:/Users/franc/OneDrive/Documentos/GitHub/Pure_Blooded/Pure_Blooded_Unity
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-59736
+56082
 Successfully changed project path to: C:/Users/franc/OneDrive/Documentos/GitHub/Pure_Blooded/Pure_Blooded_Unity
 C:/Users/franc/OneDrive/Documentos/GitHub/Pure_Blooded/Pure_Blooded_Unity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/franc/OneDrive/Documentos/GitHub/Pure_Blooded/Pure_Blooded_Unity
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [13224] Host "[IP] 192.168.100.175 [Port] 0 [Flags] 2 [Guid] 3102291316 [EditorId] 3102291316 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-A8V09QU6) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [25240] Host "[IP] 192.168.100.179 [Port] 0 [Flags] 2 [Guid] 1481271198 [EditorId] 1481271198 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-A8V09QU6) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [13224] Host "[IP] 192.168.100.175 [Port] 0 [Flags] 2 [Guid] 3102291316 [EditorId] 3102291316 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-A8V09QU6) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [25240] Host "[IP] 192.168.100.179 [Port] 0 [Flags] 2 [Guid] 1481271198 [EditorId] 1481271198 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-A8V09QU6) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
-Refreshing native plugins compatible for Editor in 96.86 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 54.26 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.24f1 (334eb2a0b267)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/Resources/UnitySubsystems
@@ -62,54 +62,54 @@ Initialize engine version: 2022.3.24f1 (334eb2a0b267)
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1650 (ID=0x1f9d)
-    Vendor:   NVIDIA
-    VRAM:     3937 MB
-    Driver:   32.0.15.5613
+    Renderer: Intel(R) UHD Graphics (ID=0x9a68)
+    Vendor:   Intel
+    VRAM:     3914 MB
+    Driver:   31.0.101.4502
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56144
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56424
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.025483 seconds.
-- Loaded All Assemblies, in  0.829 seconds
+Registered in 0.025595 seconds.
+- Loaded All Assemblies, in  0.731 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.561 seconds
-Domain Reload Profiling: 1386ms
-	BeginReloadAssembly (280ms)
+- Finished resetting the current domain, in  0.559 seconds
+Domain Reload Profiling: 1287ms
+	BeginReloadAssembly (259ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (2ms)
-	RebuildCommonClasses (65ms)
-	RebuildNativeTypeToScriptingClass (23ms)
-	initialDomainReloadingComplete (127ms)
-	LoadAllAssembliesAndSetupDomain (329ms)
-		LoadAssemblies (273ms)
+	RebuildCommonClasses (79ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (121ms)
+	LoadAllAssembliesAndSetupDomain (251ms)
+		LoadAssemblies (252ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (325ms)
-			TypeCache.Refresh (323ms)
-				TypeCache.ScanAssembly (285ms)
+		AnalyzeDomain (247ms)
+			TypeCache.Refresh (244ms)
+				TypeCache.ScanAssembly (222ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (562ms)
+	FinalizeReload (560ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (443ms)
+		SetupLoadedEditorAssemblies (453ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (30ms)
-			SetLoadedEditorAssemblies (13ms)
+			InitializePlatformSupportModulesInManaged (19ms)
+			SetLoadedEditorAssemblies (14ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (10ms)
-			ProcessInitializeOnLoadAttributes (285ms)
-			ProcessInitializeOnLoadMethodAttributes (106ms)
+			BeforeProcessingInitializeOnLoad (5ms)
+			ProcessInitializeOnLoadAttributes (318ms)
+			ProcessInitializeOnLoadMethodAttributes (96ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -118,8 +118,8 @@ Domain Reload Profiling: 1386ms
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  2.538 seconds
-Refreshing native plugins compatible for Editor in 29.02 ms, found 3 plugins.
+- Loaded All Assemblies, in  1.726 seconds
+Refreshing native plugins compatible for Editor in 16.07 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Package Manager log level set to [2]
@@ -127,47 +127,47 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.784 seconds
-Domain Reload Profiling: 4308ms
-	BeginReloadAssembly (432ms)
+- Finished resetting the current domain, in  1.376 seconds
+Domain Reload Profiling: 3098ms
+	BeginReloadAssembly (294ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (11ms)
+		DisableScriptedObjects (13ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (55ms)
-	RebuildCommonClasses (68ms)
-	RebuildNativeTypeToScriptingClass (27ms)
-	initialDomainReloadingComplete (106ms)
-	LoadAllAssembliesAndSetupDomain (1890ms)
-		LoadAssemblies (1271ms)
+		CreateAndSetChildDomain (36ms)
+	RebuildCommonClasses (53ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (81ms)
+	LoadAllAssembliesAndSetupDomain (1278ms)
+		LoadAssemblies (893ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (913ms)
-			TypeCache.Refresh (828ms)
-				TypeCache.ScanAssembly (762ms)
-			ScanForSourceGeneratedMonoScriptInfo (59ms)
-			ResolveRequiredComponents (24ms)
-	FinalizeReload (1785ms)
+		AnalyzeDomain (559ms)
+			TypeCache.Refresh (473ms)
+				TypeCache.ScanAssembly (417ms)
+			ScanForSourceGeneratedMonoScriptInfo (58ms)
+			ResolveRequiredComponents (26ms)
+	FinalizeReload (1376ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1332ms)
+		SetupLoadedEditorAssemblies (1063ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (16ms)
-			SetLoadedEditorAssemblies (9ms)
+			InitializePlatformSupportModulesInManaged (14ms)
+			SetLoadedEditorAssemblies (7ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (162ms)
-			ProcessInitializeOnLoadAttributes (983ms)
-			ProcessInitializeOnLoadMethodAttributes (143ms)
+			BeforeProcessingInitializeOnLoad (133ms)
+			ProcessInitializeOnLoadAttributes (763ms)
+			ProcessInitializeOnLoadMethodAttributes (127ms)
 			AfterProcessingInitializeOnLoad (17ms)
 			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (21ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
-Refreshing native plugins compatible for Editor in 17.30 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (16ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.14 seconds
+Refreshing native plugins compatible for Editor in 22.26 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5329 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 83 unused Assets / (393.1 KB). Loaded Objects now: 5818.
 Memory consumption went from 238.6 MB to 238.2 MB.
-Total: 22.666700 ms (FindLiveObjects: 1.006600 ms CreateObjectMapping: 1.863300 ms MarkObjects: 19.250600 ms  DeleteObjects: 0.540300 ms)
+Total: 6.384600 ms (FindLiveObjects: 0.482900 ms CreateObjectMapping: 0.494700 ms MarkObjects: 5.170800 ms  DeleteObjects: 0.234700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -185,401 +185,41 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 44536.120523 seconds.
-  path: Assets/ScriptableObjects/Dialogues/Dialogue3.asset
-  artifactKey: Guid(cbf39b24542105c4b9039e77731acaa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ScriptableObjects/Dialogues/Dialogue3.asset using Guid(cbf39b24542105c4b9039e77731acaa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96d32dc769bc41139369f6e5934866ca') in 0.085342 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 403.347235 seconds.
-  path: Assets/Audios/Dialogue_3/LINEA 7 ASESINO.mp3
-  artifactKey: Guid(6d63c0dacff66e74fb24f35ef469af2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_3/LINEA 7 ASESINO.mp3 using Guid(6d63c0dacff66e74fb24f35ef469af2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c982ab04839b66c8ff5be6ff9232137f') in 0.250254 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 325.202478 seconds.
+  Time since last request: 147640.626803 seconds.
   path: Assets/ScriptableObjects/Dialogues/Dialogue4.asset
   artifactKey: Guid(77ceee8f6f1f101478ff13b747a85b18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ScriptableObjects/Dialogues/Dialogue4.asset using Guid(77ceee8f6f1f101478ff13b747a85b18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c2839a60511e9252c7a584226735f7d') in 0.002986 seconds
+Start importing Assets/ScriptableObjects/Dialogues/Dialogue4.asset using Guid(77ceee8f6f1f101478ff13b747a85b18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c97743e94e517c9509784d02dfbf6c2d') in 0.031380 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 184.705448 seconds.
-  path: Assets/Audios/Dialogue_4
-  artifactKey: Guid(0d24656f5aed1624283c0ebd3c1312c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_4 using Guid(0d24656f5aed1624283c0ebd3c1312c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ddafa406da468db60280656ca7080c6') in 0.004728 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 178.636574 seconds.
-  path: Assets/Audios/Dialogue_4/LINEA 9 AYR.mp3
-  artifactKey: Guid(1bdcc294d8a703b4eb2e882b5382953b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_4/LINEA 9 AYR.mp3 using Guid(1bdcc294d8a703b4eb2e882b5382953b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e020d2e6243e5ab7d9bed7df0df66325') in 0.023443 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 76.777221 seconds.
-  path: Assets/Audios/Dialogue_4/LINEA 10 PALO.mp3
-  artifactKey: Guid(2488ca9f6acdea24e9a6090c9d8ec201) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_4/LINEA 10 PALO.mp3 using Guid(2488ca9f6acdea24e9a6090c9d8ec201) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d23f5dad4d4f93dc7387bf68ef86250') in 0.021135 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 23.545553 seconds.
-  path: Assets/Audios/Dialogue_4/LINEA 11 PALO.mp3
-  artifactKey: Guid(b780e62bcadba1649a07a4de4d7bc297) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_4/LINEA 11 PALO.mp3 using Guid(b780e62bcadba1649a07a4de4d7bc297) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26c464eb976016a2075b52022b5ff347') in 0.017415 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 280.575623 seconds.
-  path: Assets/Audios/Dialogue_4/LINEA 10 AYR.mp3
-  artifactKey: Guid(2411102de4ae33b4d8ac9ebef46dd773) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_4/LINEA 10 AYR.mp3 using Guid(2411102de4ae33b4d8ac9ebef46dd773) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd773eccd9873645b4a66e37db44ef83f') in 0.048385 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 35.118514 seconds.
-  path: Assets/Audios/Dialogue_4/LINEA 12 PALO.mp3
-  artifactKey: Guid(d4a592565b07ceb4abfb3819af3aa3aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_4/LINEA 12 PALO.mp3 using Guid(d4a592565b07ceb4abfb3819af3aa3aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '305fc7f03939b2407e2a6362375e36ca') in 0.024467 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 45.111139 seconds.
-  path: Assets/Audios/Dialogue_4/LINEA 11 AYR.mp3
-  artifactKey: Guid(10c5a1d19c5458e49b00bb1b3fb2a30d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_4/LINEA 11 AYR.mp3 using Guid(10c5a1d19c5458e49b00bb1b3fb2a30d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '631af953b7462f7da2c88ffb6a8dfe7b') in 0.025725 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 49.227072 seconds.
-  path: Assets/Audios/Dialogue_4/LINEA 13 PALO.mp3
-  artifactKey: Guid(c4966aed247869243bff4b61e35cb4ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_4/LINEA 13 PALO.mp3 using Guid(c4966aed247869243bff4b61e35cb4ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5bd7d8944b101805239f5afdfa17f22') in 0.019020 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 58.236707 seconds.
-  path: Assets/Audios/Dialogue_5
-  artifactKey: Guid(ab35ca19226a53e4c8ea13e07edad262) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5 using Guid(ab35ca19226a53e4c8ea13e07edad262) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7af0094b55670da69914680bba9780d') in 0.002237 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 9.016838 seconds.
-  path: Assets/ScriptableObjects/Dialogues/Dialogue5.asset
-  artifactKey: Guid(a9a42572b9ecec64392d5a4a0f3c0ccb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ScriptableObjects/Dialogues/Dialogue5.asset using Guid(a9a42572b9ecec64392d5a4a0f3c0ccb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '632258c91cedf966216b84365de3b753') in 0.004526 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 235.688048 seconds.
-  path: Assets/Audios/Dialogue_5/LINEA 14 PALO.mp3
-  artifactKey: Guid(f32bc220cbb75c8479816010765fdae8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5/LINEA 14 PALO.mp3 using Guid(f32bc220cbb75c8479816010765fdae8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3dc36c25f6c89489dafbb90d83d3659') in 0.029848 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 29.086161 seconds.
-  path: Assets/Audios/Dialogue_5/LINEA 1 VENDEDOR.mp3
-  artifactKey: Guid(6593f3c0d5b4238468feea1cd26ba0fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5/LINEA 1 VENDEDOR.mp3 using Guid(6593f3c0d5b4238468feea1cd26ba0fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1debf554897d10b31391ab118222925c') in 0.024897 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 23.799888 seconds.
-  path: Assets/Audios/Dialogue_5/LINEA 15 PALO.mp3
-  artifactKey: Guid(599e380e3557ad54788b8e848feea431) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5/LINEA 15 PALO.mp3 using Guid(599e380e3557ad54788b8e848feea431) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de70da42f4a93fca73b38933839530c3') in 0.020215 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 16.502785 seconds.
-  path: Assets/Audios/Dialogue_5/LINEA 2 VENDEDOR.mp3
-  artifactKey: Guid(997e916dd2dfcae4b95907e73ba0e004) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5/LINEA 2 VENDEDOR.mp3 using Guid(997e916dd2dfcae4b95907e73ba0e004) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f364f751e61201b0cdf195453efc3ae') in 0.022066 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 20.397829 seconds.
-  path: Assets/Audios/Dialogue_5/LINEA 16 PALO.mp3
-  artifactKey: Guid(943180433ca6b9d429fb98b737510c28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5/LINEA 16 PALO.mp3 using Guid(943180433ca6b9d429fb98b737510c28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ceabf69fba66e3cf62d13cfd6671d78d') in 0.024176 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 35.167207 seconds.
-  path: Assets/Audios/Dialogue_5/LINEA 3 VENDEDOR.mp3
-  artifactKey: Guid(abf8851c35505b545b7a508427e792e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5/LINEA 3 VENDEDOR.mp3 using Guid(abf8851c35505b545b7a508427e792e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78c0224f920f6ad58f54e7be259fe8a0') in 0.024670 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 246.499775 seconds.
-  path: Assets/Audios/Dialogue_5/LINEA 4 VENDEDOR.mp3
-  artifactKey: Guid(0a37a6db853751e489b9bd1ade82957c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5/LINEA 4 VENDEDOR.mp3 using Guid(0a37a6db853751e489b9bd1ade82957c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cb396eaeb9277da4bf9589600b77564') in 0.028188 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 25.634545 seconds.
-  path: Assets/Audios/Dialogue_5/LINEA 17 PALO.mp3
-  artifactKey: Guid(9e9be62e8151a2f40927344d4b9b542d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5/LINEA 17 PALO.mp3 using Guid(9e9be62e8151a2f40927344d4b9b542d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78eed2d55697645845b156e4dc4f2dc1') in 0.028777 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 19.672539 seconds.
-  path: Assets/Audios/Dialogue_5/LINEA 5 VENDEDOR.mp3
-  artifactKey: Guid(0fcaee26c08cbd44cb0cddb40b4eaaab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5/LINEA 5 VENDEDOR.mp3 using Guid(0fcaee26c08cbd44cb0cddb40b4eaaab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c6de120a5c9457efffa2342b0ee9d6f') in 0.019038 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 27.809585 seconds.
-  path: Assets/Audios/Dialogue_5/LINEA 18 PALO.mp3
-  artifactKey: Guid(f9de58a1a9dcf5545920f4669dd3ac09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5/LINEA 18 PALO.mp3 using Guid(f9de58a1a9dcf5545920f4669dd3ac09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a21a079c1693fb818f3edf5055e94071') in 0.017136 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 23.194667 seconds.
-  path: Assets/Audios/Dialogue_5/LINEA 6 VENDEDOR.mp3
-  artifactKey: Guid(6363b87c6f3fc094399c2c9288d4cb26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5/LINEA 6 VENDEDOR.mp3 using Guid(6363b87c6f3fc094399c2c9288d4cb26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c18d16ad875b66ff48d82c85ff0389b4') in 0.020318 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 22.726073 seconds.
-  path: Assets/Audios/Dialogue_5/LINEA 19 PALO.mp3
-  artifactKey: Guid(ecf37e76dc521314da58294e71d5433f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_5/LINEA 19 PALO.mp3 using Guid(ecf37e76dc521314da58294e71d5433f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7f3a73772189c746c2102f427255a19') in 0.021170 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 60.120404 seconds.
-  path: Assets/Audios/Dialogue_6
-  artifactKey: Guid(21287303f54728344978ee463992fdda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_6 using Guid(21287303f54728344978ee463992fdda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f991d02534f7ba49537f09becc59618') in 0.004837 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 9.667996 seconds.
+  Time since last request: 0.000161 seconds.
   path: Assets/ScriptableObjects/Dialogues/Dialogue_6.asset
   artifactKey: Guid(dcbbb190647f4e94887dd2cc8bf79594) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ScriptableObjects/Dialogues/Dialogue_6.asset using Guid(dcbbb190647f4e94887dd2cc8bf79594) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '492f61dc0fffaa42f06177e438f689c9') in 0.002495 seconds
+Start importing Assets/ScriptableObjects/Dialogues/Dialogue_6.asset using Guid(dcbbb190647f4e94887dd2cc8bf79594) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '347c36639b4e2aeb311a5fb0d8db925f') in 0.002329 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 129.729346 seconds.
-  path: Assets/Audios/Dialogue_6/LINEA 12 AYR.mp3
-  artifactKey: Guid(0df347b68351c9b4090a6d73790f25ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_6/LINEA 12 AYR.mp3 using Guid(0df347b68351c9b4090a6d73790f25ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '514891c975a6bdffa272d636ed9e5b78') in 0.028747 seconds
+  Time since last request: 7.958391 seconds.
+  path: Assets/Audios/Dialogue_2/SILENCIO.mp3
+  artifactKey: Guid(8d87a7151fb72ee498c6c1f2de11003d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audios/Dialogue_2/SILENCIO.mp3 using Guid(8d87a7151fb72ee498c6c1f2de11003d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5fa164269b7d9122df4cbe1ae6ff2762') in 0.177622 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
-  Time since last request: 20.267713 seconds.
-  path: Assets/Audios/Dialogue_6/LINEA 20 PALO.mp3
-  artifactKey: Guid(086d21f65c5c20c459fa3ebba21b5464) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_6/LINEA 20 PALO.mp3 using Guid(086d21f65c5c20c459fa3ebba21b5464) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bbe40da5ecef43182deff55de7c1bfd') in 0.020881 seconds
+  Time since last request: 42.003648 seconds.
+  path: Assets/Audios/Dialogue_4/SILENCIO.mp3
+  artifactKey: Guid(20319bff3bd95ff4a9431a94e2b18e52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audios/Dialogue_4/SILENCIO.mp3 using Guid(20319bff3bd95ff4a9431a94e2b18e52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a96855a605090aff0fdd7d31c06cbb1') in 0.018044 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
-  Time since last request: 19.621251 seconds.
-  path: Assets/Audios/Dialogue_6/LINEA 13 AYR.mp3
-  artifactKey: Guid(89b9ccdab5a6c15449a0fde542359024) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_6/LINEA 13 AYR.mp3 using Guid(89b9ccdab5a6c15449a0fde542359024) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '811be81d3251b096cc9483b61e33eb4f') in 0.022616 seconds
+  Time since last request: 69.094010 seconds.
+  path: Assets/Audios/Dialogue_5/SILENCIO.mp3
+  artifactKey: Guid(77dae80d74de78c44bb3d4eed16f328d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audios/Dialogue_5/SILENCIO.mp3 using Guid(77dae80d74de78c44bb3d4eed16f328d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59f1e88a1ebddd5f270934ab88994ab2') in 0.020907 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 19.074441 seconds.
-  path: Assets/Audios/Dialogue_6/LINEA 21 PALO.mp3
-  artifactKey: Guid(da5a7d7ba49a3d5439bd06c06b8c7f76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_6/LINEA 21 PALO.mp3 using Guid(da5a7d7ba49a3d5439bd06c06b8c7f76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee87a691f5bfcdad286c6c51818dfc17') in 0.020342 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 14.132530 seconds.
-  path: Assets/Audios/Dialogue_6/LINEA 14 AYR.mp3
-  artifactKey: Guid(93e2779934403a141884b3db45911db9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_6/LINEA 14 AYR.mp3 using Guid(93e2779934403a141884b3db45911db9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '922f912b8faddf6477d5f3fd52989e12') in 0.022568 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 16.356922 seconds.
-  path: Assets/Audios/Dialogue_6/LINEA 22 PALO.mp3
-  artifactKey: Guid(df0a2b1c28093c6419b2056a1657b063) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audios/Dialogue_6/LINEA 22 PALO.mp3 using Guid(df0a2b1c28093c6419b2056a1657b063) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7a48df19af0dd64026b63f3321e4b8c') in 0.016498 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  2.496 seconds
-Refreshing native plugins compatible for Editor in 9.31 ms, found 3 plugins.
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  3.248 seconds
-Domain Reload Profiling: 5741ms
-	BeginReloadAssembly (1147ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (75ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (2ms)
-		CreateAndSetChildDomain (528ms)
-	RebuildCommonClasses (36ms)
-	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (41ms)
-	LoadAllAssembliesAndSetupDomain (1255ms)
-		LoadAssemblies (1426ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (56ms)
-			TypeCache.Refresh (30ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (24ms)
-	FinalizeReload (3249ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (607ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (14ms)
-			SetLoadedEditorAssemblies (6ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (94ms)
-			ProcessInitializeOnLoadAttributes (413ms)
-			ProcessInitializeOnLoadMethodAttributes (70ms)
-			AfterProcessingInitializeOnLoad (10ms)
-			EditorAssembliesLoaded (1ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (15ms)
-Refreshing native plugins compatible for Editor in 9.42 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5150 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 47 unused Assets / (391.4 KB). Loaded Objects now: 5844.
-Memory consumption went from 212.2 MB to 211.8 MB.
-Total: 6.831400 ms (FindLiveObjects: 0.509400 ms CreateObjectMapping: 0.200600 ms MarkObjects: 5.778600 ms  DeleteObjects: 0.341300 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  0.686 seconds
-Refreshing native plugins compatible for Editor in 5.60 ms, found 3 plugins.
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.620 seconds
-Domain Reload Profiling: 3301ms
-	BeginReloadAssembly (210ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (46ms)
-	RebuildCommonClasses (31ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (32ms)
-	LoadAllAssembliesAndSetupDomain (398ms)
-		LoadAssemblies (505ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (19ms)
-			TypeCache.Refresh (7ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (10ms)
-	FinalizeReload (2620ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (748ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (11ms)
-			SetLoadedEditorAssemblies (4ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (98ms)
-			ProcessInitializeOnLoadAttributes (517ms)
-			ProcessInitializeOnLoadMethodAttributes (103ms)
-			AfterProcessingInitializeOnLoad (15ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (19ms)
-Refreshing native plugins compatible for Editor in 9.59 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5150 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 47 unused Assets / (391.7 KB). Loaded Objects now: 5860.
-Memory consumption went from 214.2 MB to 213.8 MB.
-Total: 3.813300 ms (FindLiveObjects: 0.565500 ms CreateObjectMapping: 0.334800 ms MarkObjects: 2.777000 ms  DeleteObjects: 0.133500 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
