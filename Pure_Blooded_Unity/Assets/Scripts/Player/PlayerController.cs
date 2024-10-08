@@ -25,13 +25,14 @@ public class PlayerController : MonoBehaviour
     private bool _runPressed;
     
 
-    //Creo q hay q borrar este
+    //Variables Bandera
     public bool CanMove = true;
     private bool _hasProjectedRight;
     private bool _hasProjectedForward;
     private bool CanRun = true;
     private bool CanTalk = false; //Este permite que el personaje hable cuando apriete "F"
     private bool SurpriceTalk = false; //Este desencadena una conversacion cuando se aleja de la "Conversacion Sorpresa" 
+    private bool InactivityAnimation = false;
     
 
     //Player extras
@@ -56,6 +57,11 @@ public class PlayerController : MonoBehaviour
     //Variables para calcular la gravedad
     private float _initialGravity = -9.8f;
     [SerializeField] private float _gravityMultiplier;
+
+    public float inactivityTime = 10.0f; // Tiempo de inactividad para activar la animación
+    private float timeSinceLastMove = 0.0f; // Temporizador de cuanto tiempo lleva sin moverse
+    private Vector3 lastPosition; // La última posición conocida del jugador
+
 
     //Si no existe un DialogueManager en la escena, este no tendrá referencia
     DialogueManager _dialogueManager;
@@ -95,7 +101,7 @@ public class PlayerController : MonoBehaviour
         _itemUbication = FindChildByName(this.gameObject, "itemUbication");
 
         _dialogueManager = FindObjectOfType<DialogueManager>();
-
+        lastPosition = transform.position;
     }
 
     private void Update()
@@ -123,7 +129,29 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        //Si la posicion es distinta, el contador se resetea y la bandera se mantiene como falsa
+        if(transform.position != lastPosition)
+        {
+            timeSinceLastMove = 0.0f;
+            lastPosition = transform.position;
+            InactivityAnimation = false;
+
+        } else {
+            //Temporizador
+            timeSinceLastMove += Time.deltaTime;
+        }
+
+        //Minetras la bandera sea falsa, puede controlar el temporizador
+        if(!InactivityAnimation)
+        {
+            if(timeSinceLastMove >= inactivityTime)
+            {
+                //Cuando la bandera sea true, activa por unica vez la animacion y ya no es capaz de revisar el valor del temporizador
+                InactivityAnimation = true;
+                Inactivity();
+            }
+        }
+
         if (CanMove)
         {
             GetCamVectors();
@@ -313,6 +341,12 @@ public class PlayerController : MonoBehaviour
         //Tengo que desactivar el collider del objeto que agarro para que no estorbe en las demas funciones
         //que requieren colliders
         _itemInstance.GetComponent<SphereCollider>().enabled = false;
+    }
+
+    public void Inactivity(){
+        Debug.Log("XXXXXXXXXXXXXXXXXXX");
+        Debug.Log("Animacion Activada");
+        Debug.Log("XXXXXXXXXXXXXXXXXXX");
     }
 
 }
